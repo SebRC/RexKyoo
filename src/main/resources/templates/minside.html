@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--The website was written by Jackie Vuong-->
+
+<html lang="da-DK">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+
+    <title>Rexkyoo</title>
+    <link href="CSS/erhvervStyle.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/profileStyle.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!--Head menu -->
+    <div class="top-menu"> 
+        <ul class="top-menu-area">
+            <div onclick="window.location.href='jobs.html'" style="cursor: pointer"><p>JOBS</p></div>
+            <div><p>Tlf: +45 27 21 00 58</p></div>
+            <div><p>E-mail: thilde.rex@rexkyoo.com</p></div>
+            <div><p> </p></div>
+        </ul>
+    </div>
+    <div class="menu-padding">
+        <nav>
+            <div class="logo" onclick="window.location.href='index.html'"><img src="images/divers/Original-logoSmall.png" height="90" width="190" /></div>
+
+            <ul class="menu-area">
+                <div class="dropdown-menu">
+                    <div><p><i class="fas fa-bars"></i> Spidskompetencer</p></div>
+                    <li class="dropdown-content-menu">
+                        <div onclick="window.location.href='fitness.html'"><p1>Fitness </p1></div>
+                        <div onclick="window.location.href='institution.html'"><p1>Institution </p1></div>
+                        <div onclick="window.location.href='klinik.html'"><p1>Klinik </p1></div>
+                        <div onclick="window.location.href='kontor.html'"><p1>Kontor </p1></div>
+                        <div onclick="window.location.href='skræddersy.html'"><p1>Skræddersy </p1></div>
+                        <div onclick="window.location.href='privat.html'"><p1>Privat </p1></div>
+                        <div onclick="window.location.href='housekeeper.html'"><p1>Housekeeper </p1></div>
+                        <div onclick="window.location.href='familiepakke.html'"><p1>familiepakke </p1></div>
+                    </li>
+                </div>
+                <div onclick="window.location.href='forretning.html'"><p>Forretning </p></div>
+                <div onclick="window.location.href='kvalitet.html'"><p>Kvalitet </p></div>
+                <div class="dropdown-menu">
+                    <div onclick="window.location.href='omos.html'"><p><i class="fas fa-bars"></i> Om os </p></div>
+                    <li class="dropdown-content-menu">
+                        <div onclick="window.location.href='ansatte.html'"><p1>Ansatte </p1></div>
+                    </li>
+                </div>
+                <div id="user_logout"></div>
+                <div><p> </p></div>
+            </ul>
+        </nav>
+    </div>
+  
+    <div class="extraSpace50"></div>
+
+    <div class="center-text" id="login_div">
+        <h1 style="font-size: 50px">Min side</h1>
+        <input type="email" placeholder="Enter email" id="email_input" title="email"><br>
+        <br>
+        <input type="password" placeholder="Enter password" id="password_input" title="password"><br>
+        <br>
+        <button class="but-hover" onclick="login()" id="login_but"><i class="fas fa-sign-in-alt"></i> login</button>
+        <div class="extraSpace100"></div> 
+    </div>
+
+    <div id="user_div"></div>
+    <div id="user_div2"></div>
+    <div id="user_div3"></div>
+
+    <div id="clear-float"></div>
+    <div class="extraSpace30"></div>
+    <div class="center-text" id="user_div4"></div>
+    <div class="extraSpace30"></div>
+    <div class="center-text" id="dotsEmployer"></div>
+
+    <div id="clear-float"></div>
+    <div class="extraSpace100"></div>
+    <div class="extraSpace30"></div>
+
+    <div id="includedFooter"></div>
+    
+    <!--fronts-->
+    <script src="https://kit.fontawesome.com/cb63d83ac4.js"></script>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="/__/firebase/6.6.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/6.6.1/firebase-auth.js"></script>
+    <script src="/__/firebase/6.6.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/6.6.1/firebase-storage.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="JS/divers.js"></script>
+    <script src="JS/mainFB.js"></script>
+    <script src="JS/bossFB.js"></script>
+    <script src="JS/employerFB.js"></script>
+    <script src="JS/imageFB.js"></script>
+</body>
+
+</html>
