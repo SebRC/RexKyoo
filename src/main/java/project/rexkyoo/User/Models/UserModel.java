@@ -1,4 +1,4 @@
-package project.rexkyoo.User;
+package project.rexkyoo.User.Models;
 
 public class UserModel
 {
