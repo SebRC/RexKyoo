@@ -1,0 +1,130 @@
+div.main-profile
+{
+    position: absolute;
+    background-image: url(../Images/nature/forest.jpg);
+    height: 550px;
+    width: 100%;
+    z-index: -1;
+}
+.main-profile-image
+{
+    position: absolute;
+    background-repeat: no-repeat;
+    height: 95%;
+    width: 35%;
+    top: 20px;
+    left: 630px;
+    z-index: -1;
+}
+.main-profile-textbox
+{
+    position: relative;
+    background-color: white;
+    width: 500px;
+    height: 280px;
+    padding: 12px;
+    top: 110px;
+    left: 180px;
+    font-size: 16px;
+}
+.main-profile-text
+{
+    font-size: 11px;
+    line-height:1.5;
+}
+
+/*Profile box and alignment */
+div.box-profile
+{
+    position: relative;
+    height: 500px;
+    width: 20%;
+    border: 2px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    padding: 12px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    left: 9%;
+}
+.box-profile-image
+{
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 100%;
+}
+.box-profile-text
+{
+    white-space: nowrap;
+    text-align: center;
+    color: black;
+    font-size: 12px;
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.box-profile-star
+{
+    color: rgb(0, 0, 0);
+}
+.box-profile-add
+{
+    padding-top: 80px;
+    height: 60%;
+    width: 100%;
+}
+
+/*Update*/
+div.main-profile-textbox-update
+{
+    position: relative;
+    border-radius: 25px;
+    background-color: rgb(85, 235, 255);
+    width: 410px;
+    height: 370px;;
+    padding: 12px;
+    top: 25px;
+    left: 160px;
+}
+.main-profile-textbox-update-employer
+{
+    position: relative;
+    border-radius: 25px;
+    background-color: rgb(85, 235, 255);
+    width: 26%;
+    height: 380px;;
+    padding: 12px;
+    top: 25px;
+    left: 160px;
+}
+.center-main-but
+{
+    position: relative;
+    text-align: center;
+    top: 480px;
+}
+
+label.input-file
+{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    background-color:#3e8e41;
+    border: none;
+    border-radius: 15px;
+}
+.input-file:hover
+{
+    background-color: rgb(53, 165, 31);
+}
+/*
+input[type="file"]
+{
+    display: none;
+}
+*/
