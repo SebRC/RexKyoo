@@ -1,9 +1,15 @@
 package project.rexkyoo.Customer.Models;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "Customers")
 public class CustomerModel
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
     private String name;
     private String phone;
     private String address;
