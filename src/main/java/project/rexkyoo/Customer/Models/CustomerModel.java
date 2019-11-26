@@ -20,6 +20,9 @@ public class CustomerModel
     private String zipCode;
     private String city;
 
+    public CustomerModel()
+    {}
+
     public CustomerModel(String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city)
     {
         this.name = name;
