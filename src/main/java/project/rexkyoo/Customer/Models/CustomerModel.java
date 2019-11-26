@@ -2,7 +2,7 @@ package project.rexkyoo.Customer.Models;
 
 import java.util.List;
 
-public class Customer
+public class CustomerModel
 {
     private String name;
     private String phone;
@@ -14,7 +14,7 @@ public class Customer
     private String zipCode;
     private String city;
 
-    public Customer(String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city)
+    public CustomerModel(String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city)
     {
         this.name = name;
         this.phone = phone;
