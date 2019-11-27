@@ -1,12 +1,13 @@
 package project.rexkyoo.Assignment.Private.Model;
 
 import project.rexkyoo.Customer.CustomerModel;
+import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "PrivateAssignmentModel")
+@Table(name = "PrivateAssignment")
 public class PrivateAssignmentModel {
 
     @Id
