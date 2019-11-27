@@ -2,8 +2,8 @@ package project.rexkyoo.Customer.Business.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
 import project.rexkyoo.Customer.Business.Repository.BusinessCustomerRepository;
-import project.rexkyoo.Customer.CustomerModel;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
@@ -14,17 +14,17 @@ public class BusinessCustomerService
     @Autowired
     private BusinessCustomerRepository businessCustomerRepository;
 
-    public List<CustomerModel> getAll()
+    public List<BusinessCustomerModel> getAll()
     {
         throw new NotImplementedException();
     }
 
-    public CustomerModel getOne(String id)
+    public BusinessCustomerModel getOne(String id)
     {
         throw new NotImplementedException();
     }
 
-    public void save(CustomerModel customerModel)
+    public void save(BusinessCustomerModel businessCustomerModel)
     {
         throw new NotImplementedException();
     }
