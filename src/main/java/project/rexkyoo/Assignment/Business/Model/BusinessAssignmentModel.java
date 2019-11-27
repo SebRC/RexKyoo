@@ -1,10 +1,10 @@
 package project.rexkyoo.Assignment.Business.Model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "BusinessAssignmentModel")
 public class BusinessAssignmentModel
 {
     @Id
