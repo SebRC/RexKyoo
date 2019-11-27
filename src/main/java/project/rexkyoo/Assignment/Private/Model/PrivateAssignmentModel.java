@@ -17,19 +17,19 @@ public class PrivateAssignmentModel {
     private Date startDate;
     private Date endDate;
     private String type;
-    private CustomerModel customer;
-    private AmbassadorModel ambassador;
+    private PrivateCustomerModel privateCustomerModel;
+    private String ambassador;
 
-    public PrivateAssignmentModel() {
-    }
+    public PrivateAssignmentModel()
+    {}
 
-    public PrivateAssignmentModel(int id,int income, Date startDate, Date endDate, String type, CustomerModel customer, AmbassadorModel ambassador) {
-        this.id = id;
+    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, PrivateCustomerModel privateCustomerModel, String ambassador)
+    {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
-        this.customer = customer;
+        this.privateCustomerModel = privateCustomerModel;
         this.ambassador = ambassador;
     }
 
@@ -69,19 +69,23 @@ public class PrivateAssignmentModel {
         this.type = type;
     }
 
-    public CustomerModel getCustomer() {
-        return customer;
+    public PrivateCustomerModel getPrivateCustomerModel()
+    {
+        return privateCustomerModel;
     }
 
-    public void setCustomer(CustomerModel customer) {
-        this.customer = customer;
+    public void setPrivateCustomerModel(PrivateCustomerModel privateCustomerModel)
+    {
+        this.privateCustomerModel = privateCustomerModel;
     }
 
-    public AmbassadorModel getAmbassador() {
+    public String getAmbassador()
+    {
         return ambassador;
     }
 
-    public void setAmbassador(AmbassadorModel ambassador) {
+    public void setAmbassador(String ambassador)
+    {
         this.ambassador = ambassador;
     }
 }
