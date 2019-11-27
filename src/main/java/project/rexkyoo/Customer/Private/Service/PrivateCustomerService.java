@@ -1,30 +1,30 @@
-package project.rexkyoo.Customer.Business.Service;
+package project.rexkyoo.Customer.Private.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
-import project.rexkyoo.Customer.Business.Repository.BusinessCustomerRepository;
+import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
+import project.rexkyoo.Customer.Private.Repository.PrivateCustomerRepository;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
 @Service
-public class BusinessCustomerService
+public class PrivateCustomerService
 {
     @Autowired
-    private BusinessCustomerRepository businessCustomerRepository;
+    private PrivateCustomerRepository privateCustomerRepository;
 
-    public List<BusinessCustomerModel> getAll()
+    public List<PrivateCustomerModel> getAll()
     {
         throw new NotImplementedException();
     }
 
-    public BusinessCustomerModel getOne(String id)
+    public PrivateCustomerModel getOne(String id)
     {
         throw new NotImplementedException();
     }
 
-    public void save(BusinessCustomerModel businessCustomerModel)
+    public void save(PrivateCustomerModel privateCustomerModel)
     {
         throw new NotImplementedException();
     }
