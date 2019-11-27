@@ -1,4 +1,4 @@
-package project.rexkyoo.Customer.Models;
+package project.rexkyoo.Customer;
 
 import javax.persistence.*;
 import java.util.List;
