@@ -1,18 +1,18 @@
-package project.rexkyoo.Customer.Services;
+package project.rexkyoo.Customer.Business.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Customer.Models.CustomerModel;
-import project.rexkyoo.Customer.Repositories.CustomerRepository;
+import project.rexkyoo.Customer.Business.Repository.BusinessCustomerRepository;
+import project.rexkyoo.Customer.CustomerModel;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
 @Service
-public class CustomerService
+public class BusinessCustomerService
 {
     @Autowired
-    private CustomerRepository customerRepository;
+    private BusinessCustomerRepository businessCustomerRepository;
 
     public List<CustomerModel> getAll()
     {
