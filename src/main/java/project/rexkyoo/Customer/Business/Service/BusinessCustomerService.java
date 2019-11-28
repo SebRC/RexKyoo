@@ -16,21 +16,21 @@ public class BusinessCustomerService
 
     public List<BusinessCustomerModel> getAll()
     {
-        throw new NotImplementedException();
+        return businessCustomerRepository.findAll();
     }
 
-    public BusinessCustomerModel getOne(String id)
+    public BusinessCustomerModel getOne(int id)
     {
-        throw new NotImplementedException();
+        return businessCustomerRepository.getOne(id);
     }
 
     public void save(BusinessCustomerModel businessCustomerModel)
     {
-        throw new NotImplementedException();
+        businessCustomerRepository.save(businessCustomerModel);
     }
 
-    public void delete(String id)
+    public void delete(int id)
     {
-        throw new NotImplementedException();
+        businessCustomerRepository.deleteById(id);
     }
 }

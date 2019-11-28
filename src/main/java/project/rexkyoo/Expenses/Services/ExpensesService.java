@@ -14,21 +14,21 @@ public class ExpensesService {
 
     public List<ExpensesModel> getAll()
     {
-        throw new NotImplementedException();
+        return cleaningInspectorRepository.findAll();
     }
 
-    public ExpensesModel getOne(String id)
+    public ExpensesModel getOne(int id)
     {
-        throw new NotImplementedException();
+        return cleaningInspectorRepository.getOne(id);
     }
 
-    public void save(ExpensesModel customerModel)
+    public void save(ExpensesModel expensesModel)
     {
-        throw new NotImplementedException();
+        cleaningInspectorRepository.save(expensesModel);
     }
 
-    public void delete(String id)
+    public void delete(int id)
     {
-        throw new NotImplementedException();
+        cleaningInspectorRepository.deleteById(id);
     }
 }

@@ -14,21 +14,21 @@ public class CleaningInspectorService {
 
     public List<CleaningInspectorModel> getAll()
     {
-        throw new NotImplementedException();
+        return cleaningInspectorRepository.findAll();
     }
 
-    public CleaningInspectorModel getOne(String id)
+    public CleaningInspectorModel getOne(int id)
     {
-        throw new NotImplementedException();
+        return cleaningInspectorRepository.getOne(id);
     }
 
-    public void save(CleaningInspectorModel customerModel)
+    public void save(CleaningInspectorModel cleaningInspectorModel)
     {
-        throw new NotImplementedException();
+        cleaningInspectorRepository.save(cleaningInspectorModel);
     }
 
-    public void delete(String id)
+    public void delete(int id)
     {
-        throw new NotImplementedException();
+        cleaningInspectorRepository.deleteById(id);
     }
 }

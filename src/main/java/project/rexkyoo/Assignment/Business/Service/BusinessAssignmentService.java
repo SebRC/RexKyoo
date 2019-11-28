@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Assignment.Business.Repository.BusinessAssignmentRepository;
 import project.rexkyoo.Assignment.Business.Model.BusinessAssignmentModel;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 
 import java.util.List;
 
@@ -16,21 +16,21 @@ public class BusinessAssignmentService
 
     public List<BusinessAssignmentModel> getAll()
     {
-        throw new NotImplementedException();
+        return businessAssignmentRepository.findAll();
     }
 
-    public BusinessAssignmentModel getOne(String id)
+    public BusinessAssignmentModel getOne(int id)
     {
-        throw new NotImplementedException();
+        return businessAssignmentRepository.getOne(id);
     }
 
-    public void save(BusinessAssignmentModel customerModel)
+    public void save(BusinessAssignmentModel businessAssignmentModel)
     {
-        throw new NotImplementedException();
+        businessAssignmentRepository.save(businessAssignmentModel);
     }
 
-    public void delete(String id)
+    public void delete(int id)
     {
-        throw new NotImplementedException();
+        businessAssignmentRepository.deleteById(id);
     }
 }

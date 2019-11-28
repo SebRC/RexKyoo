@@ -15,21 +15,21 @@ public class PrivateAssignmentService {
 
     public List<PrivateAssignmentModel> getAll()
     {
-        throw new NotImplementedException();
+        return privateAssignmentRepository.findAll();
     }
 
-    public PrivateAssignmentModel getOne(String id)
+    public PrivateAssignmentModel getOne(int id)
     {
-        throw new NotImplementedException();
+        return privateAssignmentRepository.getOne(id);
     }
 
-    public void save(PrivateAssignmentModel customerModel)
+    public void save(PrivateAssignmentModel privateAssignmentModel)
     {
-        throw new NotImplementedException();
+        privateAssignmentRepository.save(privateAssignmentModel);
     }
 
-    public void delete(String id)
+    public void delete(int id)
     {
-        throw new NotImplementedException();
+        privateAssignmentRepository.deleteById(id);
     }
 }
