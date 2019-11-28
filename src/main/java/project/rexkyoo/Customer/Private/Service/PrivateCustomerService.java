@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
 import project.rexkyoo.Customer.Private.Repository.PrivateCustomerRepository;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -16,21 +15,21 @@ public class PrivateCustomerService
 
     public List<PrivateCustomerModel> getAll()
     {
-        throw new NotImplementedException();
+        return privateCustomerRepository.findAll();
     }
 
-    public PrivateCustomerModel getOne(String id)
+    public PrivateCustomerModel getOne(int id)
     {
-        throw new NotImplementedException();
+        return privateCustomerRepository.getOne(id);
     }
 
     public void save(PrivateCustomerModel privateCustomerModel)
     {
-        throw new NotImplementedException();
+        privateCustomerRepository.save(privateCustomerModel);
     }
 
-    public void delete(String id)
+    public void delete(int id)
     {
-        throw new NotImplementedException();
+        privateCustomerRepository.deleteById(id);
     }
 }
