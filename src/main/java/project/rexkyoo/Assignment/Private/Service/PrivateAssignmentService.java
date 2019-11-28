@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Assignment.Private.Model.PrivateAssignmentModel;
 import project.rexkyoo.Assignment.Private.Repository.PrivateAssignmentRepository;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 

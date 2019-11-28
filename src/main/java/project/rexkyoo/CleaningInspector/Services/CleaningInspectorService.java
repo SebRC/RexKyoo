@@ -3,7 +3,6 @@ package project.rexkyoo.CleaningInspector.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Repositories.CleaningInspectorRepository;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
