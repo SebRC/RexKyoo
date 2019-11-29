@@ -5,7 +5,7 @@ import project.rexkyoo.User.Role;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "User")
 public class UserModel
 {
     @Id
@@ -16,8 +16,7 @@ public class UserModel
     private Role role;
 
     public UserModel()
-    {
-    }
+    {}
 
     public UserModel(String userName, String password, Role role)
     {

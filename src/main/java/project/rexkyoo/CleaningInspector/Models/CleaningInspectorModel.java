@@ -4,7 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "CleaningInspector")
-public class CleaningInspectorModel {
+public class CleaningInspectorModel
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,10 +17,10 @@ public class CleaningInspectorModel {
     private String address;
 
     public CleaningInspectorModel()
-    {
-    }
+    {}
 
-    public CleaningInspectorModel(int id, String firstName, String lastName, int phone, String email, String address) {
+    public CleaningInspectorModel(int id, String firstName, String lastName, int phone, String email, String address)
+    {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

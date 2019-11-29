@@ -23,11 +23,10 @@ public class BusinessAssignmentModel
 
 
     public BusinessAssignmentModel()
+    {}
+
+    public BusinessAssignmentModel(int income, Date startDate, Date endDate, String type, BusinessCustomerModel businessCustomers, String ambassador, ExpenseModel expenses)
     {
-
-    }
-
-    public BusinessAssignmentModel(int income, Date startDate, Date endDate, String type, BusinessCustomerModel businessCustomers, String ambassador, ExpenseModel expenses) {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -77,7 +76,8 @@ public class BusinessAssignmentModel
         return businessCustomers;
     }
 
-    public void setBusinessCustomers(BusinessCustomerModel businessCustomers) {
+    public void setBusinessCustomers(BusinessCustomerModel businessCustomers)
+    {
         this.businessCustomers = businessCustomers;
     }
 

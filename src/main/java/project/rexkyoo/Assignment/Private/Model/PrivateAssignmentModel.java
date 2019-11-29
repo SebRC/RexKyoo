@@ -8,7 +8,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PrivateAssignment")
-public class PrivateAssignmentModel {
+public class PrivateAssignmentModel
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

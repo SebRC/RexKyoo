@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 
 @Repository
-public interface CleaningInspectorRepository extends JpaRepository<CleaningInspectorModel, Integer> {
-}
+public interface CleaningInspectorRepository extends JpaRepository<CleaningInspectorModel, Integer>
+{}

@@ -3,8 +3,12 @@ package project.rexkyoo.Customer.Business.Model;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.Customer.CustomerModel;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
+@Entity
+@Table(name = "BusinessCustomer")
 public class BusinessCustomerModel extends CustomerModel
 {
     private CleaningInspectorModel cleaningInspectorModel;

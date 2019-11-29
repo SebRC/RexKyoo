@@ -8,7 +8,8 @@ import project.rexkyoo.Assignment.Private.Repository.PrivateAssignmentRepository
 import java.util.List;
 
 @Service
-public class PrivateAssignmentService {
+public class PrivateAssignmentService
+{
     @Autowired
     private PrivateAssignmentRepository privateAssignmentRepository;
 
