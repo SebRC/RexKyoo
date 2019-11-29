@@ -5,9 +5,6 @@ import java.util.List;
 
 public class CustomerModel
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
     private String name;
     private String phone;
     private String address;
@@ -22,9 +19,8 @@ public class CustomerModel
     {
     }
 
-    public CustomerModel(int id, String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city)
+    public CustomerModel(String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city)
     {
-        this.id = id;
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -34,11 +30,6 @@ public class CustomerModel
         this.ambassadors = ambassadors;
         this.zipCode = zipCode;
         this.city = city;
-    }
-
-    public int getId()
-    {
-        return id;
     }
 
     public String getName()
