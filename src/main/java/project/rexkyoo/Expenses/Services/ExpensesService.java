@@ -1,7 +1,7 @@
 package project.rexkyoo.Expenses.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import project.rexkyoo.Expenses.Models.ExpensesModel;
+import project.rexkyoo.Expenses.Models.ExpenseModel;
 import project.rexkyoo.Expenses.Repositories.ExpensesRepository;
 
 import java.util.List;
@@ -11,19 +11,19 @@ public class ExpensesService {
     @Autowired
     private ExpensesRepository cleaningInspectorRepository;
 
-    public List<ExpensesModel> getAll()
+    public List<ExpenseModel> getAll()
     {
         return cleaningInspectorRepository.findAll();
     }
 
-    public ExpensesModel getOne(int id)
+    public ExpenseModel getOne(int id)
     {
         return cleaningInspectorRepository.getOne(id);
     }
 
-    public void save(ExpensesModel expensesModel)
+    public void save(ExpenseModel expenseModel)
     {
-        cleaningInspectorRepository.save(expensesModel);
+        cleaningInspectorRepository.save(expenseModel);
     }
 
     public void delete(int id)

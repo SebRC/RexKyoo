@@ -1,8 +1,7 @@
 package project.rexkyoo.Assignment.Private.Model;
 
-import project.rexkyoo.Customer.CustomerModel;
 import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
-import project.rexkyoo.Expenses.Models.ExpensesModel;
+import project.rexkyoo.Expenses.Models.ExpenseModel;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,12 +19,12 @@ public class PrivateAssignmentModel {
     private String type;
     private PrivateCustomerModel privateCustomers;
     private String ambassador;
-    private ExpensesModel expenses;
+    private ExpenseModel expenses;
 
     public PrivateAssignmentModel()
     {}
 
-    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, PrivateCustomerModel privateCustomerModel, String ambassador,ExpensesModel expenses)
+    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, PrivateCustomerModel privateCustomerModel, String ambassador,ExpenseModel expenses)
     {
         this.income = income;
         this.startDate = startDate;
@@ -97,11 +96,11 @@ public class PrivateAssignmentModel {
     }
 
 
-    public ExpensesModel getExpenses() {
+    public ExpenseModel getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(ExpensesModel expenses) {
+    public void setExpenses(ExpenseModel expenses) {
         this.expenses = expenses;
     }
 }
