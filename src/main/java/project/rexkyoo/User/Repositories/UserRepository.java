@@ -6,5 +6,4 @@ import project.rexkyoo.User.Models.UserModel;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Integer>
-{
-}
+{}

@@ -1,13 +1,15 @@
 package project.rexkyoo.CleaningInspector.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Repositories.CleaningInspectorRepository;
 
 import java.util.List;
 
-public class CleaningInspectorService {
-
+@Service
+public class CleaningInspectorService
+{
     @Autowired
     private CleaningInspectorRepository cleaningInspectorRepository;
 

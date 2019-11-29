@@ -3,8 +3,6 @@ package project.rexkyoo.Customer;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "Customers")
 public class CustomerModel
 {
     @Id

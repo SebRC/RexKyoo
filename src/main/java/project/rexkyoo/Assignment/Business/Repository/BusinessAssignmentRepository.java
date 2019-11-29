@@ -6,6 +6,5 @@ import project.rexkyoo.Assignment.Business.Model.BusinessAssignmentModel;
 
 
 @Repository
-public interface BusinessAssignmentRepository extends JpaRepository<BusinessAssignmentModel, Integer> {
-
-}
+public interface BusinessAssignmentRepository extends JpaRepository<BusinessAssignmentModel, Integer>
+{}

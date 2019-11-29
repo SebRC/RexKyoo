@@ -6,8 +6,8 @@ import project.rexkyoo.Expenses.Repositories.ExpensesRepository;
 
 import java.util.List;
 
-public class ExpensesService {
-
+public class ExpensesService
+{
     @Autowired
     private ExpensesRepository cleaningInspectorRepository;
 

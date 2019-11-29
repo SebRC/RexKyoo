@@ -7,7 +7,6 @@ import java.util.Date;
 @Table(name = "Expense")
 public class ExpenseModel
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

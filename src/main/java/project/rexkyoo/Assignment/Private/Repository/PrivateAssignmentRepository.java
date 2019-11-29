@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import project.rexkyoo.Assignment.Private.Model.PrivateAssignmentModel;
 
 @Repository
-public interface PrivateAssignmentRepository extends JpaRepository<PrivateAssignmentModel, Integer> {
-}
+public interface PrivateAssignmentRepository extends JpaRepository<PrivateAssignmentModel, Integer>
+{}
