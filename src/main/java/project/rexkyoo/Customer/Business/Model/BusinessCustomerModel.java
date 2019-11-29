@@ -6,13 +6,19 @@ import project.rexkyoo.Customer.CustomerModel;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Table(name = "BusinessCustomer")
 public class BusinessCustomerModel extends CustomerModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "businessCustomer_id")
     private int id;
+
+
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "ClearingInspector_id", referencedColumnName = "id")
     private CleaningInspectorModel cleaningInspectorModel;
 
     public BusinessCustomerModel()
@@ -20,10 +26,9 @@ public class BusinessCustomerModel extends CustomerModel
 
     }
 
-    public BusinessCustomerModel(int id, String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, CleaningInspectorModel cleaningInspectorModel)
+    public BusinessCustomerModel(int id, String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city)
     {
         super(name, phone, address, email, payments, expenses, ambassadors, zipCode, city);
-        this.cleaningInspectorModel = cleaningInspectorModel;
     }
 
     public CleaningInspectorModel getCleaningInspectorModel()

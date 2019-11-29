@@ -9,6 +9,7 @@ public class ExpenseModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "expense_id")
     private int id;
     private Date date;
     private String name;

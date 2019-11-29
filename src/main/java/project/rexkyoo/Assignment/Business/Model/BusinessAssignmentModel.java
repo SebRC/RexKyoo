@@ -5,6 +5,8 @@ import project.rexkyoo.Expenses.Models.ExpenseModel;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "BusinessAssignment")
@@ -12,15 +14,47 @@ public class BusinessAssignmentModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "businessAssignment_id")
     private int id;
     private int income;
     private Date startDate;
     private Date endDate;
     private String type;
-    private BusinessCustomerModel businessCustomers;
     private String ambassador;
-    private ExpenseModel expenses;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade =
+                    {
+                            CascadeType.PERSIST,
+                            CascadeType.MERGE
+                    })
+    @JoinTable(name = "BusinessAssignment_BusinessCustomer",
+            joinColumns =
+                    {
+                            @JoinColumn(name = "businessAssignment_id")
+                    },
+            inverseJoinColumns =
+                    {
+                            @JoinColumn(name = "businessCustomer_id")
+                    })
+    private Set<BusinessCustomerModel> businessCustomers = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade =
+                    {
+                            CascadeType.PERSIST,
+                            CascadeType.MERGE
+                    })
+    @JoinTable(name = "BusinessAssignment_Expense",
+            joinColumns =
+                    {
+                            @JoinColumn(name = "businessAssignment_id")
+                    },
+            inverseJoinColumns =
+                    {
+                            @JoinColumn(name = "expense_id")
+                    })
+    private Set<ExpenseModel> expenses = new HashSet<>();
 
     public BusinessAssignmentModel()
     {}
@@ -31,9 +65,7 @@ public class BusinessAssignmentModel
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
-        this.businessCustomers = businessCustomers;
         this.ambassador = ambassador;
-        this.expenses = expenses;
     }
 
     public int getId() {
@@ -72,14 +104,6 @@ public class BusinessAssignmentModel
         this.type = type;
     }
 
-    public BusinessCustomerModel getBusinessCustomers() {
-        return businessCustomers;
-    }
-
-    public void setBusinessCustomers(BusinessCustomerModel businessCustomers)
-    {
-        this.businessCustomers = businessCustomers;
-    }
 
     public String getAmbassador() {
         return ambassador;
@@ -89,11 +113,19 @@ public class BusinessAssignmentModel
         this.ambassador = ambassador;
     }
 
-    public ExpenseModel getExpenses() {
+    public Set<BusinessCustomerModel> getBusinessCustomers() {
+        return businessCustomers;
+    }
+
+    public void setBusinessCustomers(Set<BusinessCustomerModel> businessCustomers) {
+        this.businessCustomers = businessCustomers;
+    }
+
+    public Set<ExpenseModel> getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(ExpenseModel expenses) {
+    public void setExpenses(Set<ExpenseModel> expenses) {
         this.expenses = expenses;
     }
 }

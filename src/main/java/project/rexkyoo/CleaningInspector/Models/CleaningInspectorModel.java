@@ -9,6 +9,7 @@ public class CleaningInspectorModel
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "cleaningInspector_id")
     private int id;
     private String firstName;
     private String lastName;

@@ -11,6 +11,7 @@ public class PrivateCustomerModel extends CustomerModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "privateCustomer_id")
     private int id;
     private String lastName;
 

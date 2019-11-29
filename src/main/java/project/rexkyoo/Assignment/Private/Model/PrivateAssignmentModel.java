@@ -5,6 +5,8 @@ import project.rexkyoo.Expenses.Models.ExpenseModel;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "PrivateAssignment")
@@ -13,27 +15,58 @@ public class PrivateAssignmentModel
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "privateAssignment_id")
     private int id;
     private int income;
     private Date startDate;
     private Date endDate;
     private String type;
-    private PrivateCustomerModel privateCustomers;
     private String ambassador;
-    private ExpenseModel expenses;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade =
+                    {
+                            CascadeType.PERSIST,
+                            CascadeType.MERGE
+                    })
+    @JoinTable(name = "PrivateAssignment_PrivateCustomers",
+            joinColumns =
+                    {
+                            @JoinColumn(name = "privateAssignment_id")
+                    },
+            inverseJoinColumns =
+                    {
+                            @JoinColumn(name = "privateCustomers_id")
+                    })
+    private Set<PrivateCustomerModel> privateCustomers = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade =
+                    {
+                            CascadeType.PERSIST,
+                            CascadeType.MERGE
+                    })
+    @JoinTable(name = "PrivateAssignment_Expense",
+            joinColumns =
+                    {
+                            @JoinColumn(name = "privateAssignment_id")
+                    },
+            inverseJoinColumns =
+                    {
+                            @JoinColumn(name = "expense_id")
+                    })
+    private Set<ExpenseModel> expenses = new HashSet<>();
 
     public PrivateAssignmentModel()
     {}
 
-    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, PrivateCustomerModel privateCustomerModel, String ambassador,ExpenseModel expenses)
+    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, String ambassador)
     {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
-        this.privateCustomers = privateCustomerModel;
         this.ambassador = ambassador;
-        this.expenses = expenses;
     }
 
     public int getId() {
@@ -72,15 +105,6 @@ public class PrivateAssignmentModel
         this.type = type;
     }
 
-    public PrivateCustomerModel getPrivateCustomerModel()
-    {
-        return privateCustomers;
-    }
-
-    public void setPrivateCustomerModel(PrivateCustomerModel privateCustomerModel)
-    {
-        this.privateCustomers = privateCustomerModel;
-    }
 
     public String getAmbassador()
     {
@@ -92,16 +116,19 @@ public class PrivateAssignmentModel
         this.ambassador = ambassador;
     }
 
-    public PrivateCustomerModel getPrivateCustomers() {
+    public Set<PrivateCustomerModel> getPrivateCustomers() {
         return privateCustomers;
     }
 
+    public void setPrivateCustomers(Set<PrivateCustomerModel> privateCustomers) {
+        this.privateCustomers = privateCustomers;
+    }
 
-    public ExpenseModel getExpenses() {
+    public Set<ExpenseModel> getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(ExpenseModel expenses) {
+    public void setExpenses(Set<ExpenseModel> expenses) {
         this.expenses = expenses;
     }
 }
