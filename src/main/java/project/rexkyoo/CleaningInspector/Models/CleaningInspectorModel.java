@@ -9,8 +9,8 @@ public class CleaningInspectorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private int phone;
     private String email;
     private String address;
@@ -19,10 +19,10 @@ public class CleaningInspectorModel {
     {
     }
 
-    public CleaningInspectorModel(int id,String firstname, String lastname, int phone, String email, String address) {
+    public CleaningInspectorModel(int id, String firstName, String lastName, int phone, String email, String address) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
@@ -32,20 +32,20 @@ public class CleaningInspectorModel {
         return id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getPhone() {
