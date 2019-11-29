@@ -17,8 +17,7 @@ public class BusinessCustomerModel extends CustomerModel
     private int id;
 
 
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "ClearingInspector_id", referencedColumnName = "id")
+    @OneToOne (mappedBy = "businessCustomers")
     private CleaningInspectorModel cleaningInspectorModel;
 
     public BusinessCustomerModel()

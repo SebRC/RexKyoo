@@ -28,7 +28,7 @@ public class BusinessAssignmentModel
                             CascadeType.PERSIST,
                             CascadeType.MERGE
                     })
-    @JoinTable(name = "BusinessAssignment_BusinessCustomer",
+    @JoinTable(name = "Businessassignment_Businesscustomer",
             joinColumns =
                     {
                             @JoinColumn(name = "businessAssignment_id")
@@ -45,7 +45,7 @@ public class BusinessAssignmentModel
                             CascadeType.PERSIST,
                             CascadeType.MERGE
                     })
-    @JoinTable(name = "BusinessAssignment_Expense",
+    @JoinTable(name = "Businessassignment_Expense",
             joinColumns =
                     {
                             @JoinColumn(name = "businessAssignment_id")

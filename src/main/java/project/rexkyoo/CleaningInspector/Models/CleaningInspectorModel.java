@@ -1,5 +1,7 @@
 package project.rexkyoo.CleaningInspector.Models;
 
+import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,10 @@ public class CleaningInspectorModel
     private int phone;
     private String email;
     private String address;
+
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "businessCustomers_id", referencedColumnName = "businessCustomer_id")
+    private BusinessCustomerModel businessCustomers;
 
     public CleaningInspectorModel()
     {}

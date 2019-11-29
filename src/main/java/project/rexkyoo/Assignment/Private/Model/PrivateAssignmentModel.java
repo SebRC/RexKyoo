@@ -29,7 +29,7 @@ public class PrivateAssignmentModel
                             CascadeType.PERSIST,
                             CascadeType.MERGE
                     })
-    @JoinTable(name = "PrivateAssignment_PrivateCustomers",
+    @JoinTable(name = "Privateassignment_Privatecustomers",
             joinColumns =
                     {
                             @JoinColumn(name = "privateAssignment_id")
@@ -46,7 +46,7 @@ public class PrivateAssignmentModel
                             CascadeType.PERSIST,
                             CascadeType.MERGE
                     })
-    @JoinTable(name = "PrivateAssignment_Expense",
+    @JoinTable(name = "Privateassignment_Expense",
             joinColumns =
                     {
                             @JoinColumn(name = "privateAssignment_id")
