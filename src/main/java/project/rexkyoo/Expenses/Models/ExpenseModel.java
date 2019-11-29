@@ -4,8 +4,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Expenses")
-public class ExpensesModel {
+@Table(name = "Expense")
+public class ExpenseModel
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,10 +15,10 @@ public class ExpensesModel {
     private String name;
     private Double price;
 
-    public ExpensesModel() {
+    public ExpenseModel() {
     }
 
-    public ExpensesModel(int id,Date date, String name, Double price) {
+    public ExpenseModel(int id, Date date, String name, Double price) {
         this.id = id;
         this.date = date;
         this.name = name;
