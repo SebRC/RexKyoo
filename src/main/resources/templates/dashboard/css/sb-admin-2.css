@@ -25,6 +25,7 @@
   --gray: #858796;
   --gray-dark: #5a5c69;
   --primary: #4e73df;
+  --rexkyoo: #3e8e41;
   --secondary: #858796;
   --success: #1cc88a;
   --info: #36b9cc;
@@ -6204,13 +6205,13 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #4e73df !important;
+  background-color: #3e8e41 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #2653d4 !important;
+  background-color: #3e8e41 !important;
 }
 
 .bg-secondary {
