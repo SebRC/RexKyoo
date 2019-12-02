@@ -1,7 +1,7 @@
 div.main-profile
 {
     position: absolute;
-    background-image: url(../Images/nature/forest.jpg);
+    background-image: url(../../Images/nature/forest.jpg);
     height: 550px;
     width: 100%;
     z-index: -1;
