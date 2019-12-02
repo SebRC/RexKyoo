@@ -26,22 +26,8 @@ public class CleaningInspectorModel
     @JoinColumn (name = "businessCustomers_id", referencedColumnName = "businessCustomer_id")
     private BusinessCustomerModel businessCustomers;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade =
-                    {
-                            CascadeType.PERSIST,
-                            CascadeType.MERGE
-                    })
-    @JoinTable(name = "CleaningInspector_Ambassador",
-            joinColumns =
-                    {
-                            @JoinColumn(name = "cleaningInspector_id")
-                    },
-            inverseJoinColumns =
-                    {
-                            @JoinColumn(name = "ambassador_id")
-                    })
-    private Set<AmbassadorModel> ambassadors = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy ="cleaningInspector")
+    private Set<AmbassadorModel> ambassadors;
 
     public CleaningInspectorModel()
     {}

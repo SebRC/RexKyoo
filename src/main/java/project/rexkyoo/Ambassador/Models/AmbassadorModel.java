@@ -16,12 +16,12 @@ public class AmbassadorModel {
     private int id;
     private String firstName;
     private String lastName;
-    private int phone;
+    private String phone;
     private String email;
     private String address;
 
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "cleaningInspector_id", referencedColumnName = "cleaningInspector_id")
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "cleaningInspector_id")
     private CleaningInspectorModel cleaningInspector;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -35,7 +35,7 @@ public class AmbassadorModel {
     public AmbassadorModel() {
     }
 
-    public AmbassadorModel(String firstName, String lastName, int phone, String email, String address, CleaningInspectorModel cleaningInspector) {
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -64,11 +64,11 @@ public class AmbassadorModel {
         this.lastName = lastName;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
