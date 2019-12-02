@@ -56,7 +56,7 @@ public class BusinessAssignmentModel
                     })
     private Set<ExpenseModel> expenses = new HashSet<>();
 
-    @OneToMany(mappedBy="BusinessAssignment")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy ="cleaningInspector")
     private Set<AmbassadorModel> ambassadors;
 
     public BusinessAssignmentModel()

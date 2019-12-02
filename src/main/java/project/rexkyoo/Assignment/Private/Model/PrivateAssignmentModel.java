@@ -57,7 +57,7 @@ public class PrivateAssignmentModel
                     })
     private Set<ExpenseModel> expenses = new HashSet<>();
 
-    @OneToOne (mappedBy = "PrivateAssignment")
+    @OneToOne (mappedBy = "privateAssignment")
     private AmbassadorModel ambassador;
 
     public PrivateAssignmentModel()

@@ -1,5 +1,7 @@
 package project.rexkyoo.Ambassador.Models;
 
+import project.rexkyoo.Assignment.Business.Model.BusinessAssignmentModel;
+import project.rexkyoo.Assignment.Private.Model.PrivateAssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 
 import javax.persistence.*;
@@ -21,6 +23,14 @@ public class AmbassadorModel {
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "cleaningInspector_id", referencedColumnName = "cleaningInspector_id")
     private CleaningInspectorModel cleaningInspector;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "businessAssignment_id")
+    private BusinessAssignmentModel businessAssignment;
+
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "privateAssignment_id", referencedColumnName = "privateAssignment_id")
+    private PrivateAssignmentModel privateAssignment;
 
     public AmbassadorModel() {
     }
