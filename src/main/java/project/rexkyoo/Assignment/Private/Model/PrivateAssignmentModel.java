@@ -63,7 +63,8 @@ public class PrivateAssignmentModel
     public PrivateAssignmentModel()
     {}
 
-    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, Set<PrivateCustomerModel> privateCustomers, Set<ExpenseModel> expenses, AmbassadorModel ambassador) {
+    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, Set<PrivateCustomerModel> privateCustomers, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
+    {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -73,63 +74,78 @@ public class PrivateAssignmentModel
         this.ambassador = ambassador;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public int getIncome() {
+    public int getIncome()
+    {
         return income;
     }
 
-    public void setIncome(int income) {
+    public void setIncome(int income)
+    {
         this.income = income;
     }
 
-    public Date getStartDate() {
+    public Date getStartDate()
+    {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Date startDate)
+    {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Date getEndDate()
+    {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Date endDate)
+    {
         this.endDate = endDate;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public Set<PrivateCustomerModel> getPrivateCustomers() {
+    public Set<PrivateCustomerModel> getPrivateCustomers()
+    {
         return privateCustomers;
     }
 
-    public void setPrivateCustomers(Set<PrivateCustomerModel> privateCustomers) {
+    public void setPrivateCustomers(Set<PrivateCustomerModel> privateCustomers)
+    {
         this.privateCustomers = privateCustomers;
     }
 
-    public Set<ExpenseModel> getExpenses() {
+    public Set<ExpenseModel> getExpenses()
+    {
         return expenses;
     }
 
-    public void setExpenses(Set<ExpenseModel> expenses) {
+    public void setExpenses(Set<ExpenseModel> expenses)
+    {
         this.expenses = expenses;
     }
 
-    public AmbassadorModel getAmbassador() {
+    public AmbassadorModel getAmbassador()
+    {
         return ambassador;
     }
 
-    public void setAmbassador(AmbassadorModel ambassador) {
+    public void setAmbassador(AmbassadorModel ambassador)
+    {
         this.ambassador = ambassador;
     }
 }

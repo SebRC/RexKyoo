@@ -1,11 +1,13 @@
 package project.rexkyoo.Ambassador.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Repositories.AmbassadorRepository;
 
 import java.util.List;
 
+@Service
 public class AmbassadorService {
 
     @Autowired
@@ -21,9 +23,9 @@ public class AmbassadorService {
         return ambassadorRepository.getOne(id);
     }
 
-    public void save(AmbassadorModel cleaningInspectorModel)
+    public void save(AmbassadorModel ambassadorModel)
     {
-        ambassadorRepository.save(cleaningInspectorModel);
+        ambassadorRepository.save(ambassadorModel);
     }
 
     public void delete(int id)
