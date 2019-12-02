@@ -1,8 +1,11 @@
 package project.rexkyoo.CleaningInspector.Models;
 
+import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "CleaningInspector")
@@ -23,17 +26,34 @@ public class CleaningInspectorModel
     @JoinColumn (name = "businessCustomers_id", referencedColumnName = "businessCustomer_id")
     private BusinessCustomerModel businessCustomers;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade =
+                    {
+                            CascadeType.PERSIST,
+                            CascadeType.MERGE
+                    })
+    @JoinTable(name = "CleaningInspector_Ambassador",
+            joinColumns =
+                    {
+                            @JoinColumn(name = "cleaningInspector_id")
+                    },
+            inverseJoinColumns =
+                    {
+                            @JoinColumn(name = "ambassador_id")
+                    })
+    private Set<AmbassadorModel> ambassadors = new HashSet<>();
+
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(int id, String firstName, String lastName, int phone, String email, String address)
-    {
-        this.id = id;
+    public CleaningInspectorModel(String firstName, String lastName, int phone, String email, String address, BusinessCustomerModel businessCustomers, Set<AmbassadorModel> ambassadors) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.businessCustomers = businessCustomers;
+        this.ambassadors = ambassadors;
     }
 
     public int getId() {
@@ -78,5 +98,21 @@ public class CleaningInspectorModel
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public BusinessCustomerModel getBusinessCustomers() {
+        return businessCustomers;
+    }
+
+    public void setBusinessCustomers(BusinessCustomerModel businessCustomers) {
+        this.businessCustomers = businessCustomers;
+    }
+
+    public Set<AmbassadorModel> getAmbassadors() {
+        return ambassadors;
+    }
+
+    public void setAmbassadors(Set<AmbassadorModel> ambassadors) {
+        this.ambassadors = ambassadors;
     }
 }

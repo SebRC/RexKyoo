@@ -6,4 +6,6 @@ import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 
 @Repository
 public interface CleaningInspectorRepository extends JpaRepository<CleaningInspectorModel, Integer>
-{}
+{
+
+}

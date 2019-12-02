@@ -1,5 +1,6 @@
 package project.rexkyoo.Assignment.Private.Model;
 
+import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
@@ -21,7 +22,6 @@ public class PrivateAssignmentModel
     private Date startDate;
     private Date endDate;
     private String type;
-    private String ambassador;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade =
@@ -57,15 +57,19 @@ public class PrivateAssignmentModel
                     })
     private Set<ExpenseModel> expenses = new HashSet<>();
 
+    @OneToOne (mappedBy = "PrivateAssignment")
+    private AmbassadorModel ambassador;
+
     public PrivateAssignmentModel()
     {}
 
-    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, String ambassador)
-    {
+    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, Set<PrivateCustomerModel> privateCustomers, Set<ExpenseModel> expenses, AmbassadorModel ambassador) {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
+        this.privateCustomers = privateCustomers;
+        this.expenses = expenses;
         this.ambassador = ambassador;
     }
 
@@ -105,17 +109,6 @@ public class PrivateAssignmentModel
         this.type = type;
     }
 
-
-    public String getAmbassador()
-    {
-        return ambassador;
-    }
-
-    public void setAmbassador(String ambassador)
-    {
-        this.ambassador = ambassador;
-    }
-
     public Set<PrivateCustomerModel> getPrivateCustomers() {
         return privateCustomers;
     }
@@ -130,5 +123,13 @@ public class PrivateAssignmentModel
 
     public void setExpenses(Set<ExpenseModel> expenses) {
         this.expenses = expenses;
+    }
+
+    public AmbassadorModel getAmbassador() {
+        return ambassador;
+    }
+
+    public void setAmbassador(AmbassadorModel ambassador) {
+        this.ambassador = ambassador;
     }
 }
