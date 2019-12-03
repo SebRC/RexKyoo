@@ -23,7 +23,7 @@ public class CleaningInspectorModel
     private String address;
 
     @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "businessCustomers_id", referencedColumnName = "businessCustomer_id")
+    @JoinColumn (name = "businessCustomer_id", referencedColumnName = "businessCustomer_id")
     private BusinessCustomerModel businessCustomer;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy ="cleaningInspector")
