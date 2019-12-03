@@ -14,4 +14,9 @@ public class DashboardController
         return "dashboard/home";
     }
 
+    @GetMapping("/businessCustomer")
+    public String businessCustomerOverview()
+    {
+        return "dashboard/business_customer_overview";
+    }
 }
