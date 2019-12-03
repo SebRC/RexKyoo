@@ -1,5 +1,6 @@
 package project.rexkyoo.Assignment.Private.Model;
 
+import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
@@ -21,7 +22,6 @@ public class PrivateAssignmentModel
     private Date startDate;
     private Date endDate;
     private String type;
-    private String ambassador;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade =
@@ -57,78 +57,95 @@ public class PrivateAssignmentModel
                     })
     private Set<ExpenseModel> expenses = new HashSet<>();
 
+    @OneToOne (mappedBy = "privateAssignment")
+    private AmbassadorModel ambassador;
+
     public PrivateAssignmentModel()
     {}
 
-    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, String ambassador)
+    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, Set<PrivateCustomerModel> privateCustomers, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
     {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
+        this.privateCustomers = privateCustomers;
+        this.expenses = expenses;
         this.ambassador = ambassador;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public int getIncome() {
+    public int getIncome()
+    {
         return income;
     }
 
-    public void setIncome(int income) {
+    public void setIncome(int income)
+    {
         this.income = income;
     }
 
-    public Date getStartDate() {
+    public Date getStartDate()
+    {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Date startDate)
+    {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Date getEndDate()
+    {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Date endDate)
+    {
         this.endDate = endDate;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
+    public Set<PrivateCustomerModel> getPrivateCustomers()
+    {
+        return privateCustomers;
+    }
 
-    public String getAmbassador()
+    public void setPrivateCustomers(Set<PrivateCustomerModel> privateCustomers)
+    {
+        this.privateCustomers = privateCustomers;
+    }
+
+    public Set<ExpenseModel> getExpenses()
+    {
+        return expenses;
+    }
+
+    public void setExpenses(Set<ExpenseModel> expenses)
+    {
+        this.expenses = expenses;
+    }
+
+    public AmbassadorModel getAmbassador()
     {
         return ambassador;
     }
 
-    public void setAmbassador(String ambassador)
+    public void setAmbassador(AmbassadorModel ambassador)
     {
         this.ambassador = ambassador;
-    }
-
-    public Set<PrivateCustomerModel> getPrivateCustomers() {
-        return privateCustomers;
-    }
-
-    public void setPrivateCustomers(Set<PrivateCustomerModel> privateCustomers) {
-        this.privateCustomers = privateCustomers;
-    }
-
-    public Set<ExpenseModel> getExpenses() {
-        return expenses;
-    }
-
-    public void setExpenses(Set<ExpenseModel> expenses) {
-        this.expenses = expenses;
     }
 }
