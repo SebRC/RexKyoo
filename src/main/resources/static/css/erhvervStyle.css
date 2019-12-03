@@ -6,7 +6,7 @@ body
 }
 .home1-image
 {
-    background-image: url(../Images/nature/forest.jpg);
+    background-image: url(../../Images/nature/forest.jpg);
     opacity: 1;
     margin-left: auto;
     margin-right: auto;
@@ -193,7 +193,7 @@ div.section-left-for-vertical-line2
 div.bagground-image
 {
     position: absolute;
-    background-image: url(../Images/office/office1.jpg);
+    background-image: url(../../Images/office/office1.jpg);
     background-repeat: no-repeat;
     height: 820px;
     width: 100%;

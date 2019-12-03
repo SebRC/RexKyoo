@@ -1,8 +1,11 @@
 package project.rexkyoo.CleaningInspector.Models;
 
+import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "CleaningInspector")
@@ -15,68 +18,103 @@ public class CleaningInspectorModel
     private int id;
     private String firstName;
     private String lastName;
-    private int phone;
+    private String phone;
     private String email;
     private String address;
 
     @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "businessCustomers_id", referencedColumnName = "businessCustomer_id")
-    private BusinessCustomerModel businessCustomers;
+    @JoinColumn (name = "businessCustomer_id", referencedColumnName = "businessCustomer_id")
+    private BusinessCustomerModel businessCustomer;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy ="cleaningInspector")
+    private Set<AmbassadorModel> ambassadors;
 
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(int id, String firstName, String lastName, int phone, String email, String address)
+    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, BusinessCustomerModel businessCustomer, Set<AmbassadorModel> ambassadors)
     {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.businessCustomer = businessCustomer;
+        this.ambassadors = ambassadors;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public int getPhone() {
+    public String getPhone()
+    {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone)
+    {
         this.phone = phone;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public String getAddress() {
+    public String getAddress()
+    {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         this.address = address;
+    }
+
+    public BusinessCustomerModel getBusinessCustomer()
+    {
+        return businessCustomer;
+    }
+
+    public void setBusinessCustomer(BusinessCustomerModel businessCustomer)
+    {
+        this.businessCustomer = businessCustomer;
+    }
+
+    public Set<AmbassadorModel> getAmbassadors()
+    {
+        return ambassadors;
+    }
+
+    public void setAmbassadors(Set<AmbassadorModel> ambassadors)
+    {
+        this.ambassadors = ambassadors;
     }
 }
