@@ -3,8 +3,10 @@ package project.rexkyoo.Ambassador.Models;
 import project.rexkyoo.Assignment.Business.Model.BusinessAssignmentModel;
 import project.rexkyoo.Assignment.Private.Model.PrivateAssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
+import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Ambassador")
@@ -33,18 +35,25 @@ public class AmbassadorModel
     @JoinColumn(name = "privateAssignment_id", referencedColumnName = "privateAssignment_id")
     private PrivateAssignmentModel privateAssignment;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador")
+    private Set<FeedbackModel> feedbacks;
+
     public AmbassadorModel()
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector)
+    public AmbassadorModel(int id, String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector, BusinessAssignmentModel businessAssignment, PrivateAssignmentModel privateAssignment, Set<FeedbackModel> feedbacks)
     {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.cleaningInspector = cleaningInspector;
+        this.businessAssignment = businessAssignment;
+        this.privateAssignment = privateAssignment;
+        this.feedbacks = feedbacks;
     }
 
     public int getId()
@@ -110,5 +119,35 @@ public class AmbassadorModel
     public void setCleaningInspector(CleaningInspectorModel cleaningInspector)
     {
         this.cleaningInspector = cleaningInspector;
+    }
+
+    public BusinessAssignmentModel getBusinessAssignment()
+    {
+        return businessAssignment;
+    }
+
+    public void setBusinessAssignment(BusinessAssignmentModel businessAssignment)
+    {
+        this.businessAssignment = businessAssignment;
+    }
+
+    public PrivateAssignmentModel getPrivateAssignment()
+    {
+        return privateAssignment;
+    }
+
+    public void setPrivateAssignment(PrivateAssignmentModel privateAssignment)
+    {
+        this.privateAssignment = privateAssignment;
+    }
+
+    public Set<FeedbackModel> getFeedbacks()
+    {
+        return feedbacks;
+    }
+
+    public void setFeedbacks(Set<FeedbackModel> feedbacks)
+    {
+        this.feedbacks = feedbacks;
     }
 }
