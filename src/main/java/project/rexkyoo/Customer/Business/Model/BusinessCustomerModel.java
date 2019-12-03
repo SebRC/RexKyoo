@@ -17,7 +17,7 @@ public class BusinessCustomerModel extends CustomerModel
     private int id;
 
 
-    @OneToOne (mappedBy = "businessCustomers")
+    @OneToOne (mappedBy = "businessCustomer")
     private CleaningInspectorModel cleaningInspectorModel;
 
     public BusinessCustomerModel()
