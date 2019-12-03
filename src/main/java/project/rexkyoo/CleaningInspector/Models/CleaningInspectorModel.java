@@ -32,8 +32,9 @@ public class CleaningInspectorModel
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, BusinessCustomerModel businessCustomer, Set<AmbassadorModel> ambassadors)
+    public CleaningInspectorModel(int id,String firstName, String lastName, String phone, String email, String address, BusinessCustomerModel businessCustomer, Set<AmbassadorModel> ambassadors)
     {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;

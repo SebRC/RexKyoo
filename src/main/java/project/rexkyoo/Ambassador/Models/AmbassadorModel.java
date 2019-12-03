@@ -42,8 +42,9 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector, BusinessAssignmentModel businessAssignment, PrivateAssignmentModel privateAssignment, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(int id, String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector, BusinessAssignmentModel businessAssignment, PrivateAssignmentModel privateAssignment, Set<FeedbackModel> feedbacks)
     {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;

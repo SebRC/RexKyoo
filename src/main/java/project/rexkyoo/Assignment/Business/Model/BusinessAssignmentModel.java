@@ -63,8 +63,9 @@ public class BusinessAssignmentModel
     {
     }
 
-    public BusinessAssignmentModel(int income, Date startDate, Date endDate, String type, Set<BusinessCustomerModel> businessCustomers, Set<ExpenseModel> expenses, Set<AmbassadorModel> ambassadors)
+    public BusinessAssignmentModel(int id,int income, Date startDate, Date endDate, String type, Set<BusinessCustomerModel> businessCustomers, Set<ExpenseModel> expenses, Set<AmbassadorModel> ambassadors)
     {
+        this.id = id;
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;

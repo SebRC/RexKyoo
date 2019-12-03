@@ -38,9 +38,10 @@ public class PrivateCustomerModel extends CustomerModel
     public PrivateCustomerModel()
     {}
 
-    public PrivateCustomerModel(String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, String lastName, Set<FeedbackModel> feedbacks)
+    public PrivateCustomerModel(int id,String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, String lastName, Set<FeedbackModel> feedbacks)
     {
         super(name, phone, address, email, payments, expenses, ambassadors, zipCode, city);
+        this.id = id;
         this.lastName = lastName;
         this.feedbacks = feedbacks;
     }

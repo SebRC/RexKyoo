@@ -32,8 +32,9 @@ public class FeedbackModel
     {
     }
 
-    public FeedbackModel(String comment, Date date, String category, AmbassadorModel ambassador)
+    public FeedbackModel(int id, String comment, Date date, String category, AmbassadorModel ambassador)
     {
+        this.id = id;
         this.comment = comment;
         this.date = date;
         this.category = category;

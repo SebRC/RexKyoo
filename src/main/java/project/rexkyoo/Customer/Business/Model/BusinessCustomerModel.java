@@ -45,9 +45,10 @@ public class BusinessCustomerModel extends CustomerModel
 
     }
 
-    public BusinessCustomerModel(String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, CleaningInspectorModel cleaningInspectorModel, Set<FeedbackModel> feedbacks)
+    public BusinessCustomerModel(int id ,String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, CleaningInspectorModel cleaningInspectorModel, Set<FeedbackModel> feedbacks)
     {
         super(name, phone, address, email, payments, expenses, ambassadors, zipCode, city);
+        this.id = id;
         this.cleaningInspectorModel = cleaningInspectorModel;
         this.feedbacks = feedbacks;
     }
