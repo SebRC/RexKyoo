@@ -1,7 +1,10 @@
 package project.rexkyoo.Customer;
 
+import project.rexkyoo.Feedback.Model.FeedbackModel;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 public class CustomerModel
 {
@@ -121,4 +124,5 @@ public class CustomerModel
     {
         this.city = city;
     }
+
 }
