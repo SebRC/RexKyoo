@@ -63,8 +63,9 @@ public class PrivateAssignmentModel
     public PrivateAssignmentModel()
     {}
 
-    public PrivateAssignmentModel(int income, Date startDate, Date endDate, String type, Set<PrivateCustomerModel> privateCustomers, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
+    public PrivateAssignmentModel(int id,int income, Date startDate, Date endDate, String type, Set<PrivateCustomerModel> privateCustomers, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
     {
+        this.id = id;
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
