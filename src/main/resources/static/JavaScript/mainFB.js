@@ -84,7 +84,7 @@ var firebaseConfig =
     document.getElementById("user_div3").innerHTML += 
     `
     <div onclick="addProfile()" class="box-profile">
-    <img class="box-profile-add" src="../../Images/divers/add-icon.png">
+    <img class="box-profile-add" src="../Images/divers/add-icon.png">
     </div>
     `;
 
@@ -233,7 +233,7 @@ function addProfile()
   document.getElementById("user_div2").innerHTML += 
   `
   <div class="box-profile">
-    <img class="box-profile-image" id="0" src="../../Images/kids/teddybear.jpg">
+    <img class="box-profile-image" id="0" src="../Images/kids/teddybear.jpg">
   
     <div class="box-profile-text">
         <h2>Dit Navn</2>

@@ -77,7 +77,7 @@ function updateBoss(id,headline1,headline2,line1,line2,line3,quoteline1,quotelin
   document.getElementById("user_div").innerHTML =
   `
   <div class="main-profile">
-    <img class="main-profile-image" id="${mainImageID}" src="../../Images/kids/teddybear.jpg">
+    <img class="main-profile-image" id="${mainImageID}" src="../Images/kids/teddybear.jpg">
   </div>
 
   <div class="center-main-but">
