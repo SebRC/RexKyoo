@@ -74,7 +74,7 @@ function updateEmployer(id, name, title, place, exp, nation, line1, line2, line3
   document.getElementById("user_div").innerHTML =
   `
   <div class="main-profile">
-    <img class="main-profile-image" id="main-image" src="../Images/kids/teddybear.jpg">
+    <img class="main-profile-image" id="main-image" src="../../Images/kids/teddybear.jpg">
   </div>
 
   <div class="center-main-but">

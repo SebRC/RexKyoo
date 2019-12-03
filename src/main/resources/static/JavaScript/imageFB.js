@@ -29,7 +29,7 @@ function uploadImageSection()
     <div class="center-text">
       <h1 style="font-size:40px; color: white"><br>Billder for profil</h1>
     </div>
-    <img class="main-profile-image" id="imageDisplay" src="../Images/kids/teddybear.jpg">
+    <img class="main-profile-image" id="imageDisplay" src="../../Images/kids/teddybear.jpg">
   </div>
 
   <div class="center-main-but">
@@ -76,7 +76,7 @@ function uploadLogoSection1()
     <div class="center-text">
       <h1 style="font-size:40px"><br>Logoer for slideshow 1</h1>
     </div>
-    <img class="main-profile-image" id="imageDisplay" src="../Images/divers/Original-logoSmall.png">
+    <img class="main-profile-image" id="imageDisplay" src="../../Images/divers/Original-logoSmall.png">
   </div>
  
   <div class="center-main-but">
@@ -123,7 +123,7 @@ function uploadLogoSection2()
     <div class="center-text">
       <h1 style="font-size:40px"><br>Logoer for slideshow 2</h1>
     </div>
-    <img class="main-profile-image" id="imageDisplay" src="../Images/divers/Original-logoSmall.png">
+    <img class="main-profile-image" id="imageDisplay" src="../../Images/divers/Original-logoSmall.png">
   </div>
  
   <div class="center-main-but">
