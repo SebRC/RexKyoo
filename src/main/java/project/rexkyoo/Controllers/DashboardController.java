@@ -19,4 +19,10 @@ public class DashboardController
     {
         return "dashboard/business_customer_overview";
     }
+
+    @GetMapping("/businessCustomerID")
+    public String businessCustomerDetails()
+    {
+        return "dashboard/business_customer_details";
+    }
 }
