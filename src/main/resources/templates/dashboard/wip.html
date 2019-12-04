@@ -336,19 +336,79 @@
                     <div class="col-7">
 
                         <!-- Page Heading -->
-                        <h1 class="h1 mb-4 text-gray-800">Symbion A/S</h1>
-                        <h1 class="h3 mb-4 text-gray-800">Email: <a href="#">test@test.dk</a></h1>
-                        <h1 class="h3 mb-4 text-gray-800">Telefon: 22 13 38 22</h1>
-                        <h1 class="h3 text-gray-800" style="margin-bottom: 60px;" >Adresse: Fruebjergvej 3, 2100 København</h1>
+                        <h1 class="h2 mb-4 text-gray-800">Symbion A/S</h1>
+                        <h1 class="h5 mb-4 text-gray-800">Email: <a href="#">test@test.dk</a></h1>
+                        <h1 class="h5 mb-4 text-gray-800">Telefon: 22 13 38 22</h1>
+                        <h1 class="h5 text-gray-800" style="margin-bottom: 40px;" >Adresse: Fruebjergvej 3, 2100 København</h1>
 
                         <h1 class="h1 mb-4 text-gray-800">Økonomi</h1>
-                        <h1 class="h3 mb-4 text-gray-800">Omsætning: 45000,-</h1>
 
-                        <h1 class="h3 mb-4 text-gray-800">Udgifter: 45000,-</h1>
-                        <button type="button" class="btn btn-primary btn-lg mb-4">Se udgifter</button>
+                        <div class="row mb-4">
+                            <!-- Omsætning-->
+                            <div class="col-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Omsætning (årligt???)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">150000,-</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <h1 class="h3 mb-4 text-gray-800">profit: 45000,-</h1>
+                            <!-- Udgift -->
+                            <div class="col-4">
+                                <div class="card border-left-danger shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Udgifter</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">150000,-</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- Profit -->
+                            <div class="col-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Profit</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">150000,-</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Area Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                                <hr>
+                                en masse data om en masse økonomi ting
+                            </div>
+                        </div>
 
 
 
@@ -357,19 +417,26 @@
                     <!--End of Customer Info-->
 
                     <!--ambassadors and inspector-->
-                    <div class="col-5 border-left-primary">
+                    <div class="col-5 border-left-success">
 
-                        <h1 class="h3 mb-4 text-gray-800">Inspektør:    </h1>
+                        <h1 class="h3 mb-4 text-gray-800">Inspektør    </h1>
                             <a href="#">
-                                <div class="card mb-4" style="width: 11rem;">
-                                    <img src="../../static/Images/anbefalinger/Wojciech.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Jens Jensen</p>
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-4">
+                                            <img src="../../static/Images/anbefalinger/Wojciech.jpg" class="card-img" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Marie Jensen</h5>
+                                                <p class="card-text">Lorem Ipsum Solor Damet</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
 
-                        <h1 class="h3 mb-4 text-gray-800">Ambassadører:    </h1>
+                        <h1 class="h3 mb-4 text-gray-800">Ambassadører    </h1>
 
                         <a href="#">
                             <div class="card mb-3" style="max-width: 540px;">
@@ -510,6 +577,12 @@
 
 <!-- Custom scripts for all pages-->
 <script src="../../static/dashboardStatic/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../../static/dashboardStatic/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../../static/dashboardStatic/js/demo/chart-area-demo.js"></script>
 
 </body>
 
