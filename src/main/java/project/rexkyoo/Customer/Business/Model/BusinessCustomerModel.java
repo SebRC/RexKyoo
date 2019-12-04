@@ -21,7 +21,7 @@ public class BusinessCustomerModel extends CustomerModel
 
 
     @OneToOne (mappedBy = "businessCustomer")
-    private CleaningInspectorModel cleaningInspectorModel;
+    private CleaningInspectorModel cleaningInspector;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade =
@@ -45,22 +45,22 @@ public class BusinessCustomerModel extends CustomerModel
 
     }
 
-    public BusinessCustomerModel(int id ,String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, CleaningInspectorModel cleaningInspectorModel, Set<FeedbackModel> feedbacks)
+    public BusinessCustomerModel(int id ,String name, String phone, String address, String email, List<Double> payments, List<Double> expenses, List<String> ambassadors, String zipCode, String city, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks)
     {
         super(name, phone, address, email, payments, expenses, ambassadors, zipCode, city);
         this.id = id;
-        this.cleaningInspectorModel = cleaningInspectorModel;
+        this.cleaningInspector = cleaningInspector;
         this.feedbacks = feedbacks;
     }
 
     public CleaningInspectorModel getCleaningInspectorModel()
     {
-        return cleaningInspectorModel;
+        return cleaningInspector;
     }
 
     public void setCleaningInspectorModel(CleaningInspectorModel cleaningInspectorModel)
     {
-        this.cleaningInspectorModel = cleaningInspectorModel;
+        this.cleaningInspector = cleaningInspector;
     }
 
     public int getId()
