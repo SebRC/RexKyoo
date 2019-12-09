@@ -19,7 +19,7 @@ public class ExpenseModel
     private Double price;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "assignemt_id")
+    @JoinColumn(name = "assignment_id")
     private AssignmentModel assignment;
 
     public ExpenseModel() {
