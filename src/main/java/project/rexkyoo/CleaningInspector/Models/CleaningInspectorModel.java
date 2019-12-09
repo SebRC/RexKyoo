@@ -1,10 +1,9 @@
 package project.rexkyoo.CleaningInspector.Models;
 
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
-import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
+import project.rexkyoo.Customer.Model.CustomerModel;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,8 +22,8 @@ public class CleaningInspectorModel
     private String address;
 
     @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name = "businessCustomer_id", referencedColumnName = "businessCustomer_id")
-    private BusinessCustomerModel businessCustomer;
+    @JoinColumn (name = "customer_id", referencedColumnName = "customer_id")
+    private CustomerModel customer;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy ="cleaningInspector")
     private Set<AmbassadorModel> ambassadors;
@@ -32,15 +31,14 @@ public class CleaningInspectorModel
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(int id,String firstName, String lastName, String phone, String email, String address, BusinessCustomerModel businessCustomer, Set<AmbassadorModel> ambassadors)
+    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, CustomerModel customer, Set<AmbassadorModel> ambassadors)
     {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.businessCustomer = businessCustomer;
+        this.customer = customer;
         this.ambassadors = ambassadors;
     }
 
@@ -99,14 +97,14 @@ public class CleaningInspectorModel
         this.address = address;
     }
 
-    public BusinessCustomerModel getBusinessCustomer()
+    public CustomerModel getCustomer()
     {
-        return businessCustomer;
+        return customer;
     }
 
-    public void setBusinessCustomer(BusinessCustomerModel businessCustomer)
+    public void setCustomer(CustomerModel customer)
     {
-        this.businessCustomer = businessCustomer;
+        this.customer = customer;
     }
 
     public Set<AmbassadorModel> getAmbassadors()

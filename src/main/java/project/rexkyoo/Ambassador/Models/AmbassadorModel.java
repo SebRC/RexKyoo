@@ -1,7 +1,6 @@
 package project.rexkyoo.Ambassador.Models;
 
-import project.rexkyoo.Assignment.Business.Model.BusinessAssignmentModel;
-import project.rexkyoo.Assignment.Private.Model.PrivateAssignmentModel;
+import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
@@ -27,13 +26,9 @@ public class AmbassadorModel
     @JoinColumn(name = "cleaningInspector_id")
     private CleaningInspectorModel cleaningInspector;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "businessAssignment_id")
-    private BusinessAssignmentModel businessAssignment;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador")
+    private Set<AssignmentModel> assignments;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "privateAssignment_id", referencedColumnName = "privateAssignment_id")
-    private PrivateAssignmentModel privateAssignment;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador")
     private Set<FeedbackModel> feedbacks;
@@ -42,17 +37,15 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(int id, String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector, BusinessAssignmentModel businessAssignment, PrivateAssignmentModel privateAssignment, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
     {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.cleaningInspector = cleaningInspector;
-        this.businessAssignment = businessAssignment;
-        this.privateAssignment = privateAssignment;
+        this.assignments = assignments;
         this.feedbacks = feedbacks;
     }
 
@@ -121,24 +114,14 @@ public class AmbassadorModel
         this.cleaningInspector = cleaningInspector;
     }
 
-    public BusinessAssignmentModel getBusinessAssignment()
+    public Set<AssignmentModel> getAssignments()
     {
-        return businessAssignment;
+        return assignments;
     }
 
-    public void setBusinessAssignment(BusinessAssignmentModel businessAssignment)
+    public void setAssignments(Set<AssignmentModel> assignments)
     {
-        this.businessAssignment = businessAssignment;
-    }
-
-    public PrivateAssignmentModel getPrivateAssignment()
-    {
-        return privateAssignment;
-    }
-
-    public void setPrivateAssignment(PrivateAssignmentModel privateAssignment)
-    {
-        this.privateAssignment = privateAssignment;
+        this.assignments = assignments;
     }
 
     public Set<FeedbackModel> getFeedbacks()

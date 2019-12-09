@@ -1,14 +1,10 @@
 package project.rexkyoo.Feedback.Model;
 
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
-import project.rexkyoo.Customer.Business.Model.BusinessCustomerModel;
-import project.rexkyoo.Customer.CustomerModel;
-import project.rexkyoo.Customer.Private.Model.PrivateCustomerModel;
+import project.rexkyoo.Customer.Model.CustomerModel;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,18 +23,22 @@ public class FeedbackModel
     @JoinColumn(name = "ambassador_id")
     private AmbassadorModel ambassador;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private CustomerModel customer;
+
 
     public FeedbackModel()
     {
     }
 
-    public FeedbackModel(int id, String comment, Date date, String category, AmbassadorModel ambassador)
+    public FeedbackModel(String comment, Date date, String category, AmbassadorModel ambassador, CustomerModel customer)
     {
-        this.id = id;
         this.comment = comment;
         this.date = date;
         this.category = category;
         this.ambassador = ambassador;
+        this.customer = customer;
     }
 
     public int getId()
@@ -86,4 +86,13 @@ public class FeedbackModel
         this.ambassador = ambassador;
     }
 
+    public CustomerModel getCustomer()
+    {
+        return customer;
+    }
+
+    public void setCustomer(CustomerModel customer)
+    {
+        this.customer = customer;
+    }
 }
