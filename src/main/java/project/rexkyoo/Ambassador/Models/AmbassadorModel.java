@@ -21,6 +21,10 @@ public class AmbassadorModel
     private String phone;
     private String email;
     private String address;
+    private String incomeMethod;
+    private Double salary;
+    private String note;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cleaningInspector_id")
@@ -37,13 +41,16 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.incomeMethod = incomeMethod;
+        this.salary = salary;
+        this.note = note;
         this.cleaningInspector = cleaningInspector;
         this.assignments = assignments;
         this.feedbacks = feedbacks;
@@ -132,5 +139,29 @@ public class AmbassadorModel
     public void setFeedbacks(Set<FeedbackModel> feedbacks)
     {
         this.feedbacks = feedbacks;
+    }
+
+    public String getIncomeMethod() {
+        return incomeMethod;
+    }
+
+    public void setIncomeMethod(String incomeMethod) {
+        this.incomeMethod = incomeMethod;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

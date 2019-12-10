@@ -20,6 +20,7 @@ public class CleaningInspectorModel
     private String phone;
     private String email;
     private String address;
+    private String note;
 
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "customer_id", referencedColumnName = "customer_id")
@@ -31,13 +32,14 @@ public class CleaningInspectorModel
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, CustomerModel customer, Set<AmbassadorModel> ambassadors)
+    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, String note, CustomerModel customer, Set<AmbassadorModel> ambassadors)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.note = note;
         this.customer = customer;
         this.ambassadors = ambassadors;
     }
@@ -115,5 +117,13 @@ public class CleaningInspectorModel
     public void setAmbassadors(Set<AmbassadorModel> ambassadors)
     {
         this.ambassadors = ambassadors;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
