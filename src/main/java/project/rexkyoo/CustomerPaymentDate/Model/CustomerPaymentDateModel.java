@@ -11,10 +11,10 @@ public class CustomerPaymentDateModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "CustomerPaymentDate_id")
+    @Column (name = "customerPaymentDate_id")
     private int id;
     private String actualPaymentDate;
-    private Date expectedPaymentDate;
+    private String expectedPaymentDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
