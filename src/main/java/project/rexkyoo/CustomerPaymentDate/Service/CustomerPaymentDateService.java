@@ -2,8 +2,6 @@ package project.rexkyoo.CustomerPaymentDate.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Customer.Model.CustomerModel;
-import project.rexkyoo.Customer.Repository.CustomerRepository;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Repository.CustomerPaymentDateRepository;
 
@@ -25,9 +23,9 @@ public class CustomerPaymentDateService
         return customerPaymentDateRepository.getOne(id);
     }
 
-    public void save(CustomerPaymentDateModel customerModel)
+    public void save(CustomerPaymentDateModel customerPaymentDateModel)
     {
-        customerPaymentDateRepository.save(customerModel);
+        customerPaymentDateRepository.save(customerPaymentDateModel);
     }
 
     public void delete(int id)
