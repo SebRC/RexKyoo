@@ -28,14 +28,14 @@ public class DashboardController
         return "dashboard/business_customer_details";
     }
 
+<<<<<<< HEAD
     @GetMapping("/customer")
     public String createCustomer(Model model)
     {
-        model.addAttribute("customer", new CustomerModel());
+        model.addAttribute("customerModel", new CustomerModel());
 
         return "dashboard/create_customer";
-    }
-
+=======
     @GetMapping("privateCustomer")
     public String privateCustomerOverview() { return "dashboard/private_customer_overview";}
 
@@ -43,5 +43,6 @@ public class DashboardController
     public String privateCustomerDetails()
     {
         return "dashboard/private_customer_details";
+>>>>>>> master
     }
 }
