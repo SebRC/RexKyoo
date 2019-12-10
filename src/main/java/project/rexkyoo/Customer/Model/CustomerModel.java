@@ -5,6 +5,7 @@ import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,12 +20,15 @@ public class CustomerModel
     @Column (name = "customer_id")
     private int id;
     private String name;
-    private String phone;
-    private String address;
     private String email;
-    private Double payments;
-    private String zipCode;
+    private String address;
     private String city;
+    private String zipCode;
+    private String phone;
+    private String type;
+    private String note;
+    private Date actualPayday;
+    private Date expectedPayday;
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
@@ -43,15 +47,18 @@ public class CustomerModel
     }
 
 
-    public CustomerModel(String name, String phone, String address, String email, Double payments, String zipCode, String city, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks)
+    public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Date actualPayday, Date expectedPayday, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks)
     {
         this.name = name;
-        this.phone = phone;
-        this.address = address;
         this.email = email;
-        this.payments = payments;
+        this.address = address;
         this.zipCode = zipCode;
         this.city = city;
+        this.phone = phone;
+        this.type = type;
+        this.note = note;
+        this.actualPayday = actualPayday;
+        this.expectedPayday = expectedPayday;
         this.assignments = assignments;
         this.cleaningInspector = cleaningInspector;
         this.feedbacks = feedbacks;
@@ -102,16 +109,6 @@ public class CustomerModel
         this.email = email;
     }
 
-    public Double getPayments()
-    {
-        return payments;
-    }
-
-    public void setPayments(Double payments)
-    {
-        this.payments = payments;
-    }
-
     public String getZipCode()
     {
         return zipCode;
@@ -160,5 +157,37 @@ public class CustomerModel
     public void setAssignments(Set<AssignmentModel> assignments)
     {
         this.assignments = assignments;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Date getActualPayday() {
+        return actualPayday;
+    }
+
+    public void setActualPayday(Date actualPayday) {
+        this.actualPayday = actualPayday;
+    }
+
+    public Date getExpectedPayday() {
+        return expectedPayday;
+    }
+
+    public void setExpectedPayday(Date expectedPayday) {
+        this.expectedPayday = expectedPayday;
     }
 }
