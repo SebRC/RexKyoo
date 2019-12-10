@@ -13,7 +13,7 @@ public class CustomerPaymentDateModel
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "customerPaymentDate_id")
     private int id;
-    private String actualPaymentDate;
+    private String actualPaymentDate = "Afventer betaling";
     private String expectedPaymentDate;
 
     @ManyToOne(fetch = FetchType.LAZY)

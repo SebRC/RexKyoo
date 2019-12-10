@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
+import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
+import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
 @Controller
 @RequestMapping("/dashboard")
@@ -17,6 +19,9 @@ public class DashboardController
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private CustomerPaymentDateService customerPaymentDateService;
 
 
     @GetMapping("/home")
@@ -41,14 +46,19 @@ public class DashboardController
     public String createCustomer(Model model)
     {
         model.addAttribute("customer", new CustomerModel());
+        model.addAttribute("customerPaymentDate", new CustomerPaymentDateModel());
 
         return "dashboard/create_customer";
     }
 
     @PostMapping("/customer")
-    public String createCustomer(@ModelAttribute CustomerModel customerModel)
+    public String createCustomer(@ModelAttribute CustomerModel customer, @ModelAttribute CustomerPaymentDateModel customerPaymentDate)
     {
-        customerService.save(customerModel);
+        customerService.save(customer);
+
+        customerPaymentDate.setCustomer(customer);
+
+        customerPaymentDateService.save(customerPaymentDate);
 
         //  should later redirect to created customer
         return "redirect:/dashboard/home";
