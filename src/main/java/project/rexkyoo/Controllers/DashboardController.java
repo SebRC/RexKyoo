@@ -25,4 +25,13 @@ public class DashboardController
     {
         return "dashboard/business_customer_details";
     }
+
+    @GetMapping("privateCustomer")
+    public String privateCustomerOverview() { return "dashboard/private_customer_overview";}
+
+    @GetMapping("/privateCustomerID")
+    public String privateCustomerDetails()
+    {
+        return "dashboard/private_customer_details";
+    }
 }
