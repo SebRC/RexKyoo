@@ -31,6 +31,11 @@ public class CustomerPaymentDateModel
         this.customer = customer;
     }
 
+    public int getId()
+    {
+        return id;
+    }
+
     public String getActualPaymentDate()
     {
         return actualPaymentDate;

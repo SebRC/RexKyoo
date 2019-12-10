@@ -39,7 +39,7 @@ public class CustomerModel
     private Set<FeedbackModel> feedbacks;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<CustomerPaymentDateModel> customerPaymentDateModels;
+    private Set<CustomerPaymentDateModel> customerPaymentDates;
 
     public CustomerModel()
     {
@@ -47,7 +47,7 @@ public class CustomerModel
     }
 
 
-    public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks, Set<CustomerPaymentDateModel> customerPaymentDateModels)
+    public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks, Set<CustomerPaymentDateModel> customerPaymentDates)
     {
         this.name = name;
         this.email = email;
@@ -60,7 +60,7 @@ public class CustomerModel
         this.assignments = assignments;
         this.cleaningInspector = cleaningInspector;
         this.feedbacks = feedbacks;
-        this.customerPaymentDateModels = customerPaymentDateModels;
+        this.customerPaymentDates = customerPaymentDates;
     }
 
     public int getId()
@@ -178,13 +178,13 @@ public class CustomerModel
         this.note = note;
     }
 
-    public Set<CustomerPaymentDateModel> getCustomerPaymentDateModels()
+    public Set<CustomerPaymentDateModel> getCustomerPaymentDates()
     {
-        return customerPaymentDateModels;
+        return customerPaymentDates;
     }
 
-    public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDateModels)
+    public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDates)
     {
-        this.customerPaymentDateModels = customerPaymentDateModels;
+        this.customerPaymentDates = customerPaymentDates;
     }
 }
