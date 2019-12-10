@@ -31,27 +31,33 @@ public class CustomerPaymentDateModel
         this.customer = customer;
     }
 
-    public String getActualPaymentDate() {
+    public String getActualPaymentDate()
+    {
         return actualPaymentDate;
     }
 
-    public void setActualPaymentDate(String actualPayday) {
+    public void setActualPaymentDate(String actualPayday)
+    {
         this.actualPaymentDate = actualPayday;
     }
 
-    public Date getExpectedPaymentDate() {
+    public Date getExpectedPaymentDate()
+    {
         return expectedPaymentDate;
     }
 
-    public void setExpectedPaymentDate(Date expectedPayday) {
+    public void setExpectedPaymentDate(Date expectedPayday)
+    {
         this.expectedPaymentDate = expectedPayday;
     }
 
-    public CustomerModel getCustomer() {
+    public CustomerModel getCustomer()
+    {
         return customer;
     }
 
-    public void setCustomer(CustomerModel customer) {
+    public void setCustomer(CustomerModel customer)
+    {
         this.customer = customer;
     }
 }

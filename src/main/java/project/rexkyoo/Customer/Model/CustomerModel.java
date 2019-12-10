@@ -158,27 +158,33 @@ public class CustomerModel
         this.assignments = assignments;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public String getNote() {
+    public String getNote()
+    {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setNote(String note)
+    {
         this.note = note;
     }
 
-    public Set<CustomerPaymentDateModel> getCustomerPaymentDateModels() {
+    public Set<CustomerPaymentDateModel> getCustomerPaymentDateModels()
+    {
         return customerPaymentDateModels;
     }
 
-    public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDateModels) {
+    public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDateModels)
+    {
         this.customerPaymentDateModels = customerPaymentDateModels;
     }
 }
