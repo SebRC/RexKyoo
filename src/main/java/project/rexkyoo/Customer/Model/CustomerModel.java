@@ -2,6 +2,7 @@ package project.rexkyoo.Customer.Model;
 
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
+import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
@@ -27,9 +28,6 @@ public class CustomerModel
     private String phone;
     private String type;
     private String note;
-    private Date actualPayday;
-    private Date expectedPayday;
-
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<AssignmentModel> assignments;
@@ -40,6 +38,8 @@ public class CustomerModel
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<FeedbackModel> feedbacks;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private Set<CustomerPaymentDateModel> customerPaymentDateModels;
 
     public CustomerModel()
     {
@@ -47,7 +47,7 @@ public class CustomerModel
     }
 
 
-    public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Date actualPayday, Date expectedPayday, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks)
+    public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks, Set<CustomerPaymentDateModel> customerPaymentDateModels)
     {
         this.name = name;
         this.email = email;
@@ -57,11 +57,10 @@ public class CustomerModel
         this.phone = phone;
         this.type = type;
         this.note = note;
-        this.actualPayday = actualPayday;
-        this.expectedPayday = expectedPayday;
         this.assignments = assignments;
         this.cleaningInspector = cleaningInspector;
         this.feedbacks = feedbacks;
+        this.customerPaymentDateModels = customerPaymentDateModels;
     }
 
     public int getId()
@@ -159,35 +158,33 @@ public class CustomerModel
         this.assignments = assignments;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public String getNote() {
+    public String getNote()
+    {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setNote(String note)
+    {
         this.note = note;
     }
 
-    public Date getActualPayday() {
-        return actualPayday;
+    public Set<CustomerPaymentDateModel> getCustomerPaymentDateModels()
+    {
+        return customerPaymentDateModels;
     }
 
-    public void setActualPayday(Date actualPayday) {
-        this.actualPayday = actualPayday;
-    }
-
-    public Date getExpectedPayday() {
-        return expectedPayday;
-    }
-
-    public void setExpectedPayday(Date expectedPayday) {
-        this.expectedPayday = expectedPayday;
+    public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDateModels)
+    {
+        this.customerPaymentDateModels = customerPaymentDateModels;
     }
 }
