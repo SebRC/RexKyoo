@@ -8,10 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/dashboard")
 public class AmbassadorController
 {
-    //Ambassador part
     @GetMapping("/ambassador")
     public String ambassadorOverview()
     {
         return "dashboard/ambassador_overview";
+    }
+
+    @GetMapping("/ambassadorID")
+    public String ambassadorDetails()
+    {
+        return "dashboard/ambassador_details";
     }
 }
