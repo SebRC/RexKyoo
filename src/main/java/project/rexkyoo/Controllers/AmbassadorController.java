@@ -24,9 +24,9 @@ public class AmbassadorController
     {
         return "dashboard/ambassador_overview";
     }
-    
+
     @GetMapping("/ambassador")
-    public String createCustomer(Model model)
+    public String createAmbassador(Model model)
     {
         model.addAttribute("ambassador", new AmbassadorModel());
 
@@ -34,7 +34,7 @@ public class AmbassadorController
     }
 
     @PostMapping("/ambassador")
-    public String createCustomer(@ModelAttribute AmbassadorModel ambassador, @ModelAttribute CustomerPaymentDateModel customerPaymentDate)
+    public String createAmbassador(@ModelAttribute AmbassadorModel ambassador)
     {
         ambassadorService.save(ambassador);
 
