@@ -22,7 +22,7 @@ public class AmbassadorModel
     private String email;
     private String address;
     private String city;
-    private String zipcode;
+    private String zipCode;
     private String incomeMethod;
     private Double salary;
     private String note = "";
@@ -43,7 +43,7 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipcode, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -51,7 +51,7 @@ public class AmbassadorModel
         this.email = email;
         this.address = address;
         this.city = city;
-        this.zipcode = zipcode;
+        this.zipCode = zipCode;
         this.incomeMethod = incomeMethod;
         this.salary = salary;
         this.note = note;
@@ -125,14 +125,14 @@ public class AmbassadorModel
         this.city = city;
     }
 
-    public String getZipcode()
+    public String getZipCode()
     {
-        return zipcode;
+        return zipCode;
     }
 
-    public void setZipcode(String zipcode)
+    public void setZipCode(String zipcode)
     {
-        this.zipcode = zipcode;
+        this.zipCode = zipcode;
     }
 
     public CleaningInspectorModel getCleaningInspector()
