@@ -18,14 +18,13 @@ public class AmbassadorController
     @Autowired
     private AmbassadorService ambassadorService;
 
-    //View
+
     @GetMapping("/ambassadorOverview")
     public String ambassadorOverview()
     {
         return "dashboard/ambassador_overview";
     }
-
-    //Create
+    
     @GetMapping("/ambassador")
     public String createCustomer(Model model)
     {
@@ -43,7 +42,7 @@ public class AmbassadorController
         return "redirect:/dashboard/home";
     }
 
-    //View with ID
+
     @GetMapping("/ambassadorID")
     public String ambassadorDetails()
     {
