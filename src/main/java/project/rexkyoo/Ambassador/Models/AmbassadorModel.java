@@ -23,7 +23,7 @@ public class AmbassadorModel
     private String address;
     private String incomeMethod;
     private Double salary;
-    private String note;
+    private String note = "";
 
 
     @ManyToOne(fetch = FetchType.LAZY)
