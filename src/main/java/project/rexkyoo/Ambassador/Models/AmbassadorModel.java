@@ -21,6 +21,8 @@ public class AmbassadorModel
     private String phone;
     private String email;
     private String address;
+    private String city;
+    private String zipcode;
     private String incomeMethod;
     private Double salary;
     private String note = "";
@@ -41,13 +43,15 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipcode, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.city = city;
+        this.zipcode = zipcode;
         this.incomeMethod = incomeMethod;
         this.salary = salary;
         this.note = note;
@@ -111,6 +115,26 @@ public class AmbassadorModel
         this.address = address;
     }
 
+    public String getCity()
+    {
+        return city;
+    }
+
+    public void setCity(String city)
+    {
+        this.city = city;
+    }
+
+    public String getZipcode()
+    {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode)
+    {
+        this.zipcode = zipcode;
+    }
+
     public CleaningInspectorModel getCleaningInspector()
     {
         return cleaningInspector;
@@ -141,7 +165,8 @@ public class AmbassadorModel
         this.feedbacks = feedbacks;
     }
 
-    public String getIncomeMethod() {
+    public String getIncomeMethod()
+    {
         return incomeMethod;
     }
 
