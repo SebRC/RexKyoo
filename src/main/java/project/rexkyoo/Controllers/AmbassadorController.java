@@ -40,7 +40,7 @@ public class AmbassadorController
         return "redirect:/admin/home";
     }
 
-    @GetMapping("/ambassadorID")
+    @GetMapping("/ambassadorsID")
     public String ambassadorDetails()
     {
         return "dashboard/ambassador/ambassador_details";
