@@ -20,7 +20,7 @@ public class CleaningInspectorModel
     private String phone;
     private String email;
     private String address;
-    private String note;
+    private String note = "";
 
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "customer_id", referencedColumnName = "customer_id")
