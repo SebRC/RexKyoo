@@ -64,7 +64,7 @@ public class DashboardController
         return "redirect:/dashboard/home";
     }
 
-    @GetMapping("privateCustomer")
+    @GetMapping("/privateCustomers")
     public String privateCustomerOverview() { return "dashboard/private_customer_overview";}
 
     @GetMapping("/privateCustomerID")
