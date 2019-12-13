@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
-import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 
 @Controller
-@RequestMapping("/dashboard")
+@RequestMapping("/admin")
 public class AmbassadorController
 {
     @Autowired
     private AmbassadorService ambassadorService;
 
 
-    @GetMapping("/ambassadorOverview")
+    @GetMapping("/ambassadors")
     public String ambassadorOverview()
     {
         return "dashboard/ambassador_overview";
@@ -39,7 +38,7 @@ public class AmbassadorController
         ambassadorService.save(ambassador);
 
         //  should later redirect to created ambassador
-        return "redirect:/dashboard/home";
+        return "redirect:/admin/home";
     }
 
 

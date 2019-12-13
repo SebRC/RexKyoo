@@ -13,7 +13,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
 @Controller
-@RequestMapping("/dashboard")
+@RequestMapping("/admin")
 public class DashboardController
 {
 
@@ -61,7 +61,7 @@ public class DashboardController
         customerPaymentDateService.save(customerPaymentDate);
 
         //  TODO: should later redirect to created customer
-        return "redirect:/dashboard/home";
+        return "redirect:/admin/home";
     }
 
     @GetMapping("/privateCustomers")
