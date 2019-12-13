@@ -30,7 +30,7 @@ public class DashboardController
         return "dashboard/home";
     }
 
-    @GetMapping("/businessCustomer")
+    @GetMapping("/businessCustomers")
     public String businessCustomerOverview()
     {
         return "dashboard/business_customer_overview";
@@ -60,7 +60,7 @@ public class DashboardController
 
         customerPaymentDateService.save(customerPaymentDate);
 
-        //  should later redirect to created customer
+        //  TODO: should later redirect to created customer
         return "redirect:/dashboard/home";
     }
 
