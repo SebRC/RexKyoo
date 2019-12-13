@@ -73,9 +73,9 @@ public class DashboardController
         return "dashboard/customer/private_customer_details";
     }
 
-    @GetMapping("/cleaningInspector")
+    @GetMapping("/cleaning-inspectors")
     public String cleaningInspectorOverview()
     {
-        return "dashboard/cleaning_inspector_overview";
+        return "dashboard/cleaningInspector/cleaning_inspector_overview";
     }
 }
