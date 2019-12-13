@@ -11,10 +11,10 @@ public class CustomerPaymentDateModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "CustomerPaymentDate_id")
+    @Column (name = "customerPaymentDate_id")
     private int id;
-    private String actualPaymentDate;
-    private Date expectedPaymentDate;
+    private String actualPaymentDate = "Afventer betaling";
+    private String expectedPaymentDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -24,7 +24,7 @@ public class CustomerPaymentDateModel
     {
     }
 
-    public CustomerPaymentDateModel(String actualPaymentDate, Date expectedPaymentDate, CustomerModel customer)
+    public CustomerPaymentDateModel(String actualPaymentDate, String expectedPaymentDate, CustomerModel customer)
     {
         this.actualPaymentDate = actualPaymentDate;
         this.expectedPaymentDate = expectedPaymentDate;
@@ -41,19 +41,19 @@ public class CustomerPaymentDateModel
         return actualPaymentDate;
     }
 
-    public void setActualPaymentDate(String actualPayday)
+    public void setActualPaymentDate(String actualPaymentDate)
     {
-        this.actualPaymentDate = actualPayday;
+        this.actualPaymentDate = actualPaymentDate;
     }
 
-    public Date getExpectedPaymentDate()
+    public String getExpectedPaymentDate()
     {
         return expectedPaymentDate;
     }
 
-    public void setExpectedPaymentDate(Date expectedPayday)
+    public void setExpectedPaymentDate(String expectedPaymentDate)
     {
-        this.expectedPaymentDate = expectedPayday;
+        this.expectedPaymentDate = expectedPaymentDate;
     }
 
     public CustomerModel getCustomer()

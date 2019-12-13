@@ -27,7 +27,7 @@ public class CustomerModel
     private String zipCode;
     private String phone;
     private String type;
-    private String note;
+    private String note = "";
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<AssignmentModel> assignments;
