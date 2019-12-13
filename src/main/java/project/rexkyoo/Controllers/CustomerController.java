@@ -12,6 +12,8 @@ import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/admin")
 public class CustomerController
@@ -57,7 +59,14 @@ public class CustomerController
     }
 
     @GetMapping("/private-customers")
-    public String privateCustomerOverview() { return "dashboard/customer/private_customer_overview";}
+    public String privateCustomerOverview(Model model)
+    {
+        List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
+
+        model.addAttribute("customers", privateCustomers);
+
+        return "dashboard/customer/private_customer_overview";
+    }
 
     @GetMapping("/private-customersID")
     public String privateCustomerDetails()
