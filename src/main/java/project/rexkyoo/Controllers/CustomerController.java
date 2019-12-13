@@ -22,13 +22,13 @@ public class CustomerController
     @Autowired
     private CustomerPaymentDateService customerPaymentDateService;
 
-    @GetMapping("/businessCustomers")
+    @GetMapping("/business-customers")
     public String businessCustomerOverview()
     {
         return "dashboard/customer/business_customer_overview";
     }
 
-    @GetMapping("/businessCustomerID")
+    @GetMapping("/business-customersID")
     public String businessCustomerDetails()
     {
         return "dashboard/customer/business_customer_details";
@@ -56,10 +56,10 @@ public class CustomerController
         return "redirect:/admin/home";
     }
 
-    @GetMapping("/privateCustomers")
+    @GetMapping("/private-customers")
     public String privateCustomerOverview() { return "dashboard/customer/private_customer_overview";}
 
-    @GetMapping("/privateCustomerID")
+    @GetMapping("/private-customersID")
     public String privateCustomerDetails()
     {
         return "dashboard/customer/private_customer_details";

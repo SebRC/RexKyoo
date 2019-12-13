@@ -21,10 +21,4 @@ public class DashboardController
     {
         return "dashboard/home";
     }
-
-    @GetMapping("/cleaning-inspectors")
-    public String cleaningInspectorOverview()
-    {
-        return "dashboard/cleaningInspector/cleaning_inspector_overview";
-    }
 }
