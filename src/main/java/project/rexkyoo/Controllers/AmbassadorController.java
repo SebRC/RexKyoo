@@ -17,11 +17,10 @@ public class AmbassadorController
     @Autowired
     private AmbassadorService ambassadorService;
 
-
     @GetMapping("/ambassadors")
     public String ambassadorOverview()
     {
-        return "dashboard/ambassador_overview";
+        return "dashboard/ambassador/ambassador_overview";
     }
 
     @GetMapping("/ambassador")
@@ -29,7 +28,7 @@ public class AmbassadorController
     {
         model.addAttribute("ambassador", new AmbassadorModel());
 
-        return "dashboard/create_ambassador";
+        return "dashboard/ambassador/create_ambassador";
     }
 
     @PostMapping("/ambassador")
@@ -41,10 +40,9 @@ public class AmbassadorController
         return "redirect:/admin/home";
     }
 
-
     @GetMapping("/ambassadorID")
     public String ambassadorDetails()
     {
-        return "dashboard/ambassador_details";
+        return "dashboard/ambassador/ambassador_details";
     }
 }
