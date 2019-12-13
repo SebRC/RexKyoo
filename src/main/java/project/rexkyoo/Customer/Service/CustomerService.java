@@ -13,9 +13,11 @@ public class CustomerService
     @Autowired
     private CustomerRepository customerRepository;
 
-    public List<CustomerModel> getAll()
+    public List<CustomerModel> getAllPrivateCustomers()
     {
-        return customerRepository.findAll();
+        String type = "private";
+
+        return customerRepository.findAllByTypeEquals(type);
     }
 
     public CustomerModel getOne(int id)
