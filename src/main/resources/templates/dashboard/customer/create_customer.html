@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Erhvervskunde Oversigt</title>
+    <title>Opret Kunde</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -46,67 +46,59 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Erhvervskunder: 15</h1>
-
-                <div class="row mb-4">
-                    <a href="#" class="mr-2 ml-2 btn btn-success btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-arrow-right"></i>
-                    </span>
-                        <span class="text">Månedlig</span>
-                    </a>
-                    <a href="#" class="btn btn-info btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-arrow-right"></i>
-                    </span>
-                        <span class="text">Årlig</span>
-                    </a>
+                <div class="d-sm-flex align-items-center  justify-content-center mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Opret Kunde</h1>
                 </div>
 
-                <!-- holder for cards -->
-                <div class="col-md-12">
+                <div class="col-md-6 offset-3">
+                    <form th:action="@{/admin/customer}" method="post">
 
-                    <!-- customer cards-->
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-header ">Symbion A/S</h5>
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Navn</label>
+                            <input type="text" class="form-control" placeholder="Navn" th:field="${customer.name}">
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Jens Jensen</li></a>
-                            <li class="list-group-item">Ambassadører: 15</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
-                            <li class="list-group-item">Omsætning: 45000,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 43800,-</li>
-                            <li class="list-group-item">Forventet betalingsdato: 15/12</li>
-                            <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
-
-                        </ul>
-                        <div class="card-body">
-                            <a th:href="@{businessCustomerID}" class="btn btn-success">Læs mere</a>
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Telefon</label>
+                            <input type="text" class="form-control" placeholder="Telefon" th:field="${customer.phone}">
                         </div>
-                    </div>
 
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-header ">Symbion A/S</h5>
+                        <div class="form-group col-md-6 offset-3">
+                            <label>E-Mail</label>
+                            <input type="email" class="form-control" placeholder="E-Mail" th:field="${customer.email}">
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Jens Jensen</li></a>
-                            <li class="list-group-item">Ambassadører: 15</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
-                            <li class="list-group-item">Omsætning: 45000,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 43800,-</li>
-                            <li class="list-group-item">Forventet betalingsdato: 15/12</li>
-                            <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
 
-                        </ul>
-                        <div class="card-body">
-                            <a th:href="@{businessCustomerID}" class="btn btn-success">Læs mere</a>
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Adresse</label>
+                            <input type="text" class="form-control"  placeholder="Adresse" th:field="${customer.address}">
                         </div>
-                    </div>
 
+                        <div class="form-group col-md-6 offset-3">
+                            <label>By</label>
+                            <input type="text" class="form-control"  placeholder="By" th:field="${customer.city}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Postkode</label>
+                            <input type="text" class="form-control" placeholder="Postkode" th:field="${customer.zipCode}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" class="mr-2" th:field="${customer.type}" value="business">Erhvervskunde</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" class="mr-2" th:field="${customer.type}" value="private">Privatkunde</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label for="date">Forventet Betalingsdato</label>
+                            <input type="date" class="form-control" id="date" name="date" th:field="${customerPaymentDate.expectedPaymentDate}">
+                        </div>
+
+                        <button type="submit" class="btn btn-success col-md-4 offset-4 mb-5">Opret</button>
+                    </form>
                 </div>
-                <!-- holder for cards end-->
 
 
             </div>
@@ -151,7 +143,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="../login.html">Logout</a>
             </div>
         </div>
     </div>
@@ -172,7 +164,6 @@
 
 <!-- Page level custom scripts -->
 <script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
-<script th:src="@{/dashboardStatic/js/demo/chart-pie-demo.js}"></script>
 
 
 </body>

@@ -33,13 +33,13 @@ public class DashboardController
     @GetMapping("/businessCustomers")
     public String businessCustomerOverview()
     {
-        return "dashboard/business_customer_overview";
+        return "dashboard/customer/business_customer_overview";
     }
 
     @GetMapping("/businessCustomerID")
     public String businessCustomerDetails()
     {
-        return "dashboard/business_customer_details";
+        return "dashboard/customer/business_customer_details";
     }
 
     @GetMapping("/customer")
@@ -48,7 +48,7 @@ public class DashboardController
         model.addAttribute("customer", new CustomerModel());
         model.addAttribute("customerPaymentDate", new CustomerPaymentDateModel());
 
-        return "dashboard/create_customer";
+        return "dashboard/customer/create_customer";
     }
 
     @PostMapping("/customer")
@@ -65,11 +65,11 @@ public class DashboardController
     }
 
     @GetMapping("/privateCustomers")
-    public String privateCustomerOverview() { return "dashboard/private_customer_overview";}
+    public String privateCustomerOverview() { return "dashboard/customer/private_customer_overview";}
 
     @GetMapping("/privateCustomerID")
     public String privateCustomerDetails()
     {
-        return "dashboard/private_customer_details";
+        return "dashboard/customer/private_customer_details";
     }
 }

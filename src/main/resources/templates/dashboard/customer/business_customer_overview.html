@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Privatkunde Oversigt</title>
+    <title>Erhvervskunde Oversigt</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Privatkunder: 15</h1>
+                <h1 class="h3 mb-4 text-gray-800">Erhvervskunder: 15</h1>
 
                 <div class="row mb-4">
                     <a href="#" class="mr-2 ml-2 btn btn-success btn-icon-split">
@@ -69,39 +69,39 @@
                     <!-- customer cards-->
                     <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-header ">Karen Jensen</h5>
+                            <h5 class="card-header ">Symbion A/S</h5>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Bo larsen</li></a>
-                            <li class="list-group-item">Ambassadører: 1</li>
+                            <a href="#"><li class="list-group-item">Inspektør: Jens Jensen</li></a>
+                            <li class="list-group-item">Ambassadører: 15</li>
                             <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
-                            <li class="list-group-item">Omsætning: 1300,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 5000,-</li>
+                            <li class="list-group-item">Omsætning: 45000,-</li>
+                            <li class="list-group-item color" style="color: limegreen">Profit: 43800,-</li>
                             <li class="list-group-item">Forventet betalingsdato: 15/12</li>
                             <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
 
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{privateCustomerID}" class="btn btn-success">Læs mere</a>
+                            <a th:href="@{businessCustomerID}" class="btn btn-success">Læs mere</a>
                         </div>
                     </div>
 
                     <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-header ">Kim Andersen</h5>
+                            <h5 class="card-header ">Symbion A/S</h5>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Lars Aaberg</li></a>
-                            <li class="list-group-item">Ambassadører: 1</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 400,-</li>
-                            <li class="list-group-item">Omsætning: 1600,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 3700,-</li>
+                            <a href="#"><li class="list-group-item">Inspektør: Jens Jensen</li></a>
+                            <li class="list-group-item">Ambassadører: 15</li>
+                            <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
+                            <li class="list-group-item">Omsætning: 45000,-</li>
+                            <li class="list-group-item color" style="color: limegreen">Profit: 43800,-</li>
                             <li class="list-group-item">Forventet betalingsdato: 15/12</li>
                             <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
 
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{privateCustomerID}" class="btn btn-success">Læs mere</a>
+                            <a th:href="@{businessCustomerID}" class="btn btn-success">Læs mere</a>
                         </div>
                     </div>
 
@@ -151,7 +151,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="../login.html">Logout</a>
             </div>
         </div>
     </div>
