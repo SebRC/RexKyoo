@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CustomerService
@@ -40,9 +41,13 @@ public class CustomerService
     {
         CustomerModel customerModel = customerRepository.getOne(id);
 
-        assignDates(customerModel);
+        Set<CustomerPaymentDateModel> customerPaymentDateModels = customerModel.getCustomerPaymentDates();
 
-        customerPaymentDateService.setMonth(customerModel.getCustomerPaymentDates());
+        assignDates(customerModel);
+        for (CustomerPaymentDateModel customerPaymentDateModel : customerPaymentDateModels)
+        {
+            customerPaymentDateService.setMonth(customerPaymentDateModel);
+        }
 
         return customerModel;
     }

@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CustomerPaymentDateService
@@ -38,30 +37,29 @@ public class CustomerPaymentDateService
         customerPaymentDateRepository.deleteById(id);
     }
 
-    public void setMonth(Set<CustomerPaymentDateModel> customerPaymentDateModels)
+    public void setMonth(CustomerPaymentDateModel customerPaymentDateModel)
     {
         SimpleDateFormat yearMonthDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        for (CustomerPaymentDateModel paymentDates : customerPaymentDateModels)
+
+        Date currentEvaluatedDate;
+
+        try
         {
-            Date currentEvaluatedDate;
-
-            try
-            {
-                currentEvaluatedDate = yearMonthDateFormat.parse(paymentDates.getExpectedPaymentDate());
-            }
-            catch(ParseException parseException)
-            {
-                return;
-            }
-
-            int monthIndex = currentEvaluatedDate.getMonth();
-
-            Month month = Month.of(monthIndex + 1);
-
-            String formattedMonth = month.toString().substring(0,3);
-
-            paymentDates.setMonth(formattedMonth);
+            currentEvaluatedDate = yearMonthDateFormat.parse(customerPaymentDateModel.getExpectedPaymentDate());
         }
+        catch(ParseException parseException)
+        {
+            return;
+        }
+
+        int monthIndex = currentEvaluatedDate.getMonth();
+
+        Month month = Month.of(monthIndex + 1);
+
+        String formattedMonth = month.toString().substring(0,3);
+
+        customerPaymentDateModel.setMonth(formattedMonth);
+
     }
 }
