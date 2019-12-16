@@ -63,7 +63,7 @@ public class CustomerController
     {
         List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
 
-        model.addAttribute("customers", privateCustomers);
+        model.addAttribute("privateCustomers", privateCustomers);
 
         return "dashboard/customer/private_customer_overview";
     }
