@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Repository.CustomerRepository;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
+import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,9 @@ public class CustomerService
 {
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private CustomerPaymentDateService customerPaymentDateService;
 
     public List<CustomerModel> getAllPrivateCustomers()
     {
@@ -34,7 +38,13 @@ public class CustomerService
 
     public CustomerModel getOne(int id)
     {
-        return customerRepository.getOne(id);
+        CustomerModel customerModel = customerRepository.getOne(id);
+
+        assignDates(customerModel);
+
+        customerPaymentDateService.setMonth(customerModel.getCustomerPaymentDates());
+
+        return customerModel;
     }
 
     public void save(CustomerModel customerModel)

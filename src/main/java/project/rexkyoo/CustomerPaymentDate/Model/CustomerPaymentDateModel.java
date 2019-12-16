@@ -15,6 +15,7 @@ public class CustomerPaymentDateModel
     private int id;
     private String actualPaymentDate = "Afventer betaling";
     private String expectedPaymentDate;
+    @Transient
     private String month;
 
     @ManyToOne(fetch = FetchType.LAZY)
