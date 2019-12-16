@@ -56,7 +56,7 @@ public class CustomerController
     }
 
     @GetMapping("/private-customers")
-    public String privateCustomerOverview(Model model) throws Exception
+    public String privateCustomerOverview(Model model)
     {
         List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
 
@@ -66,7 +66,7 @@ public class CustomerController
     }
 
     @GetMapping("/private-customers/{id}")
-    public String privateCustomerDetails(@PathVariable("id") int id, Model model) throws Exception
+    public String privateCustomerDetails(@PathVariable("id") int id, Model model)
     {
         CustomerModel privateCustomer = customerService.getOne(id);
 
