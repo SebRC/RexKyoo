@@ -9,7 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CustomerPaymentDateService
@@ -59,6 +61,23 @@ public class CustomerPaymentDateService
         String formattedMonth = month.toString().substring(0,3);
 
         customerPaymentDateModel.setMonth(formattedMonth);
+    }
+
+    public Set<CustomerPaymentDateModel> getSpecificYear(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
+    {
+        Set<CustomerPaymentDateModel> selectedYearPaymentDates = new HashSet<>();
+
+        for (CustomerPaymentDateModel customerPaymentDate: customerPaymentDates)
+        {
+            String paymentDateYear = customerPaymentDate.getExpectedPaymentDate().substring(0, 4);
+
+            if(selectedYear.equals(paymentDateYear))
+            {
+                selectedYearPaymentDates.add(customerPaymentDate);
+            }
+        }
+
+        return selectedYearPaymentDates;
     }
 
     public void setYear(CustomerPaymentDateModel customerPaymentDateModel)
