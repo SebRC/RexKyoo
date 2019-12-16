@@ -1,4 +1,4 @@
-package project.rexkyoo;
+package project.rexkyoo.CustomerPaymentDateServiceTests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,12 +10,12 @@ import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 import java.util.Arrays;
 
 @RunWith(Parameterized.class)
-public class CustomerPaymentDatesServiceTests
+public class SetMonthTests
 {
     CustomerPaymentDateModel customerPaymentDateModel;
     String month;
 
-    public CustomerPaymentDatesServiceTests(CustomerPaymentDateModel customerPaymentDateModel, String month)
+    public SetMonthTests(CustomerPaymentDateModel customerPaymentDateModel, String month)
     {
         this.customerPaymentDateModel = customerPaymentDateModel;
         this.month = month;
