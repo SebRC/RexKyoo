@@ -26,11 +26,10 @@ public class CustomerPaymentDateModel
     {
     }
 
-    public CustomerPaymentDateModel(String actualPaymentDate, String expectedPaymentDate, String month, CustomerModel customer)
+    public CustomerPaymentDateModel(String actualPaymentDate, String expectedPaymentDate, CustomerModel customer)
     {
         this.actualPaymentDate = actualPaymentDate;
         this.expectedPaymentDate = expectedPaymentDate;
-        this.month = month;
         this.customer = customer;
     }
 
