@@ -80,6 +80,11 @@ public class CustomerPaymentDateService
         return selectedYearPaymentDates;
     }
 
+    private String extractYear(String date)
+    {
+        return date.substring(0,4);
+    }
+
     public void setYear(CustomerPaymentDateModel customerPaymentDateModel)
     {
         String date = customerPaymentDateModel.getExpectedPaymentDate();
