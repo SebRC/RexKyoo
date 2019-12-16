@@ -17,6 +17,8 @@ public class CustomerPaymentDateModel
     private String expectedPaymentDate;
     @Transient
     private String month;
+    @Transient
+    private String year;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -66,6 +68,16 @@ public class CustomerPaymentDateModel
     public void setMonth(String month)
     {
         this.month = month;
+    }
+
+    public String getYear()
+    {
+        return year;
+    }
+
+    public void setYear(String year)
+    {
+        this.year = year;
     }
 
     public CustomerModel getCustomer()
