@@ -173,20 +173,28 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Betalingshistorik</h6>
                             </div>
                             <div class="card-body">
-                                <div th:each="paymentDates : ${privateCustomerPaymentDates}">
-                                    <div>Forventet betalingsdato:
-                                        <span th:text="${paymentDates.expectedPaymentDate}"></span>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                            <tr>
+                                                <th>Måned</th>
+                                                <th>Forventet betalingsdato</th>
+                                                <th>Aktuel betalingsdato</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="paymentDates : ${privateCustomerPaymentDates}">
+                                                <td>December</td>
+                                                <td th:text="${paymentDates.expectedPaymentDate}"></td>
+                                                <td th:text="${paymentDates.actualPaymentDate}"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div>Aktuel betalingsdato:
-                                        <span th:text="${paymentDates.actualPaymentDate}"></span>
-                                    </div>
-                                </div>
-
-                                <div class="chart-area">
-                                    <canvas id="paymentOverview"></canvas>
                                 </div>
                                 <hr>
-                                Betaling for nuværende år
+                                Historik for nuværende år
                             </div>
                         </div>
 
