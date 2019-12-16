@@ -13,7 +13,7 @@ public class CustomerService
     @Autowired
     private CustomerRepository customerRepository;
 
-    public List<CustomerModel> getAllPrivateCustomers()
+    public List<CustomerModel> getAllPrivateCustomers() throws Exception
     {
         String type = "private";
 

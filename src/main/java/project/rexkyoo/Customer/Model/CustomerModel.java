@@ -6,6 +6,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -64,13 +65,19 @@ public class CustomerModel
         this.customerPaymentDates = customerPaymentDates;
     }
 
-    public void assignDates()
+    public void assignDates() throws Exception
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
+        Date mostRecentDate = new Date(1);
+
         for (CustomerPaymentDateModel paymentDates : customerPaymentDates)
         {
-            if(paymentDates.getId() > relevantPaymentDates.getId())
+            Date currentEvaluatedDate = simpleDateFormat.parse(paymentDates.getExpectedPaymentDate());
+
+            if(currentEvaluatedDate.compareTo(mostRecentDate) >= 1)
             {
                 relevantPaymentDates = paymentDates;
             }
