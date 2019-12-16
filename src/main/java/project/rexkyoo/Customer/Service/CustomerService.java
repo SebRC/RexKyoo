@@ -27,6 +27,20 @@ public class CustomerService
         return privateCustomers;
     }
 
+    public List<CustomerModel> getAllBusinessCustomers() throws Exception
+    {
+        String type = "business";
+
+        List<CustomerModel> businessCustomers = customerRepository.findAllByTypeEquals(type);
+
+        for (CustomerModel businessCustomer : businessCustomers)
+        {
+            businessCustomer.assignDates();
+        }
+
+        return businessCustomers;
+    }
+
     public CustomerModel getOne(int id)
     {
         return customerRepository.getOne(id);

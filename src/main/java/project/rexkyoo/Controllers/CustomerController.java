@@ -22,14 +22,24 @@ public class CustomerController
     private CustomerPaymentDateService customerPaymentDateService;
 
     @GetMapping("/business-customers")
-    public String businessCustomerOverview()
+    public String businessCustomerOverview(Model model) throws Exception
     {
+        List<CustomerModel> businessCustomers = customerService.getAllBusinessCustomers();
+
+        model.addAttribute("businessCustomers", businessCustomers);
+
         return "dashboard/customer/business_customer_overview";
     }
 
-    @GetMapping("/business-customersID")
-    public String businessCustomerDetails()
+    @GetMapping("/business-customers/{id}")
+    public String businessCustomerDetails(@PathVariable("id") int id, Model model) throws Exception
     {
+        CustomerModel businessCustomer = customerService.getOne(id);
+
+        businessCustomer.assignDates();
+
+        model.addAttribute("businessCustomer", businessCustomer);
+
         return "dashboard/customer/business_customer_details";
     }
 
