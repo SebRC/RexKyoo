@@ -78,11 +78,11 @@
                             <li class="list-group-item">Omsætning: 1300,-</li>
                             <li class="list-group-item color" style="color: limegreen">Profit: 5000,-</li>
                             <li class="list-group-item">
-                                Forventet betaling:
+                                Forventet betalingsdato:
                                 <span th:text="${privateCustomer.expectedPaymentDate}"></span>
                             </li>
                             <li class="list-group-item">
-                                Aktual betaling:
+                                Aktual betalingsdato:
                                 <span th:text="${privateCustomer.actualPaymentDate}">
 
                                 </span>
@@ -90,15 +90,12 @@
 
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{private-customersID}" class="btn btn-success">Læs mere</a>
+                            <a th:href="@{${privateCustomer.id}}" class="btn btn-success">Læs mere</a>
                         </div>
                     </div>
 
-
-
                 </div>
                 <!-- holder for cards end-->
-
 
             </div>
             <!-- /.container-fluid -->

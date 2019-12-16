@@ -3,10 +3,7 @@ package project.rexkyoo.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
@@ -68,9 +65,15 @@ public class CustomerController
         return "dashboard/customer/private_customer_overview";
     }
 
-    @GetMapping("/private-customersID")
-    public String privateCustomerDetails()
+    @GetMapping("/private-customers/{id}")
+    public String privateCustomerDetails(@PathVariable int id, Model model)
     {
+        CustomerModel privateCustomer = customerService.getOne(id);
+
+        privateCustomer.assignDates();
+
+        model.addAttribute("privateCustomer", privateCustomer);
+
         return "dashboard/customer/private_customer_details";
     }
 }
