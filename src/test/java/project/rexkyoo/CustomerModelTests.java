@@ -12,7 +12,7 @@ import java.util.Set;
 class CustomerModelTests
 {
     @Test
-    void assignDates_ValidData_Succeeds() throws Exception
+    void assignDates_ValidData_Succeeds()
     {
         // Arrange
         String expectedPaymentDate = "2019-12-9";
@@ -38,6 +38,4 @@ class CustomerModelTests
         // Assert
         assertEquals(expectedPaymentDate, actualExpectedPaymentDate);
     }
-
-
 }

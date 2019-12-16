@@ -1,13 +1,17 @@
 package project.rexkyoo.Customer.Model;
 
+import com.oracle.tools.packager.Log;
+import com.sun.media.jfxmedia.logging.Logger;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
 
 
 @Entity
@@ -65,7 +69,7 @@ public class CustomerModel
         this.customerPaymentDates = customerPaymentDates;
     }
 
-    public void assignDates() throws Exception
+    public void assignDates()
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
 
@@ -75,7 +79,19 @@ public class CustomerModel
 
         for (CustomerPaymentDateModel paymentDates : customerPaymentDates)
         {
-            Date currentEvaluatedDate = simpleDateFormat.parse(paymentDates.getExpectedPaymentDate());
+            Date currentEvaluatedDate;
+
+            try
+            {
+                currentEvaluatedDate = simpleDateFormat.parse(paymentDates.getExpectedPaymentDate());
+            }
+            catch(ParseException parseException)
+            {
+                Log.debug(parseException.getLocalizedMessage());
+
+                return;
+            }
+
 
             boolean isEvaluatedDateMostRecent = currentEvaluatedDate.compareTo(mostRecentDate) > 0;
 

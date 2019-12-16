@@ -10,6 +10,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")
@@ -66,7 +67,7 @@ public class CustomerController
     }
 
     @GetMapping("/private-customers")
-    public String privateCustomerOverview(Model model) throws Exception
+    public String privateCustomerOverview(Model model)
     {
         List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
 
@@ -76,13 +77,16 @@ public class CustomerController
     }
 
     @GetMapping("/private-customers/{id}")
-    public String privateCustomerDetails(@PathVariable("id") int id, Model model) throws Exception
+    public String privateCustomerDetails(@PathVariable("id") int id, Model model)
     {
         CustomerModel privateCustomer = customerService.getOne(id);
+
+        Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
 
         privateCustomer.assignDates();
 
         model.addAttribute("privateCustomer", privateCustomer);
+        model.addAttribute("privateCustomerPaymentDates", paymentDates);
 
         return "dashboard/customer/private_customer_details";
     }
