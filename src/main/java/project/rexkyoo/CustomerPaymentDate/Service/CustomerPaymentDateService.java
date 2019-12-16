@@ -70,7 +70,7 @@ public class CustomerPaymentDateService
         return formattedMonth;
     }
 
-    public Set<CustomerPaymentDateModel> getSpecificYear(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
+    public Set<CustomerPaymentDateModel> getSpecificYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
     {
         Set<CustomerPaymentDateModel> selectedYearPaymentDates = new HashSet<>();
 
