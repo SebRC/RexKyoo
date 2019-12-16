@@ -10,7 +10,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import java.util.HashSet;
 import java.util.Set;
 
-class CustomerModelTests
+class CustomerServiceTests
 {
     @Test
     void assignDates_ValidData_Succeeds()
@@ -28,7 +28,7 @@ class CustomerModelTests
         for (int i = 1; i < 10; i++)
         {
             CustomerPaymentDateModel customerPaymentDateModel =
-                    new CustomerPaymentDateModel("Afventer betaling", "2019-12-" + i, "DEC", customerModel);
+                    new CustomerPaymentDateModel("Afventer betaling", "2019-12-" + i, customerModel);
 
             customerModel.getCustomerPaymentDates().add(customerPaymentDateModel);
         }
