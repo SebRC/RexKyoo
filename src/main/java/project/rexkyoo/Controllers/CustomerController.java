@@ -10,6 +10,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")
@@ -70,9 +71,12 @@ public class CustomerController
     {
         CustomerModel privateCustomer = customerService.getOne(id);
 
+        Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
+
         privateCustomer.assignDates();
 
         model.addAttribute("privateCustomer", privateCustomer);
+        model.addAttribute("privateCustomerPaymentDates", paymentDates);
 
         return "dashboard/customer/private_customer_details";
     }

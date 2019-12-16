@@ -164,7 +164,29 @@
                                     <canvas id="myAreaChart"></canvas>
                                 </div>
                                 <hr>
-                                en masse data om en masse økonomi ting
+                                Økonomi nuværende måned
+                            </div>
+                        </div>
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Betalingshistorik</h6>
+                            </div>
+                            <div class="card-body">
+                                <div th:each="paymentDates : ${privateCustomerPaymentDates}">
+                                    <div>Forventet betalingsdato:
+                                        <span th:text="${paymentDates.expectedPaymentDate}"></span>
+                                    </div>
+                                    <div>Aktuel betalingsdato:
+                                        <span th:text="${paymentDates.actualPaymentDate}"></span>
+                                    </div>
+                                </div>
+
+                                <div class="chart-area">
+                                    <canvas id="paymentOverview"></canvas>
+                                </div>
+                                <hr>
+                                Betaling for nuværende år
                             </div>
                         </div>
 
