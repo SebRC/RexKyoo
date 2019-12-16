@@ -58,9 +58,16 @@ public class CustomerPaymentDateService
 
         Month month = Month.of(monthIndex + 1);
 
-        String formattedMonth = month.toString().substring(0,3);
+        String formattedMonth = extractMonth(month);
 
         customerPaymentDateModel.setMonth(formattedMonth);
+    }
+
+    private String extractMonth(Month month)
+    {
+        String formattedMonth = month.toString().substring(0,3);
+
+        return formattedMonth;
     }
 
     public Set<CustomerPaymentDateModel> getSpecificYear(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
@@ -69,7 +76,9 @@ public class CustomerPaymentDateService
 
         for (CustomerPaymentDateModel customerPaymentDate: customerPaymentDates)
         {
-            String paymentDateYear = customerPaymentDate.getExpectedPaymentDate().substring(0, 4);
+            String expectedPaymentDate = customerPaymentDate.getExpectedPaymentDate();
+
+            String paymentDateYear = extractYear(expectedPaymentDate);
 
             if(selectedYear.equals(paymentDateYear))
             {
