@@ -6,11 +6,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Entity
@@ -30,9 +26,9 @@ public class CustomerModel
     private String type;
     private String note = "";
     @Transient
-    private String expected;
+    private String expectedPaymentDate;
     @Transient
-    private String actual;
+    private String actualPaymentDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<AssignmentModel> assignments;
@@ -80,9 +76,9 @@ public class CustomerModel
             }
         }
 
-        this.expected = relevantPaymentDates.getExpectedPaymentDate();
+        this.expectedPaymentDate = relevantPaymentDates.getExpectedPaymentDate();
 
-        this.actual = relevantPaymentDates.getActualPaymentDate();
+        this.actualPaymentDate = relevantPaymentDates.getActualPaymentDate();
     }
 
     public int getId()
@@ -210,23 +206,23 @@ public class CustomerModel
         this.customerPaymentDates = customerPaymentDates;
     }
 
-    public String getExpected()
+    public String getExpectedPaymentDate()
     {
-        return expected;
+        return expectedPaymentDate;
     }
 
-    public void setExpected(String expected)
+    public void setExpectedPaymentDate(String expectedPaymentDate)
     {
-        this.expected = expected;
+        this.expectedPaymentDate = expectedPaymentDate;
     }
 
-    public String getActual()
+    public String getActualPaymentDate()
     {
-        return actual;
+        return actualPaymentDate;
     }
 
-    public void setActual(String actual)
+    public void setActualPaymentDate(String actualPaymentDate)
     {
-        this.actual = actual;
+        this.actualPaymentDate = actualPaymentDate;
     }
 }
