@@ -66,7 +66,7 @@ public class CustomerController
     }
 
     @GetMapping("/private-customers/{id}")
-    public String privateCustomerDetails(@PathVariable int id, Model model) throws Exception
+    public String privateCustomerDetails(@PathVariable("id") int id, Model model) throws Exception
     {
         CustomerModel privateCustomer = customerService.getOne(id);
 
