@@ -37,9 +37,12 @@ public class CustomerController
     {
         CustomerModel businessCustomer = customerService.getOne(id);
 
+        Set<CustomerPaymentDateModel> paymentDates = businessCustomer.getCustomerPaymentDates();
+
         businessCustomer.assignDates();
 
         model.addAttribute("businessCustomer", businessCustomer);
+        model.addAttribute("businessCustomerPaymentDates", paymentDates);
 
         return "dashboard/customer/business_customer_details";
     }

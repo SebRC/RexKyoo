@@ -1,7 +1,6 @@
 package project.rexkyoo.Customer.Model;
 
-import com.oracle.tools.packager.Log;
-import com.sun.media.jfxmedia.logging.Logger;
+
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
@@ -87,7 +86,7 @@ public class CustomerModel
             }
             catch(ParseException parseException)
             {
-                Log.debug(parseException.getLocalizedMessage());
+
 
                 return;
             }
