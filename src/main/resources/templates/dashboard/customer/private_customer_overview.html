@@ -67,9 +67,9 @@
                 <div class="col-md-12">
 
                     <!-- customer cards-->
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
+                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;" th:each="privateCustomer : ${customers}">
                         <div class="card-body">
-                            <h5 class="card-header ">Karen Jensen</h5>
+                            <h5 class="card-header " th:text="${privateCustomer.name}"></h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             <a href="#"><li class="list-group-item">Inspektør: Bo larsen</li></a>
@@ -86,24 +86,7 @@
                         </div>
                     </div>
 
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-header ">Kim Andersen</h5>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Lars Aaberg</li></a>
-                            <li class="list-group-item">Ambassadører: 1</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 400,-</li>
-                            <li class="list-group-item">Omsætning: 1600,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 3700,-</li>
-                            <li class="list-group-item">Forventet betalingsdato: 15/12</li>
-                            <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
 
-                        </ul>
-                        <div class="card-body">
-                            <a th:href="@{private-customersID}" class="btn btn-success">Læs mere</a>
-                        </div>
-                    </div>
 
                 </div>
                 <!-- holder for cards end-->
