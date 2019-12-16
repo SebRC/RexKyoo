@@ -6,6 +6,7 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -28,6 +29,10 @@ public class CustomerModel
     private String phone;
     private String type;
     private String note = "";
+    @Transient
+    private String expected;
+    @Transient
+    private String actual;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<AssignmentModel> assignments;
@@ -61,6 +66,23 @@ public class CustomerModel
         this.cleaningInspector = cleaningInspector;
         this.feedbacks = feedbacks;
         this.customerPaymentDates = customerPaymentDates;
+    }
+
+    public void assignDates()
+    {
+        CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
+
+        for (CustomerPaymentDateModel paymentDates : customerPaymentDates)
+        {
+            if(paymentDates.getId() > relevantPaymentDates.getId())
+            {
+                relevantPaymentDates = paymentDates;
+            }
+        }
+
+        this.expected = relevantPaymentDates.getExpectedPaymentDate();
+
+        this.actual = relevantPaymentDates.getActualPaymentDate();
     }
 
     public int getId()
@@ -186,5 +208,25 @@ public class CustomerModel
     public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDates)
     {
         this.customerPaymentDates = customerPaymentDates;
+    }
+
+    public String getExpected()
+    {
+        return expected;
+    }
+
+    public void setExpected(String expected)
+    {
+        this.expected = expected;
+    }
+
+    public String getActual()
+    {
+        return actual;
+    }
+
+    public void setActual(String actual)
+    {
+        this.actual = actual;
     }
 }

@@ -17,7 +17,14 @@ public class CustomerService
     {
         String type = "private";
 
-        return customerRepository.findAllByTypeEquals(type);
+        List<CustomerModel> privateCustomers = customerRepository.findAllByTypeEquals(type);
+
+        for (CustomerModel privateCustomer : privateCustomers)
+        {
+            privateCustomer.assignDates();
+        }
+
+        return privateCustomers;
     }
 
     public CustomerModel getOne(int id)

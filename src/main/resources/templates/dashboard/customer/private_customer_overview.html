@@ -77,8 +77,8 @@
                             <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
                             <li class="list-group-item">Omsætning: 1300,-</li>
                             <li class="list-group-item color" style="color: limegreen">Profit: 5000,-</li>
-                            <li class="list-group-item">Forventet betalingsdato: 15/12</li>
-                            <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
+                            <li class="list-group-item" th:text="${privateCustomer.expected}"></li>
+                            <li class="list-group-item" th:text="${privateCustomer.actual}"></li>
 
                         </ul>
                         <div class="card-body">
