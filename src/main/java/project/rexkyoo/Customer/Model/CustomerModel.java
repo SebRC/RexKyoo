@@ -69,7 +69,7 @@ public class CustomerModel
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         Date mostRecentDate = new Date(1);
 
@@ -77,8 +77,12 @@ public class CustomerModel
         {
             Date currentEvaluatedDate = simpleDateFormat.parse(paymentDates.getExpectedPaymentDate());
 
-            if(currentEvaluatedDate.compareTo(mostRecentDate) >= 1)
+            boolean isEvaluatedDateMostRecent = currentEvaluatedDate.compareTo(mostRecentDate) > 0;
+
+            if(isEvaluatedDateMostRecent)
             {
+                mostRecentDate = currentEvaluatedDate;
+
                 relevantPaymentDates = paymentDates;
             }
         }
