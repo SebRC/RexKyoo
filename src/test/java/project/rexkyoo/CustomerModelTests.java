@@ -38,12 +38,4 @@ class CustomerModelTests
         // Assert
         assertEquals(expectedPaymentDate, actualExpectedPaymentDate);
     }
-
-    @Test
-    void assignDates_InvalidData_Throws()
-    {
-
-    }
-
-
 }
