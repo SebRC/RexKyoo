@@ -47,6 +47,7 @@ public class CustomerService
         for (CustomerPaymentDateModel customerPaymentDateModel : customerPaymentDateModels)
         {
             customerPaymentDateService.setMonth(customerPaymentDateModel);
+            customerPaymentDateService.setYear(customerPaymentDateModel);
         }
 
         return customerModel;
