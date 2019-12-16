@@ -41,7 +41,6 @@ public class CustomerPaymentDateService
     {
         SimpleDateFormat yearMonthDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-
         Date currentEvaluatedDate;
 
         try
@@ -60,6 +59,14 @@ public class CustomerPaymentDateService
         String formattedMonth = month.toString().substring(0,3);
 
         customerPaymentDateModel.setMonth(formattedMonth);
+    }
 
+    public void setYear(CustomerPaymentDateModel customerPaymentDateModel)
+    {
+        String date = customerPaymentDateModel.getExpectedPaymentDate();
+
+        String year = date.substring(0, 4);
+
+        customerPaymentDateModel.setYear(year);
     }
 }
