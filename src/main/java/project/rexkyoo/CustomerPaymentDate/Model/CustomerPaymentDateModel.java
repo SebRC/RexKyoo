@@ -15,6 +15,7 @@ public class CustomerPaymentDateModel
     private int id;
     private String actualPaymentDate = "Afventer betaling";
     private String expectedPaymentDate;
+    private String month;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -24,10 +25,11 @@ public class CustomerPaymentDateModel
     {
     }
 
-    public CustomerPaymentDateModel(String actualPaymentDate, String expectedPaymentDate, CustomerModel customer)
+    public CustomerPaymentDateModel(String actualPaymentDate, String expectedPaymentDate, String month, CustomerModel customer)
     {
         this.actualPaymentDate = actualPaymentDate;
         this.expectedPaymentDate = expectedPaymentDate;
+        this.month = month;
         this.customer = customer;
     }
 
@@ -54,6 +56,16 @@ public class CustomerPaymentDateModel
     public void setExpectedPaymentDate(String expectedPaymentDate)
     {
         this.expectedPaymentDate = expectedPaymentDate;
+    }
+
+    public String getMonth()
+    {
+        return month;
+    }
+
+    public void setMonth(String month)
+    {
+        this.month = month;
     }
 
     public CustomerModel getCustomer()
