@@ -20,6 +20,10 @@ public class CleaningInspectorModel
     private String phone;
     private String email;
     private String address;
+    private String city;
+    private String zipCode;
+    private Double salary;
+    private String incomeMethod;
     private String note = "";
 
     @OneToOne (cascade = CascadeType.ALL)
@@ -32,13 +36,17 @@ public class CleaningInspectorModel
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, String note, CustomerModel customer, Set<AmbassadorModel> ambassadors)
+    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, Double salary, String incomeMethod, String note, CustomerModel customer, Set<AmbassadorModel> ambassadors)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.salary = salary;
+        this.incomeMethod = incomeMethod;
         this.note = note;
         this.customer = customer;
         this.ambassadors = ambassadors;
@@ -99,6 +107,26 @@ public class CleaningInspectorModel
         this.address = address;
     }
 
+    public String getCity()
+    {
+        return city;
+    }
+
+    public void setCity(String city)
+    {
+        this.city = city;
+    }
+
+    public String getZipCode()
+    {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode)
+    {
+        this.zipCode = zipCode;
+    }
+
     public CustomerModel getCustomer()
     {
         return customer;
@@ -125,5 +153,25 @@ public class CleaningInspectorModel
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public Double getSalary()
+    {
+        return salary;
+    }
+
+    public void setSalary(Double salary)
+    {
+        this.salary = salary;
+    }
+
+    public String getIncomeMethod()
+    {
+        return incomeMethod;
+    }
+
+    public void setIncomeMethod(String incomeMethod)
+    {
+        this.incomeMethod = incomeMethod;
     }
 }
