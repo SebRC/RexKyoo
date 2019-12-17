@@ -1,4 +1,4 @@
-package project.rexkyoo;
+package project.rexkyoo.CustomerServiceTests;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
@@ -10,10 +10,10 @@ import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import java.util.HashSet;
 import java.util.Set;
 
-class CustomerServiceTests
+class AssignDatesTests
 {
     @Test
-    void assignDates_ValidData_Succeeds()
+    void validData_Succeeds()
     {
         // Arrange
         String expectedPaymentDate = "2019-12-9";

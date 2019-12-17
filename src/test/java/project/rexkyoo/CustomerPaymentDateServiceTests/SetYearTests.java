@@ -69,7 +69,7 @@ public class SetYearTests
 
 
     @Test
-    public void setYear_ValidYears_Succeeds()
+    public void validYears_Succeeds()
     {
         // Arrange
         CustomerPaymentDateService customerPaymentDateService = new CustomerPaymentDateService();
