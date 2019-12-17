@@ -1,5 +1,6 @@
 package project.rexkyoo.Customer.Service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Customer.Model.CustomerModel;
@@ -34,6 +35,20 @@ public class CustomerService
         }
 
         return privateCustomers;
+    }
+
+    public List<CustomerModel> getAllBusinessCustomers()
+    {
+        String type = "business";
+
+        List<CustomerModel> businessCustomers = customerRepository.findAllByTypeEquals(type);
+
+        for (CustomerModel businessCustomer : businessCustomers)
+        {
+            businessCustomer.assignDates();
+        }
+
+        return businessCustomers;
     }
 
     public CustomerModel getOne(int id)
@@ -80,6 +95,7 @@ public class CustomerService
             }
             catch(ParseException parseException)
             {
+
                 return;
             }
 
