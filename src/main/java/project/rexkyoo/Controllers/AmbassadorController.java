@@ -3,12 +3,11 @@ package project.rexkyoo.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -18,9 +17,23 @@ public class AmbassadorController
     private AmbassadorService ambassadorService;
 
     @GetMapping("/ambassadors")
-    public String ambassadorOverview()
+    public String ambassadorOverview(Model model)
     {
+        List<AmbassadorModel> ambassadors = ambassadorService.getAll();
+
+        model.addAttribute("ambassadors", ambassadors);
+
         return "dashboard/ambassador/ambassador_overview";
+    }
+
+    @GetMapping("/ambassadors/{id}")
+    public String ambassadorDetails(@PathVariable("id") int id, Model model)
+    {
+        AmbassadorModel ambassador = ambassadorService.getOne(id);
+
+        model.addAttribute("ambassador", ambassador);
+
+        return "dashboard/ambassador/ambassador_details";
     }
 
     @GetMapping("/ambassador")
@@ -40,9 +53,4 @@ public class AmbassadorController
         return "redirect:/admin/home";
     }
 
-    @GetMapping("/ambassadorsID")
-    public String ambassadorDetails()
-    {
-        return "dashboard/ambassador/ambassador_details";
-    }
 }
