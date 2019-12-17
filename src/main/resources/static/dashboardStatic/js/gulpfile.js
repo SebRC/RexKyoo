@@ -14,7 +14,7 @@ const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
 
 // Load package.json for banner
-const pkg = require('../../../templates/dashboard/package.json');
+const pkg = require('../../../templates/dashboard/sb_2_admin_theme/package.json');
 
 // Set the banner content
 const banner = ['/*!\n',
