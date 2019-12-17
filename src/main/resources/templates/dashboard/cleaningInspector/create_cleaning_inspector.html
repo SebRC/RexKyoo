@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Privatkunde Oversigt</title>
+    <title>Opret Inspektør</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -46,56 +46,70 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Inspektøre: 15</h1>
-
-                <div class="row mb-4">
-                    <a href="#" class="mr-2 ml-2 btn btn-success btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-arrow-right"></i>
-                    </span>
-                        <span class="text">Månedlig</span>
-                    </a>
-                    <a href="#" class="btn btn-info btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-arrow-right"></i>
-                    </span>
-                        <span class="text">Årlig</span>
-                    </a>
+                <div class="d-sm-flex align-items-center  justify-content-center mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Opret Inspektør</h1>
                 </div>
 
-                <!-- holder for cards -->
-                <div class="col-md-12">
+                <div class="col-md-6 offset-3">
+                    <form th:action="@{/admin/cleaning-inspector}" method="post">
 
-                    <!-- cleaningInspector cards-->
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;" th:each="cleaningInspector : ${cleaningInspectors}">
-                        <div class="card-body">
-                            <h5 class="card-header " th:text="${cleaningInspector.firstName} + ' ' + ${cleaningInspector.lastName}"></h5>
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Navn*</label>
+                            <input type="text" class="form-control" placeholder="Navn" required th:field="${cleaningInspector.firstName}">
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Team Medlemmer: 5</li>
-                            <li class="list-group-item" th:text="'Indkomst: ' + ${cleaningInspector.incomeMethod}"></li>
-                            <li class="list-group-item" th:text="'Løn: ' + ${cleaningInspector.salary} + ',-'"></li>
-                            <li class="list-group-item" style="color: red">Sygedage: 2</li>
-                            <li class="list-group-item color" >Straffeattest hentet:
-                                <span
-                                        class="fas fa-fw fa-check float-right"
-                                        style="color: limegreen">
-                                </span>
-                            </li>
-                            <li class="list-group-item color" >Børneattest hentet:
-                                <span
-                                        class="fas fa-fw fa-times float-right"
-                                        style="color: red">
-                                </span>
-                            </li>
-                        </ul>
-                        <div class="card-body">
-                            <a th:href="@{cleaning-inspectors/{id}(id=${cleaningInspector.id})}" class="btn btn-success">Læs mere</a>
-                        </div>
-                    </div>
 
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Efternavn*</label>
+                            <input type="text" class="form-control" placeholder="Efternavn" required th:field="${cleaningInspector.lastName}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Telefon*</label>
+                            <input type="text" class="form-control" placeholder="Telefon" required th:field="${cleaningInspector.phone}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>E-Mail*</label>
+                            <input type="email" class="form-control" placeholder="E-Mail" required th:field="${cleaningInspector.email}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Adresse*</label>
+                            <input type="text" class="form-control"  placeholder="Adresse" required th:field="${cleaningInspector.address}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>By*</label>
+                            <input type="text" class="form-control"  placeholder="By" required th:field="${cleaningInspector.city}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Postkode*</label>
+                            <input type="text" class="form-control" placeholder="Postkode" required th:field="${cleaningInspector.zipCode}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Indkomst*</label>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" class="mr-2" th:field="${cleaningInspector.incomeMethod}" value="A">A</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" class="mr-2" th:field="${cleaningInspector.incomeMethod}" value="B">B</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" class="mr-2" th:field="${cleaningInspector.incomeMethod}" value="Faktura">Faktura</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Løn*</label>
+                            <input type="number" class="form-control" placeholder="0,-" required th:field="${cleaningInspector.salary}">
+                        </div>
+
+                        <button type="submit" class="btn btn-success col-md-4 mb-5 offset-4">Opret</button>
+                    </form>
                 </div>
-                <!-- holder for cards end-->
+
 
             </div>
             <!-- /.container-fluid -->
@@ -154,13 +168,6 @@
 
 <!-- Custom scripts for all pages-->
 <script th:src="@{/dashboardStatic/js/sb-admin-2.min.js}"></script>
-
-<!-- Page level plugins -->
-<script th:src="@{/dashboardStatic/vendor/chart.js/Chart.min.js}"></script>
-
-<!-- Page level custom scripts -->
-<script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
-<script th:src="@{/dashboardStatic/js/demo/chart-pie-demo.js}"></script>
 
 
 </body>

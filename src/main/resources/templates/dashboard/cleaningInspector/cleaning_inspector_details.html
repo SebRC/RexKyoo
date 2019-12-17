@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title th:text="${ambassador.firstName + ' ' + ambassador.lastName}"></title>
+    <title>Inspektør detailer</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -46,17 +46,16 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <!--Ambassador Info-->
+                    <!--Cleaning Inspector Info-->
                     <div class="col-7">
 
                         <!-- Page Heading -->
-                        <h1 class="h2 mb-4 text-gray-800">Ambassadør</h1>
-                        <h1 class="h5 mb-4 text-gray-800" th:text="'Navn: ' + ${ambassador.firstName} + ' ' + ${ambassador.lastName}"></h1>
-                        <h1 class="h5 mb-4 text-gray-800" th:text="'Email: ' + ${ambassador.email}"></h1>
-                        <h1 class="h5 mb-4 text-gray-800" th:text="'Telefon: ' + ${ambassador.phone}"></h1>
-                        <h1 class="h5 text-gray-800 mb-4" th:text="'Adresse: ' + ${ambassador.address} + ', ' + ${ambassador.zipCode} + ' ' + ${ambassador.city}"></h1>
-                        <h1 class="h5 text-gray-800 mb-4" th:text="'Indkomst: ' + ${ambassador.incomeMethod}"></h1>
-                        <h1 class="h5 text-gray-800 mb-4" th:text="'Løn: ' + ${ambassador.salary} + ',-'"></h1>
+                        <h1 class="h2 mb-4 text-gray-800"  th:text="${cleaningInspector.firstName} + ' ' + ${cleaningInspector.lastName}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800"th:text="'Email: ' + ${cleaningInspector.email}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Telefon: ' + ${cleaningInspector.phone}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Adresse: ' + ${cleaningInspector.address} + ', ' + ${cleaningInspector.zipCode} + ' ' + ${cleaningInspector.city} "></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Inkomst: ' + ${cleaningInspector.incomeMethod}"></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Løn: ' + ${cleaningInspector.salary} + ',-'"></h1>
                         <h1 class="h5 text-danger mb-4" >Sygedage: 3</h1>
                         <h1 class="h5 text-gray-800 mb-4">Straffeattest hentet:
                             <span
@@ -80,7 +79,8 @@
                                 </a>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse hide" id="collapseCardExample">
-                                    <div class="card-body" th:text="${ambassador.note}">
+                                    <div class="card-body">
+                                        kommentar her!
                                     </div>
                                 </div>
                             </div>
@@ -174,10 +174,10 @@
                     </div>
                     <!--End of Customer Info-->
 
-                    <!--ambassadors and inspector-->
+                    <!--cleaning inspectors and team-->
                     <div class="col-5 border-left-success">
 
-                        <h1 class="h3 mb-4 text-gray-800">Inspektør    </h1>
+                        <h1 class="h3 mb-4 text-gray-800">TEAM</h1>
                         <a href="#">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
@@ -197,7 +197,7 @@
                         </a>
 
                     </div>
-                    <!--end of ambassadors and inspector-->
+                    <!--end of inspector-->
                 </div>
 
 

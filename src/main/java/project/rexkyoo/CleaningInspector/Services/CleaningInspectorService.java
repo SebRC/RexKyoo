@@ -15,12 +15,16 @@ public class CleaningInspectorService
 
     public List<CleaningInspectorModel> getAll()
     {
-        return cleaningInspectorRepository.findAll();
+        List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorRepository.findAll();
+
+        return cleaningInspectors;
     }
 
     public CleaningInspectorModel getOne(int id)
     {
-        return cleaningInspectorRepository.getOne(id);
+        CleaningInspectorModel cleaningInspector = cleaningInspectorRepository.getOne(id);
+
+        return cleaningInspector;
     }
 
     public void save(CleaningInspectorModel cleaningInspectorModel)
