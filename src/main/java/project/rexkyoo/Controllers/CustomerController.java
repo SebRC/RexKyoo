@@ -23,7 +23,7 @@ public class CustomerController
     private CustomerPaymentDateService customerPaymentDateService;
 
     @GetMapping("/business-customers")
-    public String businessCustomerOverview(Model model) throws Exception
+    public String businessCustomerOverview(Model model)
     {
         List<CustomerModel> businessCustomers = customerService.getAllBusinessCustomers();
 
@@ -32,19 +32,40 @@ public class CustomerController
         return "dashboard/customer/business_customer_overview";
     }
 
+    @GetMapping("/private-customers")
+    public String privateCustomerOverview(Model model)
+    {
+        List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
+
+        model.addAttribute("privateCustomers", privateCustomers);
+
+        return "dashboard/customer/private_customer_overview";
+    }
+
     @GetMapping("/business-customers/{id}")
-    public String businessCustomerDetails(@PathVariable("id") int id, Model model) throws Exception
+    public String businessCustomerDetails(@PathVariable("id") int id, Model model)
     {
         CustomerModel businessCustomer = customerService.getOne(id);
 
         Set<CustomerPaymentDateModel> paymentDates = businessCustomer.getCustomerPaymentDates();
 
-        businessCustomer.assignDates();
-
         model.addAttribute("businessCustomer", businessCustomer);
         model.addAttribute("businessCustomerPaymentDates", paymentDates);
 
         return "dashboard/customer/business_customer_details";
+    }
+
+    @GetMapping("/private-customers/{id}")
+    public String privateCustomerDetails(@PathVariable("id") int id, Model model)
+    {
+        CustomerModel privateCustomer = customerService.getOne(id);
+
+        Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
+
+        model.addAttribute("privateCustomer", privateCustomer);
+        model.addAttribute("privateCustomerPaymentDates", paymentDates);
+
+        return "dashboard/customer/private_customer_details";
     }
 
     @GetMapping("/customer")
@@ -67,28 +88,5 @@ public class CustomerController
 
         //  TODO: should later redirect to created customer
         return "redirect:/admin/home";
-    }
-
-    @GetMapping("/private-customers")
-    public String privateCustomerOverview(Model model)
-    {
-        List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
-
-        model.addAttribute("privateCustomers", privateCustomers);
-
-        return "dashboard/customer/private_customer_overview";
-    }
-
-    @GetMapping("/private-customers/{id}")
-    public String privateCustomerDetails(@PathVariable("id") int id, Model model)
-    {
-        CustomerModel privateCustomer = customerService.getOne(id);
-
-        Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
-
-        model.addAttribute("privateCustomer", privateCustomer);
-        model.addAttribute("privateCustomerPaymentDates", paymentDates);
-
-        return "dashboard/customer/private_customer_details";
     }
 }
