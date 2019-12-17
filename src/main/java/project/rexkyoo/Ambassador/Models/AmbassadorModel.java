@@ -24,7 +24,7 @@ public class AmbassadorModel
     private String city;
     private String zipCode;
     private String incomeMethod;
-    private Double salary;
+    private Double salary = 0.0;
     private String note = "";
 
 
