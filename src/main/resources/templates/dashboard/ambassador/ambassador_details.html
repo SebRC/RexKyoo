@@ -51,12 +51,12 @@
 
                         <!-- Page Heading -->
                         <h1 class="h2 mb-4 text-gray-800">Ambassadør</h1>
-                        <h1 class="h5 mb-4 text-gray-800" th:text="${'Navn: ' + ambassador.firstName + ' ' + ambassador.lastName}"></h1>
-                        <h1 class="h5 mb-4 text-gray-800" th:text="${'Email: ' + ambassador.email}"></h1>
-                        <h1 class="h5 mb-4 text-gray-800" th:text="${'Telefon: ' + ambassador.phone}"></h1>
-                        <h1 class="h5 text-gray-800 mb-4" th:text="${'Adresse: ' + ambassador.address + ', ' + ambassador.zipCode + ' ' + ambassador.city}"></h1>
-                        <h1 class="h5 text-gray-800 mb-4" th:text="${'Indkomst: ' + ambassador.incomeMethod}"></h1>
-                        <h1 class="h5 text-gray-800 mb-4" th:text="${'Løn: ' + ambassador.salary + ',-'}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Navn: ' + ${ambassador.firstName} + ' ' + ${ambassador.lastName}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Email: ' + ${ambassador.email}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Telefon: ' + ${ambassador.phone}"></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Adresse: ' + ${ambassador.address} + ', ' + ${ambassador.zipCode} + ' ' + ${ambassador.city}"></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Indkomst: ' + ${ambassador.incomeMethod}"></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Løn: ' + ${ambassador.salary} + ',-'"></h1>
                         <h1 class="h5 text-danger mb-4" >Sygedage: 3</h1>
                         <h1 class="h5 text-gray-800 mb-4">Straffeattest hentet:
                             <span
