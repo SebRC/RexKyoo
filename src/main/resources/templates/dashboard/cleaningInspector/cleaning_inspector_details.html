@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>KUNDE NAVN</title>
+    <title>Inspektør detailer</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -46,27 +46,29 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <!--Customer Info-->
+                    <!--Cleaning Inspector Info-->
                     <div class="col-7">
 
                         <!-- Page Heading -->
-                        <h1 class="h2 mb-4 text-gray-800"  th:text="${privateCustomer.name}"></h1>
-                        <h1 class="h5 mb-4 text-gray-800">Email:
-                            <span th:text="${privateCustomer.email}"></span>
+                        <h1 class="h2 mb-4 text-gray-800"  th:text="${cleaningInspector.firstName} + ' ' + ${cleaningInspector.lastName}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800"th:text="'Email: ' + ${cleaningInspector.email}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Telefon: ' + ${cleaningInspector.phone}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Adresse: ' + ${cleaningInspector.address} + ', ' + ${cleaningInspector.zipCode} + ' ' + ${cleaningInspector.city} "></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Inkomst: ' + ${cleaningInspector.incomeMethod}"></h1>
+                        <h1 class="h5 text-gray-800 mb-4" th:text="'Løn: ' + ${cleaningInspector.salary} + ',-'"></h1>
+                        <h1 class="h5 text-danger mb-4" >Sygedage: 3</h1>
+                        <h1 class="h5 text-gray-800 mb-4">Straffeattest hentet:
+                            <span
+                                    class="fas fa-fw fa-check"
+                                    style="color: limegreen">
+                            </span>
                         </h1>
-                        <h1 class="h5 mb-4 text-gray-800">Telefon:
-                            <span th:text="${privateCustomer.phone}"></span>
+                        <h1 class="h5 text-gray-800 mb-4">Børneattest hentet:
+                            <span
+                                    class="fas fa-fw fa-times"
+                                    style="color: red">
+                            </span>
                         </h1>
-                        <h1 class="h5 mb-4 text-gray-800">Adresse:
-                            <span th:text="${privateCustomer.address} + ', ' + ${privateCustomer.zipCode} + ' ' + ${privateCustomer.city} "></span>
-                        </h1>
-                        <h1 class="h5 mb-4 text-gray-800">Forventet betalingsdato:
-                            <span th:text="${privateCustomer.expectedPaymentDate}"></span>
-                        </h1>
-                        <h1 class="h5 mb-4 text-danger-800">Aktual betalingsdato:
-                            <span th:text="${privateCustomer.actualPaymentDate}"></span>
-                        </h1>
-                        <h1 class="h5 text-success mb-4">Tilfredshed: 97%</h1>
 
                         <div class="col-4">
                             <!-- Collapsable Card Example -->
@@ -77,8 +79,8 @@
                                 </a>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse hide" id="collapseCardExample">
-                                    <div class="card-body" th:text="${privateCustomer.note}">
-
+                                    <div class="card-body">
+                                        kommentar her!
                                     </div>
                                 </div>
                             </div>
@@ -164,37 +166,7 @@
                                     <canvas id="myAreaChart"></canvas>
                                 </div>
                                 <hr>
-                                Økonomi nuværende måned
-                            </div>
-                        </div>
-
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Betalingshistorik</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                            <tr>
-                                                <th>Måned</th>
-                                                <th>Forventet betalingsdato</th>
-                                                <th>Aktuel betalingsdato</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr th:each="paymentDates : ${privateCustomerPaymentDates}">
-                                                <td th:text="${paymentDates.month}"></td>
-                                                <td th:text="${paymentDates.expectedPaymentDate}"></td>
-                                                <td th:text="${paymentDates.actualPaymentDate}"></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <hr>
-                                Historik for nuværende år
+                                en masse data om en masse økonomi ting
                             </div>
                         </div>
 
@@ -202,10 +174,10 @@
                     </div>
                     <!--End of Customer Info-->
 
-                    <!--ambassadors and inspector-->
+                    <!--cleaning inspectors and team-->
                     <div class="col-5 border-left-success">
 
-                        <h1 class="h3 mb-4 text-gray-800">Inspektør    </h1>
+                        <h1 class="h3 mb-4 text-gray-800">TEAM</h1>
                         <a href="#">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">
@@ -224,29 +196,8 @@
                             </div>
                         </a>
 
-                        <h1 class="h3 mb-4 text-gray-800">Ambassadører    </h1>
-
-                        <a href="#">
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <img th:src="@{/Images/anbefalinger/Gunvor2.jpg}" class="card-img" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Marie Jensen</h5>
-                                            <p class="card-text">Timeløn: 120 kr,-</p>
-                                            <p class="card-text">Indkomst: A</p>
-                                            <p class="card-text">Man -<span class="text-success">Tir -</span> Ons -<span class="text-success">Tor -</span> Fre - Lør - Søn</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-
                     </div>
-                    <!--end of ambassadors and inspector-->
+                    <!--end of inspector-->
                 </div>
 
 
