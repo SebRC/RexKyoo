@@ -1,6 +1,10 @@
 package project.rexkyoo.Customer.Model;
 
+<<<<<<< HEAD
 
+=======
+import com.oracle.tools.packager.Log;
+>>>>>>> feature/54-Retrieve_private_customers
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
@@ -10,7 +14,6 @@ import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.logging.Level;
 
 
 @Entity
@@ -68,6 +71,7 @@ public class CustomerModel
         this.customerPaymentDates = customerPaymentDates;
     }
 
+<<<<<<< HEAD
     public void assignDates()
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
@@ -107,6 +111,8 @@ public class CustomerModel
         this.actualPaymentDate = relevantPaymentDates.getActualPaymentDate();
     }
 
+=======
+>>>>>>> feature/54-Retrieve_private_customers
     public int getId()
     {
         return id;

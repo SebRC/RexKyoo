@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
 import project.rexkyoo.Customer.Model.CustomerModel;
+import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 
 import java.util.HashSet;
 import java.util.Set;
 
-class CustomerModelTests
+class CustomerServiceTests
 {
     @Test
     void assignDates_ValidData_Succeeds()
@@ -17,6 +18,7 @@ class CustomerModelTests
         // Arrange
         String expectedPaymentDate = "2019-12-9";
         String actualExpectedPaymentDate;
+        CustomerService customerService = new CustomerService();
 
         CustomerModel customerModel = new CustomerModel();
         Set<CustomerPaymentDateModel> customerPaymentDates = new HashSet<>();
@@ -32,7 +34,7 @@ class CustomerModelTests
         }
 
         // Act
-        customerModel.assignDates();
+        customerService.assignDates(customerModel);
         actualExpectedPaymentDate = customerModel.getExpectedPaymentDate();
 
         // Assert
