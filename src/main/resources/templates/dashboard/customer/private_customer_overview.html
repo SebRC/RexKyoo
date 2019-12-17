@@ -112,7 +112,9 @@
                                                         Vil du virkelig slette denne kunde?
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <a class="btn btn-primary" th:href="@{/admin/customer/{id}(id=${privateCustomer.id})}">Ja</a>
+                                                        <form th:action="@{customer/{id}(id=${privateCustomer.id})}" method="post">
+                                                            <button type="submit" class="btn btn-danger btn-lg glyphicon glyphicon-trash"> Ja</button>
+                                                        </form>
 
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Nej</button>
                                                     </div>
