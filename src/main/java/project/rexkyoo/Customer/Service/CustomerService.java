@@ -1,6 +1,5 @@
 package project.rexkyoo.Customer.Service;
 
-import com.oracle.tools.packager.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Customer.Model.CustomerModel;
@@ -81,8 +80,6 @@ public class CustomerService
             }
             catch(ParseException parseException)
             {
-                Log.debug(parseException.getLocalizedMessage());
-
                 return;
             }
 
