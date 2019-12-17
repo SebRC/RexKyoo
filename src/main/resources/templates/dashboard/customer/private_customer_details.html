@@ -58,7 +58,7 @@
                             <span th:text="${privateCustomer.phone}"></span>
                         </h1>
                         <h1 class="h5 mb-4 text-gray-800">Adresse:
-                            <span th:text="${privateCustomer.address}"></span>
+                            <span th:text="${privateCustomer.address} + ', ' + ${privateCustomer.zipCode} + ' ' + ${privateCustomer.city} "></span>
                         </h1>
                         <h1 class="h5 mb-4 text-gray-800">Forventet betalingsdato:
                             <span th:text="${privateCustomer.expectedPaymentDate}"></span>
