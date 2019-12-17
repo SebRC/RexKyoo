@@ -185,7 +185,7 @@
                                             </thead>
                                             <tbody>
                                             <tr th:each="paymentDates : ${businessCustomerPaymentDates}">
-                                                <td>December</td>
+                                                <td th:text="${paymentDates.month}"></td>
                                                 <td th:text="${paymentDates.expectedPaymentDate}"></td>
                                                 <td th:text="${paymentDates.actualPaymentDate}"></td>
                                             </tr>
