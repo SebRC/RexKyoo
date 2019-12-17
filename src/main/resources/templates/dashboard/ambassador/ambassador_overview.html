@@ -92,8 +92,8 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <a href="#"><li class="list-group-item">Ambassador</li></a>
-                            <li class="list-group-item">Indkomst: <span th:text="${ambassador.incomeMethod}"></span></li>
-                            <li class="list-group-item">Løn: <span th:text="${ambassador.salary}"></span>,-</li>
+                            <li class="list-group-item" th:text="${'Indkomst: ' + ambassador.incomeMethod}"></li>
+                            <li class="list-group-item" th:text="${'Løn: ' + ambassador.salary + ',-'}"></li>
                             <li class="list-group-item" style="color: red">Sygedage: 2</li>
                             <li class="list-group-item color" >Straffeattest hentet:
                                 <span
