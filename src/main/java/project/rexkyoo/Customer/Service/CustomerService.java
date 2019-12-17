@@ -37,7 +37,7 @@ public class CustomerService
         return privateCustomers;
     }
 
-    public List<CustomerModel> getAllBusinessCustomers() throws Exception
+    public List<CustomerModel> getAllBusinessCustomers()
     {
         String type = "business";
 
