@@ -73,12 +73,8 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Team Medlemmer: 5</li>
-                            <li class="list-group-item">Indkomst:
-                                <span th:text="${cleaningInspector.incomeMethod}"></span>
-                            </li>
-                            <li class="list-group-item">Løn:
-                                <span th:text="${cleaningInspector.salary}"></span>
-                            </li>
+                            <li class="list-group-item" th:text="'Indkomst: ' + ${cleaningInspector.incomeMethod}"></li>
+                            <li class="list-group-item" th:text="'Løn: ' + ${cleaningInspector.salary}"></li>
                             <li class="list-group-item" style="color: red">Sygedage: 2</li>
                             <li class="list-group-item color" >Straffeattest hentet:
                                 <span
