@@ -88,7 +88,25 @@
 
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{private-customers/{id}(id=${privateCustomer.id})}" class="btn btn-success">Læs mere</a>
+                            <div class="row">
+                                <div class="col-4">
+                                    <a th:href="@{private-customers/{id}(id=${privateCustomer.id})}" class="btn btn-success">
+                                        <i class="fas fa-fw fa-user"></i>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+
+                                    <a href="#" class="btn btn-warning">
+                                        <i class="fas fa-fw fa-pen"></i>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a href="#" class="btn btn-danger">
+                                        <i class="fas fa-fw fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
