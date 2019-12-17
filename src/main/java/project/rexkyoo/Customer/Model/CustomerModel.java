@@ -1,15 +1,15 @@
 package project.rexkyoo.Customer.Model;
 
+import com.oracle.tools.packager.Log;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 @Entity
@@ -28,6 +28,10 @@ public class CustomerModel
     private String phone;
     private String type;
     private String note = "";
+    @Transient
+    private String expectedPaymentDate;
+    @Transient
+    private String actualPaymentDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<AssignmentModel> assignments;
@@ -186,5 +190,25 @@ public class CustomerModel
     public void setCustomerPaymentDateModels(Set<CustomerPaymentDateModel> customerPaymentDates)
     {
         this.customerPaymentDates = customerPaymentDates;
+    }
+
+    public String getExpectedPaymentDate()
+    {
+        return expectedPaymentDate;
+    }
+
+    public void setExpectedPaymentDate(String expectedPaymentDate)
+    {
+        this.expectedPaymentDate = expectedPaymentDate;
+    }
+
+    public String getActualPaymentDate()
+    {
+        return actualPaymentDate;
+    }
+
+    public void setActualPaymentDate(String actualPaymentDate)
+    {
+        this.actualPaymentDate = actualPaymentDate;
     }
 }

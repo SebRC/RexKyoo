@@ -4,8 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Repository.CustomerRepository;
+import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
+import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CustomerService
@@ -13,14 +19,37 @@ public class CustomerService
     @Autowired
     private CustomerRepository customerRepository;
 
-    public List<CustomerModel> getAll()
+    @Autowired
+    private CustomerPaymentDateService customerPaymentDateService;
+
+    public List<CustomerModel> getAllPrivateCustomers()
     {
-        return customerRepository.findAll();
+        String type = "private";
+
+        List<CustomerModel> privateCustomers = customerRepository.findAllByTypeEquals(type);
+
+        for (CustomerModel privateCustomer : privateCustomers)
+        {
+            assignDates(privateCustomer);
+        }
+
+        return privateCustomers;
     }
 
     public CustomerModel getOne(int id)
     {
-        return customerRepository.getOne(id);
+        CustomerModel customerModel = customerRepository.getOne(id);
+
+        Set<CustomerPaymentDateModel> customerPaymentDateModels = customerModel.getCustomerPaymentDates();
+
+        assignDates(customerModel);
+        for (CustomerPaymentDateModel customerPaymentDateModel : customerPaymentDateModels)
+        {
+            customerPaymentDateService.setMonth(customerPaymentDateModel);
+            customerPaymentDateService.setYear(customerPaymentDateModel);
+        }
+
+        return customerModel;
     }
 
     public void save(CustomerModel customerModel)
@@ -31,5 +60,42 @@ public class CustomerService
     public void delete(int id)
     {
         customerRepository.deleteById(id);
+    }
+
+    public void assignDates(CustomerModel customerModel)
+    {
+        CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date mostRecentDate = new Date(1);
+
+        for (CustomerPaymentDateModel paymentDates : customerModel.getCustomerPaymentDates())
+        {
+            Date currentEvaluatedDate;
+
+            try
+            {
+                currentEvaluatedDate = simpleDateFormat.parse(paymentDates.getExpectedPaymentDate());
+            }
+            catch(ParseException parseException)
+            {
+                return;
+            }
+
+
+            boolean isEvaluatedDateMostRecent = currentEvaluatedDate.compareTo(mostRecentDate) > 0;
+
+            if(isEvaluatedDateMostRecent)
+            {
+                mostRecentDate = currentEvaluatedDate;
+
+                relevantPaymentDates = paymentDates;
+            }
+        }
+
+        customerModel.setExpectedPaymentDate(relevantPaymentDates.getExpectedPaymentDate());
+
+        customerModel.setActualPaymentDate(relevantPaymentDates.getActualPaymentDate());
     }
 }

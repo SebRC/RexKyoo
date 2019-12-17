@@ -67,9 +67,9 @@
                 <div class="col-md-12">
 
                     <!-- customer cards-->
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
+                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;" th:each="privateCustomer : ${privateCustomers}">
                         <div class="card-body">
-                            <h5 class="card-header ">Karen Jensen</h5>
+                            <h5 class="card-header " th:text="${privateCustomer.name}"></h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             <a href="#"><li class="list-group-item">Inspektør: Bo larsen</li></a>
@@ -77,37 +77,25 @@
                             <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
                             <li class="list-group-item">Omsætning: 1300,-</li>
                             <li class="list-group-item color" style="color: limegreen">Profit: 5000,-</li>
-                            <li class="list-group-item">Forventet betalingsdato: 15/12</li>
-                            <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
+                            <li class="list-group-item">
+                                Forventet betalingsdato:
+                                <span th:text="${privateCustomer.expectedPaymentDate}"></span>
+                            </li>
+                            <li class="list-group-item">
+                                Aktual betalingsdato:
+                                <span th:text="${privateCustomer.actualPaymentDate}">
+
+                                </span>
+                            </li>
 
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{private-customersID}" class="btn btn-success">Læs mere</a>
-                        </div>
-                    </div>
-
-                    <div class="card border-bottom-success float-left mb-3 ml-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-header ">Kim Andersen</h5>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Lars Aaberg</li></a>
-                            <li class="list-group-item">Ambassadører: 1</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 400,-</li>
-                            <li class="list-group-item">Omsætning: 1600,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 3700,-</li>
-                            <li class="list-group-item">Forventet betalingsdato: 15/12</li>
-                            <li class="list-group-item">Aktuelle betalingsdato: 15/12</li>
-
-                        </ul>
-                        <div class="card-body">
-                            <a th:href="@{private-customersID}" class="btn btn-success">Læs mere</a>
+                            <a th:href="@{private-customers/{id}(id=${privateCustomer.id})}" class="btn btn-success">Læs mere</a>
                         </div>
                     </div>
 
                 </div>
                 <!-- holder for cards end-->
-
 
             </div>
             <!-- /.container-fluid -->
@@ -151,7 +139,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="../login.html">Logout</a>
+                <a class="btn btn-primary" href="../sb_2_admin_theme/login.html">Logout</a>
             </div>
         </div>
     </div>
