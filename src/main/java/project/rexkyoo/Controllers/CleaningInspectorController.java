@@ -58,7 +58,7 @@ public class CleaningInspectorController
     public String deleteCleaningInspector(@PathVariable("id") int id)
     {
         cleaningInspectorService.delete(id);
-        
+
         return "redirect:/admin/home";
     }
 
