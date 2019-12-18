@@ -205,7 +205,7 @@
         var modal = $(this)
         modal.find('.modal-body p').text('Er du sikker på at du vil slette ' + customerName + '?')
 
-        modal.find('#deleteButton').onclick = deleteCustomer()
+        document.getElementById("deleteButton").onclick = deleteCustomer
 
         function deleteCustomer() {
             var post = new XMLHttpRequest();
@@ -216,7 +216,6 @@
         }
     })
 </script>
-
 
 </body>
 
