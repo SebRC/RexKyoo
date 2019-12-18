@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Økonomi</title>
+    <title>Økonomi</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -153,10 +153,10 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="ambassadors: ${ambassadors} ">
-                                            <td th:text="${ambassadors.firstName} + ' ' + ${ambassadors.lastName} "></td>
-                                            <td th:text="${ambassadors.incomeMethod}"></td>
-                                            <td th:text="${ambassadors.salary}"></td>
+                                        <tr th:each="ambassador: ${ambassadors} ">
+                                            <td th:text="${ambassador.firstName} + ' ' + ${ambassador.lastName} "></td>
+                                            <td th:text="${ambassador.incomeMethod}"></td>
+                                            <td th:text="${ambassador.salary}"></td>
                                             <td th:text="'Mangler data'"></td>
                                             <td th:text="'Mangler data'"></td>
                                         </tr>
@@ -196,7 +196,7 @@
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Oversigt over  Inspektøre</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Oversigt over Inspektøre</h6>
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div id="dataTable_filter2" class="dataTables_filter">
@@ -216,10 +216,10 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="cleaningInspectors: ${cleaningInspectors} ">
-                                            <td th:text="${cleaningInspectors.firstName} + ' ' + ${cleaningInspectors.lastName}"></td>
-                                            <td th:text="${cleaningInspectors.incomeMethod}"></td>
-                                            <td th:text="${cleaningInspectors.salary}"></td>
+                                        <tr th:each="cleaningInspector: ${cleaningInspectors} ">
+                                            <td th:text="${cleaningInspector.firstName} + ' ' + ${cleaningInspector.lastName}"></td>
+                                            <td th:text="${cleaningInspector.incomeMethod}"></td>
+                                            <td th:text="${cleaningInspector.salary}"></td>
                                             <td th:text="'Mangler data'"></td>
                                             <td th:text="'Mangler data'"></td>
                                         </tr>
@@ -279,9 +279,17 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="customers: ${customers} ">
-                                            <td th:text="${customers.name}"></td>
-                                            <td th:text="${customers.type}"></td>
+                                        <tr th:each="customer: ${customers} ">
+                                            <td th:text="${customer.name}"></td>
+                                            <div th:if="${customer.type == 'private'}">
+                                                <td th:text="'Privat'"></td>
+                                            </div>
+                                            <div th:if="${customer.type == 'business'}">
+                                                <td th:text="'Erhverv'"></td>
+                                            </div>
+                                            <div th:if="${customer.type == null}">
+                                                <td th:text="'Ingen type givet'"></td>
+                                            </div>
                                             <td th:text="'Mangler data'"></td>
                                             <td th:text="'Mangler data'"></td>
                                             <td th:text="'Mangler data'"></td>
@@ -334,7 +342,7 @@
                                     <canvas id="myPieChart"></canvas>
                                 </div>
                                 <hr>
-                                Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+                                //Når vi selv skal fylde data gør det her// <code>/js/demo/chart-pie-demo.js</code> file.
                             </div>
                         </div>
 
@@ -347,7 +355,7 @@
                                     <canvas id="myAreaChart"></canvas>
                                 </div>
                                 <hr>
-                                Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                                //Når vi selv skal fylde data gør det her// <code>/js/demo/chart-area-demo.js</code> file.
                             </div>
                         </div>
                     </div>
