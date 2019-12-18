@@ -1,11 +1,14 @@
 package project.rexkyoo.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
+import project.rexkyoo.User.Repositories.UserRepository;
+import project.rexkyoo.User.Services.UserService;
 
 import java.util.List;
 
@@ -53,4 +56,13 @@ public class AmbassadorController
         return "redirect:/admin/home";
     }
 
+
+    @PostMapping("/edit/{id}")
+    public String editAmbassador(@ModelAttribute AmbassadorModel ambassador, @PathVariable("id") int id)
+    {
+        ambassador.setId(id);
+        ambassadorService.save(ambassador);
+
+        return "redirect:/admin/home";
+    }
 }
