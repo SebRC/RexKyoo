@@ -65,7 +65,7 @@
 
                         <div class="form-group col-md-6 offset-3">
                             <label>Telefon*</label>
-                            <input type="text" class="form-control" placeholder="Telefon" required th:field="${ambassador.phone}">
+                            <input type="tel" class="form-control" placeholder="Telefon" required th:field="${ambassador.phone}">
                         </div>
 
                         <div class="form-group col-md-6 offset-3">
@@ -103,7 +103,7 @@
 
                         <div class="form-group col-md-6 offset-3">
                             <label>Løn*</label>
-                            <input type="number" class="form-control" placeholder="0,-" required th:field="${ambassador.salary}">
+                            <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${ambassador.salary}">
                         </div>
 
                         <button type="submit" class="btn btn-success col-md-4 mb-5 offset-4">Opret</button>

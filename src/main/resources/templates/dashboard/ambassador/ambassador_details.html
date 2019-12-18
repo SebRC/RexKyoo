@@ -52,9 +52,14 @@
                         <!-- Page Heading -->
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#exampleModal">
-                            Redigér
+                        <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteCustomerModal">
+                            <i class="fas fa-fw fa-trash"></i>
                         </button>
+
+                        <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-fw fa-pen"></i>
+                        </button>
+
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,7 +90,7 @@
                                             <div class="form-row">
                                                 <div class="col-6 mb-3">
                                                     <label>Telefon</label>
-                                                    <input type="text" class="form-control" th:field="${ambassador.phone}">
+                                                    <input type="tel" class="form-control" th:field="${ambassador.phone}">
                                                 </div>
                                                 <div class="col-6">
                                                     <label>Email</label>
@@ -129,21 +134,6 @@
                                             <button class="btn btn-success" type="submit">Gem</button>
                                         </form>
 
-                                        <!--
-                                        <form th:action="@{/admin/edit}" method="post">
-                                            <input type="hidden" th:field="${ambassador.id}">
-                                            <label>Navn</label>
-                                            <input  class="mb-1 text-gray-800" th:field="${ambassador.firstName}">
-                                            <input  class="mb-1 text-gray-800" th:field="${ambassador.lastName}">
-                                            <label>Email</label>
-                                            <input type="email" class="h5 mb-1 text-gray-800" th:field="${ambassador.email}">
-                                            <input  th:field="${ambassador.phone}">
-                                            <input  th:field="${ambassador.incomeMethod}">
-                                            <input  th:field="${ambassador.salary}">
-
-                                            <button type="submit" class="btn btn-success col-md-4 mb-5 offset-4">Gem</button>
-                                        </form>
-                                        -->
                                     </div>
                                 </div>
                             </div>
