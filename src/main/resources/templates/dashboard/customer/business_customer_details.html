@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>KUNDE NAVN</title>
+    <title th:text="${businessCustomer.name}"></title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -48,24 +48,43 @@
                 <div class="row">
                     <!--Customer Info-->
                     <div class="col-7">
+                        <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteCustomerModal">
+                            <i class="fas fa-fw fa-trash"></i>
+                        </button>
+
+                        <!-- modal -->
+                        <div class="modal fade" id="deleteCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Advarsel</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p th:text="'Er du sikker på at du vil slette ' + ${businessCustomer.name + '?'}"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form th:action="@{/admin/customer/{id}(id=${businessCustomer.id})}" method="post">
+                                            <button type="submit" id="deleteButton" class="btn btn-danger btn-lg">Ja</button>
+                                        </form>
+
+                                        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Nej</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!---modal end-->
 
                         <!-- Page Heading -->
                         <h1 class="h2 mb-4 text-gray-800"  th:text="${businessCustomer.name}"></h1>
-                        <h1 class="h5 mb-4 text-gray-800">Email:
-                            <span th:text="${businessCustomer.email}"></span>
-                        </h1>
-                        <h1 class="h5 mb-4 text-gray-800">Telefon:
-                            <span th:text="${businessCustomer.phone}"></span>
-                        </h1>
-                        <h1 class="h5 mb-4 text-gray-800">Adresse:
-                            <span th:text="${businessCustomer.address} + ', ' + ${businessCustomer.zipCode} + ' ' + ${businessCustomer.city} "></span>
-                        </h1>
-                        <h1 class="h5 mb-4 text-gray-800">Forventet betalingsdato:
-                            <span th:text="${businessCustomer.expectedPaymentDate}"></span>
-                        </h1>
-                        <h1 class="h5 mb-4 text-danger-800">Aktual betalingsdato:
-                            <span th:text="${businessCustomer.actualPaymentDate}"></span>
-                        </h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Email: ' + ${businessCustomer.email}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Telefon: ' + ${businessCustomer.phone}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Adresse: ' + ${businessCustomer.address} + ', ' + ${businessCustomer.zipCode} + ' ' + ${businessCustomer.city}"></h1>
+                        <h1 class="h5 mb-4 text-gray-800" th:text="'Forventet betalingsdato: ' + ${businessCustomer.expectedPaymentDate}"></h1>
+                        <h1 class="h5 mb-4 text-danger-800" th:text="'Aktual betalingsdato: ' + ${businessCustomer.actualPaymentDate}"></h1>
                         <h1 class="h5 text-success mb-4">Tilfredshed: 97%</h1>
 
                         <div class="col-4">
