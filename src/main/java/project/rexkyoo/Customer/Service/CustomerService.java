@@ -87,24 +87,11 @@ public class CustomerService
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
         Date mostRecentDate = new Date(1);
 
         for (CustomerPaymentDateModel paymentDates : customerModel.getCustomerPaymentDates())
         {
-            Date currentEvaluatedDate;
-
-            try
-            {
-                currentEvaluatedDate = simpleDateFormat.parse(paymentDates.getExpectedPaymentDate());
-            }
-            catch(ParseException parseException)
-            {
-
-                return;
-            }
-
+            Date currentEvaluatedDate = convertDate(paymentDates.getExpectedPaymentDate());
 
             boolean isEvaluatedDateMostRecent = currentEvaluatedDate.compareTo(mostRecentDate) > 0;
 
@@ -119,5 +106,20 @@ public class CustomerService
         customerModel.setExpectedPaymentDate(relevantPaymentDates.getExpectedPaymentDate());
 
         customerModel.setActualPaymentDate(relevantPaymentDates.getActualPaymentDate());
+    }
+
+    private Date convertDate(String expectedDate)
+    {
+        SimpleDateFormat yearMonthDate = new SimpleDateFormat("yyyy-MM-dd");
+
+        try
+        {
+            return yearMonthDate.parse(expectedDate);
+        }
+        catch(ParseException parseException)
+        {
+
+            return null;
+        }
     }
 }

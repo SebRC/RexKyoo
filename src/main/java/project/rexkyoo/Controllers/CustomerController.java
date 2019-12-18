@@ -89,4 +89,12 @@ public class CustomerController
         //  TODO: should later redirect to created customer
         return "redirect:/admin/home";
     }
+
+    @PostMapping("/customer/{id}")
+    public String deleteCustomer(@PathVariable("id") int id)
+    {
+        customerService.delete(id);
+
+        return "redirect:/admin/home";
+    }
 }
