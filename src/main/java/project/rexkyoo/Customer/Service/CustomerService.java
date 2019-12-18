@@ -50,6 +50,13 @@ public class CustomerService
         return businessCustomers;
     }
 
+    public List<CustomerModel> getAll()
+    {
+        List<CustomerModel> Customers = customerRepository.findAll();
+
+        return Customers;
+    }
+
     public CustomerModel getOne(int id)
     {
         CustomerModel customerModel = customerRepository.getOne(id);
