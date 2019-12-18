@@ -50,6 +50,20 @@
                     <div class="col-7">
 
                         <!-- Page Heading -->
+
+                        <form th:action="@{/admin/edit}" method="post">
+                            <h1 class="h2 mb-4 text-gray-800">Ambassadør</h1>
+                            <input type="hidden" th:field="${ambassador.id}">
+                            <input  class="h5 mb-4 text-gray-800" th:field="${ambassador.firstName}">
+                            <input  class="h5 mb-4 text-gray-800" th:field="${ambassador.lastName}">
+                            <input type="email" class="h5 mb-4 text-gray-800" th:field="${ambassador.email}">
+                            <input  th:field="${ambassador.phone}">
+                            <input  th:field="${ambassador.incomeMethod}">
+                            <input  th:field="${ambassador.salary}">
+
+                            <button type="submit" class="btn btn-success col-md-4 mb-5 offset-4">Gem</button>
+                        </form>
+
                         <h1 class="h2 mb-4 text-gray-800">Ambassadør</h1>
                         <h1 class="h5 mb-4 text-gray-800" th:text="'Navn: ' + ${ambassador.firstName} + ' ' + ${ambassador.lastName}"></h1>
                         <h1 class="h5 mb-4 text-gray-800" th:text="'Email: ' + ${ambassador.email}"></h1>
