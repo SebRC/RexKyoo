@@ -54,5 +54,13 @@ public class CleaningInspectorController
         return "redirect:/admin/home";
     }
 
+    @PostMapping("/cleaning-inspector/{id}")
+    public String deleteCleaningInspector(@PathVariable("id") int id)
+    {
+        cleaningInspectorService.delete(id);
+        
+        return "redirect:/admin/home";
+    }
+
 }
 
