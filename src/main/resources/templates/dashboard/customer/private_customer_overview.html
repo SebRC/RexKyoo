@@ -209,8 +209,10 @@
 
         function deleteCustomer() {
             var post = new XMLHttpRequest();
-            post.open("POST", "/admin/customer/" + customerId, true);
+            post.open("POST", "/admin/customer/" + customerId, false);
             post.send();
+
+            window.location.reload();
         }
     })
 </script>
