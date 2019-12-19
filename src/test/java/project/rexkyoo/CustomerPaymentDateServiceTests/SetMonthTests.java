@@ -1,6 +1,8 @@
 package project.rexkyoo.CustomerPaymentDateServiceTests;
 
+import org.junit.Assume;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import static org.junit.Assert.*;
@@ -12,11 +14,18 @@ import java.util.Arrays;
 @RunWith(Parameterized.class)
 public class SetMonthTests
 {
+    enum TestType
+    {
+        SUCCESSFUL,
+        FAILING
+    }
+    private TestType testType;
     CustomerPaymentDateModel customerPaymentDateModel;
     String month;
 
-    public SetMonthTests(CustomerPaymentDateModel customerPaymentDateModel, String month)
+    public SetMonthTests(TestType testType, CustomerPaymentDateModel customerPaymentDateModel, String month)
     {
+        this.testType = testType;
         this.customerPaymentDateModel = customerPaymentDateModel;
         this.month = month;
     }
@@ -25,51 +34,51 @@ public class SetMonthTests
     public static Iterable<Object[]> paymentDatesData() {
         return Arrays.asList(new Object[][]
                 {
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-01-12", new CustomerModel()),
                             "JAN"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-02-12", new CustomerModel()),
                             "FEB"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-03-12", new CustomerModel()),
                             "MAR"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-04-12", new CustomerModel()),
                             "APR"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-05-12", new CustomerModel()),
                             "MAY"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-06-12", new CustomerModel()),
                             "JUN"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-07-12", new CustomerModel()),
                             "JUL"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-08-12", new CustomerModel()),
                             "AUG"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-09-12", new CustomerModel()),
                             "SEP"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-10-12", new CustomerModel()),
                             "OCT"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-11-12", new CustomerModel()),
                             "NOV"},
-                    {new CustomerPaymentDateModel
+                    {TestType.SUCCESSFUL, new CustomerPaymentDateModel
                             ("Afventer betaling", "2019-12-12", new CustomerModel()),
                             "DEC"}
                 }
         );
     }
 
-
     @Test
     public void validCalendarYear_Succeeds()
     {
         // Arrange
+        Assume.assumeTrue(testType == TestType.SUCCESSFUL);
         CustomerPaymentDateService customerPaymentDateService = new CustomerPaymentDateService();
 
         // Act
