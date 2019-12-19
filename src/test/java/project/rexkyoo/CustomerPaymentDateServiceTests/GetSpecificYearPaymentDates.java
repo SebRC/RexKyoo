@@ -71,7 +71,7 @@ public class GetSpecificYearPaymentDates
             Set<CustomerPaymentDateModel> specificYearPaymentDates;
 
             // Act
-            specificYearPaymentDates = customerPaymentDateService.getSpecificYearPaymentDates(customerPaymentDates, expectedResult);
+            specificYearPaymentDates = customerPaymentDateService.getSelectedYearPaymentDates(customerPaymentDates, expectedResult);
 
             for (CustomerPaymentDateModel paymentDate : customerPaymentDates)
             {
@@ -123,7 +123,7 @@ public class GetSpecificYearPaymentDates
             Set<CustomerPaymentDateModel> specificYearPaymentDates;
 
             // Act
-            specificYearPaymentDates = customerPaymentDateService.getSpecificYearPaymentDates(customerPaymentDates, expectedResult);
+            specificYearPaymentDates = customerPaymentDateService.getSelectedYearPaymentDates(customerPaymentDates, expectedResult);
 
             for (CustomerPaymentDateModel paymentDate : customerPaymentDates)
             {

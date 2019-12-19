@@ -48,8 +48,7 @@ public class CustomerPaymentDateService
         try
         {
             currentEvaluatedDate = yearMonthDateFormat.parse(customerPaymentDateModel.getExpectedPaymentDate());
-        }
-        catch(ParseException parseException)
+        } catch (ParseException parseException)
         {
             customerPaymentDateModel.setMonth("NOT FOUND");
             return;
@@ -66,16 +65,23 @@ public class CustomerPaymentDateService
 
     private String extractMonth(Month month)
     {
-        String formattedMonth = month.toString().substring(0,3);
+        String formattedMonth = month.toString().substring(0, 3);
 
         return formattedMonth;
     }
 
-    public Set<CustomerPaymentDateModel> getSpecificYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
+    public Set<CustomerPaymentDateModel> getSelectedYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
+    {
+        Set<CustomerPaymentDateModel> selectedYearPaymentDates = extractSelectedYearPaymentDates(customerPaymentDates, selectedYear);
+
+        return selectedYearPaymentDates;
+    }
+
+    private Set<CustomerPaymentDateModel> extractSelectedYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
     {
         Set<CustomerPaymentDateModel> selectedYearPaymentDates = new HashSet<>();
 
-        for (CustomerPaymentDateModel customerPaymentDate: customerPaymentDates)
+        for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)
         {
             String expectedPaymentDate = customerPaymentDate.getExpectedPaymentDate();
 
@@ -83,7 +89,7 @@ public class CustomerPaymentDateService
 
             boolean isPaymentDateSelectedYear = selectedYear.equals(paymentDateYear);
 
-            if(isPaymentDateSelectedYear)
+            if (isPaymentDateSelectedYear)
             {
                 selectedYearPaymentDates.add(customerPaymentDate);
             }
