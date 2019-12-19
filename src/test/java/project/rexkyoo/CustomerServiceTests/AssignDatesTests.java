@@ -1,43 +1,77 @@
 package project.rexkyoo.CustomerServiceTests;
 
-import org.junit.jupiter.api.Test;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-class AssignDatesTests
+@RunWith(Enclosed.class)
+public class AssignDatesTests
 {
-    @Test
-    void validData_Succeeds()
+
+    @RunWith(Parameterized.class)
+    public static class ValidDatesSucceeds
     {
-        // Arrange
-        String expectedPaymentDate = "2019-12-9";
-        String actualExpectedPaymentDate;
-        CustomerService customerService = new CustomerService();
+        private CustomerModel customer;
+        private String expectedResult;
 
-        CustomerModel customerModel = new CustomerModel();
-        Set<CustomerPaymentDateModel> customerPaymentDates = new HashSet<>();
-
-        customerModel.setCustomerPaymentDateModels(customerPaymentDates);
-
-        for (int i = 1; i < 10; i++)
+        public ValidDatesSucceeds(CustomerModel customer, String expectedResult)
         {
-            CustomerPaymentDateModel customerPaymentDateModel =
-                    new CustomerPaymentDateModel("Afventer betaling", "2019-12-" + i, customerModel);
-
-            customerModel.getCustomerPaymentDates().add(customerPaymentDateModel);
+            this.customer = customer;
+            this.expectedResult = expectedResult;
         }
 
-        // Act
-        customerService.assignDates(customerModel);
-        actualExpectedPaymentDate = customerModel.getExpectedPaymentDate();
+        public static CustomerModel getCustomerWithValidDates()
+        {
+            CustomerModel customer = new CustomerModel();
+            Set<CustomerPaymentDateModel> customerPaymentDates = new HashSet<>();
 
-        // Assert
-        assertEquals(expectedPaymentDate, actualExpectedPaymentDate);
+            customer.setCustomerPaymentDateModels(customerPaymentDates);
+
+            for (int i = 1; i < 10; i++)
+            {
+                CustomerPaymentDateModel customerPaymentDateModel =
+                        new CustomerPaymentDateModel("Afventer betaling", "2019-12-0" + i, customer);
+
+                customer.getCustomerPaymentDates().add(customerPaymentDateModel);
+            }
+
+            return customer;
+        }
+
+        @Parameterized.Parameters(name= "{index}: Should be {1}")
+        public static Iterable<Object[]> validPaymentDatesData()
+        {
+            return Arrays.asList(new Object[][]
+                    {
+                            {getCustomerWithValidDates(), "2019-12-09"}
+                    }
+            );
+        }
+
+        @Test
+        public void validData_Succeeds()
+        {
+            // Arrange
+            String actualExpectedPaymentDate;
+            CustomerService customerService = new CustomerService();
+
+            // Act
+            customerService.assignDates(customer);
+            actualExpectedPaymentDate = customer.getExpectedPaymentDate();
+
+            // Assert
+            assertEquals(expectedResult, actualExpectedPaymentDate);
+        }
     }
+
 }
