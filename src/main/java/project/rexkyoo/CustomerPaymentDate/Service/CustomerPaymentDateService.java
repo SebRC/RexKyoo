@@ -51,6 +51,7 @@ public class CustomerPaymentDateService
         }
         catch(ParseException parseException)
         {
+            customerPaymentDateModel.setMonth("NOT FOUND");
             return;
         }
 
