@@ -59,18 +59,24 @@ public class CustomerService
 
     public CustomerModel getOne(int id)
     {
-        CustomerModel customerModel = customerRepository.getOne(id);
+        CustomerModel customer = customerRepository.getOne(id);
 
-        Set<CustomerPaymentDateModel> customerPaymentDateModels = customerModel.getCustomerPaymentDates();
+        assignDates(customer);
 
-        assignDates(customerModel);
-        for (CustomerPaymentDateModel customerPaymentDateModel : customerPaymentDateModels)
+        setMonthsAndYears(customer);
+
+        return customer;
+    }
+
+    private void setMonthsAndYears(CustomerModel customer)
+    {
+        Set<CustomerPaymentDateModel> customerPaymentDates = customer.getCustomerPaymentDates();
+
+        for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)
         {
-            customerPaymentDateService.setMonth(customerPaymentDateModel);
-            customerPaymentDateService.setYear(customerPaymentDateModel);
+            customerPaymentDateService.setMonth(customerPaymentDate);
+            customerPaymentDateService.setYear(customerPaymentDate);
         }
-
-        return customerModel;
     }
 
     public void save(CustomerModel customerModel)
