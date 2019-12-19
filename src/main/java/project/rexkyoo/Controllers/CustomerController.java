@@ -86,8 +86,13 @@ public class CustomerController
 
         customerPaymentDateService.save(customerPaymentDate);
 
-        //  TODO: should later redirect to created customer
-        return "redirect:/admin/home";
+        CustomerModel newCustomer = customerService.getNewlyCreated();
+
+        int id = newCustomer.getId();
+
+        String customerType = newCustomer.getType();
+
+        return "redirect:/admin/" + customerType + "-customers/" + id;
     }
 
     @PostMapping("/customer/{id}")

@@ -42,7 +42,6 @@ public class CleaningInspectorController
     {
         model.addAttribute("cleaningInspector", new CleaningInspectorModel());
 
-        //  should later redirect to created Inspektør
         return "dashboard/cleaningInspector/create_cleaning_inspector";
     }
 
@@ -50,6 +49,18 @@ public class CleaningInspectorController
     public String createCleaningInspector(@ModelAttribute CleaningInspectorModel cleaningInspector)
     {
         cleaningInspectorService.save(cleaningInspector);
+
+        CleaningInspectorModel newCleaningInspector = cleaningInspectorService.getNewlyCreated();
+
+        int id = newCleaningInspector.getId();
+
+        return "redirect:/admin/cleaning-inspectors/" + id;
+    }
+
+    @PostMapping("/cleaning-inspector/{id}")
+    public String deleteCleaningInspector(@PathVariable("id") int id)
+    {
+        cleaningInspectorService.delete(id);
 
         return "redirect:/admin/home";
     }

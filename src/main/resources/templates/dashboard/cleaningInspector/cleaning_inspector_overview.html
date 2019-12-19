@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Privatkunde Oversigt</title>
+    <title>Inspektør oversigt</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Inspektøre: 15</h1>
+                <h1 class="h3 mb-4 text-gray-800" th:text="'Inspektøre: ' + ${cleaningInspectors.size()}"></h1>
 
                 <div class="row mb-4">
                     <a href="#" class="mr-2 ml-2 btn btn-success btn-icon-split">
@@ -90,7 +90,49 @@
                             </li>
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{cleaning-inspectors/{id}(id=${cleaningInspector.id})}" class="btn btn-success">Læs mere</a>
+                            <div class="row">
+                                <div class="col-4">
+                                    <a th:href="@{cleaning-inspectors/{id}(id=${cleaningInspector.id})}" class="btn btn-success">
+                                        <i class="fas fa-fw fa-user"></i>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+
+                                    <a href="#" class="btn btn-warning">
+                                        <i class="fas fa-fw fa-pen"></i>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteInspectorModal"
+                                            th:attr="data-inspector-id=${cleaningInspector.id}, data-inspector-name=${cleaningInspector.firstName} + ' ' + ${cleaningInspector.lastName}">
+                                        <i class="fas fa-fw fa-trash"></i>
+                                    </button>
+
+                                    <!-- modal -->
+                                    <div class="modal fade" id="deleteInspectorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Advarsel</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="deleteButton" class="btn btn-danger btn-lg" data-dismiss="modal">Ja</button>
+                                                    <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Nej</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!---modal end-->
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -161,6 +203,28 @@
 <!-- Page level custom scripts -->
 <script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
 <script th:src="@{/dashboardStatic/js/demo/chart-pie-demo.js}"></script>
+
+<script>
+    $('#deleteInspectorModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+
+        var cleaningInspectorName = button.data('inspector-name')
+        var cleaningInspectorId = button.data('inspector-id')
+
+        var modal = $(this)
+        modal.find('.modal-body p').text('Er du sikker på at du vil slette ' + cleaningInspectorName + '?')
+
+        document.getElementById("deleteButton").onclick = deleteInspector
+
+        function deleteInspector() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "/admin/cleaning-inspector/" + cleaningInspectorId, false);
+            post.send();
+
+            window.location.reload();
+        }
+    })
+</script>
 
 
 </body>
