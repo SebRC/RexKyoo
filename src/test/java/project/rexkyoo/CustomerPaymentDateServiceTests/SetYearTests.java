@@ -28,7 +28,8 @@ public class SetYearTests
         }
 
         @Parameterized.Parameters(name= "{index} should be: {1}")
-        public static Iterable<Object[]> validPaymentDatesData() {
+        public static Iterable<Object[]> validPaymentDatesData()
+        {
             return Arrays.asList(new Object[][]
                     {
                             {new CustomerPaymentDateModel
@@ -99,7 +100,8 @@ public class SetYearTests
         }
 
         @Parameterized.Parameters(name= "{index} should be: {1}")
-        public static Iterable<Object[]> invalidPaymentDatesData() {
+        public static Iterable<Object[]> invalidPaymentDatesData()
+        {
             return Arrays.asList(new Object[][]
                     {
                             {new CustomerPaymentDateModel
