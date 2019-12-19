@@ -51,7 +51,11 @@ public class CleaningInspectorController
     {
         cleaningInspectorService.save(cleaningInspector);
 
-        return "redirect:/admin/home";
+        CleaningInspectorModel newCleaningInspector = cleaningInspectorService.getNewlyCreated();
+
+        int id = newCleaningInspector.getId();
+
+        return "redirect:/admin/cleaning-inspectors/" + id;
     }
 
     @PostMapping("/cleaning-inspector/{id}")
