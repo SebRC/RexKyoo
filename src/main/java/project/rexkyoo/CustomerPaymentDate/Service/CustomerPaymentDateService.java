@@ -80,7 +80,9 @@ public class CustomerPaymentDateService
 
             String paymentDateYear = extractYear(expectedPaymentDate);
 
-            if(selectedYear.equals(paymentDateYear))
+            boolean isPaymentDateSelectedYear = selectedYear.equals(paymentDateYear);
+
+            if(isPaymentDateSelectedYear)
             {
                 selectedYearPaymentDates.add(customerPaymentDate);
             }
