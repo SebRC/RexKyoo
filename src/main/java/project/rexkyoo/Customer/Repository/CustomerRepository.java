@@ -10,4 +10,6 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<CustomerModel, Integer>
 {
     List<CustomerModel> findAllByTypeEquals(String type);
+
+    List<CustomerModel>findAllByOrderByIdDesc();
 }
