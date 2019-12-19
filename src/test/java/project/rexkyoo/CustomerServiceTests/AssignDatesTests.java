@@ -59,7 +59,7 @@ public class AssignDatesTests
         }
 
         @Test
-        public void validData_Succeeds()
+        public void validDates_Succeeds()
         {
             // Arrange
             String actualExpectedPaymentDate;
