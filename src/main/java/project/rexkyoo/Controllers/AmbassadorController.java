@@ -49,8 +49,11 @@ public class AmbassadorController
     {
         ambassadorService.save(ambassador);
 
-        //  should later redirect to created ambassador
-        return "redirect:/admin/home";
+        AmbassadorModel newAmbassador = ambassadorService.getNewlyCreated();
+
+        int id = newAmbassador.getId();
+
+        return "redirect:/admin/ambassadors/" + id;
     }
 
 }
