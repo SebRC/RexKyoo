@@ -98,13 +98,22 @@ public class CustomerService
         return newCustomer;
     }
 
-    public void assignDates(CustomerModel customerModel)
+    public void assignDates(CustomerModel customer)
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
 
+        relevantPaymentDates = resolveRelevantPaymentDates(customer, relevantPaymentDates);
+
+        customer.setExpectedPaymentDate(relevantPaymentDates.getExpectedPaymentDate());
+
+        customer.setActualPaymentDate(relevantPaymentDates.getActualPaymentDate());
+    }
+
+    private CustomerPaymentDateModel resolveRelevantPaymentDates(CustomerModel customer, CustomerPaymentDateModel relevantPaymentDates)
+    {
         Date mostRecentDate = new Date(1);
 
-        for (CustomerPaymentDateModel paymentDates : customerModel.getCustomerPaymentDates())
+        for (CustomerPaymentDateModel paymentDates : customer.getCustomerPaymentDates())
         {
             Date currentEvaluatedDate = convertDate(paymentDates.getExpectedPaymentDate());
 
@@ -118,9 +127,7 @@ public class CustomerService
             }
         }
 
-        customerModel.setExpectedPaymentDate(relevantPaymentDates.getExpectedPaymentDate());
-
-        customerModel.setActualPaymentDate(relevantPaymentDates.getActualPaymentDate());
+        return relevantPaymentDates;
     }
 
     private Date convertDate(String expectedDate)
