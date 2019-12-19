@@ -16,6 +16,25 @@ import java.util.Set;
 @RunWith(Enclosed.class)
 public class GetSpecificYearPaymentDates
 {
+    private static HashSet<CustomerPaymentDateModel> getValidPaymentDates(int numberOfSameYears)
+    {
+        HashSet<CustomerPaymentDateModel> customerPaymentDates = new HashSet<>();
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < numberOfSameYears; j++)
+            {
+                CustomerPaymentDateModel customerPaymentDate =
+                        new CustomerPaymentDateModel("Afventer betaling",
+                                "201" + i + "-01-01", new CustomerModel());
+
+                customerPaymentDates.add(customerPaymentDate);
+            }
+        }
+
+        return customerPaymentDates;
+    }
+
     @RunWith(Parameterized.class)
     public static class ValidPaymentDates
     {
@@ -28,25 +47,6 @@ public class GetSpecificYearPaymentDates
             this.customerPaymentDates = customerPaymentDates;
             this.expectedResult = expectedResult;
             this.numberOfSameYears = numberOfSameYears;
-        }
-
-        private static HashSet<CustomerPaymentDateModel> getValidPaymentDates(int numberOfSameYears)
-        {
-            HashSet<CustomerPaymentDateModel> customerPaymentDates = new HashSet<>();
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < numberOfSameYears; j++)
-                {
-                    CustomerPaymentDateModel customerPaymentDate =
-                            new CustomerPaymentDateModel("Afventer betaling",
-                                    "201" + i + "-01-01", new CustomerModel());
-
-                    customerPaymentDates.add(customerPaymentDate);
-                }
-            }
-
-            return customerPaymentDates;
         }
 
         @Parameterized.Parameters(name= "{index}: Year should be: {1}. Size should be: {2}")
@@ -85,6 +85,53 @@ public class GetSpecificYearPaymentDates
             }
 
             assertEquals(specificYearPaymentDates.size(), numberOfSameYears);
+        }
+
+    }
+
+    @RunWith(Parameterized.class)
+    public static class NoPaymentDates
+    {
+        private HashSet<CustomerPaymentDateModel> customerPaymentDates;
+        private String expectedResult;
+        private int numberOfSameYears;
+
+        public NoPaymentDates(HashSet<CustomerPaymentDateModel> customerPaymentDates, String expectedResult, int numberOfSameYears)
+        {
+            this.customerPaymentDates = customerPaymentDates;
+            this.expectedResult = expectedResult;
+            this.numberOfSameYears = numberOfSameYears;
+        }
+
+        @Parameterized.Parameters(name= "{index}: Result should be: {1}")
+        public static Iterable<Object[]> validPaymentDatesData()
+        {
+            return Arrays.asList(new Object[][]
+                    {
+                            {getValidPaymentDates(5), "Invalid data", 5},
+                            {getValidPaymentDates(5), "100", 5},
+                            {getValidPaymentDates(5), "", 5}
+                    }
+            );
+        }
+
+        @Test
+        public void noPaymentDatesFound_SetIsEmpty()
+        {
+            // Arrange
+            CustomerPaymentDateService customerPaymentDateService = new CustomerPaymentDateService();
+            Set<CustomerPaymentDateModel> specificYearPaymentDates;
+
+            // Act
+            specificYearPaymentDates = customerPaymentDateService.getSpecificYearPaymentDates(customerPaymentDates, expectedResult);
+
+            for (CustomerPaymentDateModel paymentDate : customerPaymentDates)
+            {
+                customerPaymentDateService.setYear(paymentDate);
+            }
+
+            // Assert
+            assertTrue(specificYearPaymentDates.isEmpty());
         }
 
     }
