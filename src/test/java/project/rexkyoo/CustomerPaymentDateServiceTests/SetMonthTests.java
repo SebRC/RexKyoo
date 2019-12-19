@@ -2,7 +2,6 @@ package project.rexkyoo.CustomerPaymentDateServiceTests;
 
 import org.junit.Assume;
 import org.junit.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import static org.junit.Assert.*;
@@ -20,18 +19,18 @@ public class SetMonthTests
         FAILING
     }
     private TestType testType;
-    CustomerPaymentDateModel customerPaymentDateModel;
-    String month;
+    CustomerPaymentDateModel customerPaymentDates;
+    String expectedResult;
 
-    public SetMonthTests(TestType testType, CustomerPaymentDateModel customerPaymentDateModel, String month)
+    public SetMonthTests(TestType testType, CustomerPaymentDateModel customerPaymentDates, String expectedResult)
     {
         this.testType = testType;
-        this.customerPaymentDateModel = customerPaymentDateModel;
-        this.month = month;
+        this.customerPaymentDates = customerPaymentDates;
+        this.expectedResult = expectedResult;
     }
 
     @Parameterized.Parameters(name= "{index} should be: {1}")
-    public static Iterable<Object[]> paymentDatesData() {
+    public static Iterable<Object[]> validPaymentDatesData() {
         return Arrays.asList(new Object[][]
                 {
                     {TestType.SUCCESSFUL, new CustomerPaymentDateModel
@@ -82,9 +81,40 @@ public class SetMonthTests
         CustomerPaymentDateService customerPaymentDateService = new CustomerPaymentDateService();
 
         // Act
-        customerPaymentDateService.setMonth(customerPaymentDateModel);
+        customerPaymentDateService.setMonth(customerPaymentDates);
 
         // Assert
-        assertEquals(month, customerPaymentDateModel.getMonth());
+        assertEquals(expectedResult, customerPaymentDates.getMonth());
+    }
+
+    @Parameterized.Parameters(name= "{index} should be: {2}")
+    public static Iterable<Object[]> invalidPaymentDatesData() {
+        return Arrays.asList(new Object[][]
+                {
+                        {TestType.FAILING, new CustomerPaymentDateModel
+                                ("Afventer betaling", "Invalid Data", new CustomerModel()),
+                                "NOT FOUND"},
+                        {TestType.FAILING, new CustomerPaymentDateModel
+                                ("Afventer betaling", "", new CustomerModel()),
+                                "NOT FOUND"},
+                        {TestType.FAILING, new CustomerPaymentDateModel
+                                ("Afventer betaling", "2s19-e4-4r", new CustomerModel()),
+                                "NOT FOUND"},
+                }
+        );
+    }
+
+    @Test
+    public void invalidData_MonthIsNotFound()
+    {
+        // Arrange
+        Assume.assumeTrue(testType == TestType.FAILING);
+        CustomerPaymentDateService customerPaymentDateService = new CustomerPaymentDateService();
+
+        // Act
+        customerPaymentDateService.setMonth(customerPaymentDates);
+
+        // Assert
+        assertEquals(expectedResult, customerPaymentDates.getMonth());
     }
 }
