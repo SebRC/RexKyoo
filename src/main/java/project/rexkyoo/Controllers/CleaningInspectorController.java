@@ -42,7 +42,6 @@ public class CleaningInspectorController
     {
         model.addAttribute("cleaningInspector", new CleaningInspectorModel());
 
-        //  should later redirect to created Inspektør
         return "dashboard/cleaningInspector/create_cleaning_inspector";
     }
 
