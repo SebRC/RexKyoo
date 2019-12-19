@@ -101,8 +101,26 @@ public class CustomerPaymentDateService
     {
         String date = customerPaymentDateModel.getExpectedPaymentDate();
 
-        String year = date.substring(0, 4);
+        boolean isValidYear = validateDateYear(date);
+
+        String year;
+
+        if(isValidYear)
+        {
+            year = extractYear(date);
+        }
+        else
+        {
+            year = "NOT FOUND";
+        }
 
         customerPaymentDateModel.setYear(year);
+    }
+
+    private boolean validateDateYear(String date)
+    {
+        boolean isValidYear = date != null && date.length() == 10;
+
+        return isValidYear;
     }
 }
