@@ -56,4 +56,12 @@ public class AmbassadorController
         return "redirect:/admin/ambassadors/" + id;
     }
 
+    @PostMapping("/ambassador/{id}")
+    public String deleteAmbassador(@PathVariable("id") int id)
+    {
+        ambassadorService.delete(id);
+
+        return "redirect:/admin/home";
+    }
+
 }
