@@ -32,4 +32,13 @@ public class AmbassadorService {
     {
         ambassadorRepository.deleteById(id);
     }
+
+    public AmbassadorModel getNewlyCreated()
+    {
+        List<AmbassadorModel> ambassadors = ambassadorRepository.findAllByOrderByIdDesc();
+
+        AmbassadorModel newAmbassador = ambassadors.get(0);
+
+        return newAmbassador;
+    }
 }
