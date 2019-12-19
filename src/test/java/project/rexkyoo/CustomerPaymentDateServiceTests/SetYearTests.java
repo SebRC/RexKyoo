@@ -14,13 +14,14 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class SetYearTests
 {
-    CustomerPaymentDateModel customerPaymentDateModel;
-    String year;
 
-    public SetYearTests(CustomerPaymentDateModel customerPaymentDateModel, String year)
+    private CustomerPaymentDateModel customerPaymentDateModel;
+    private String expectedResult;
+
+    public SetYearTests(CustomerPaymentDateModel customerPaymentDateModel, String expectedResult)
     {
         this.customerPaymentDateModel = customerPaymentDateModel;
-        this.year = year;
+        this.expectedResult = expectedResult;
     }
 
     @Parameterized.Parameters(name= "{index} should be: {1}")
@@ -78,7 +79,7 @@ public class SetYearTests
         customerPaymentDateService.setYear(customerPaymentDateModel);
 
         // Assert
-        assertEquals(year, customerPaymentDateModel.getYear());
+        assertEquals(expectedResult, customerPaymentDateModel.getYear());
     }
 
 }
