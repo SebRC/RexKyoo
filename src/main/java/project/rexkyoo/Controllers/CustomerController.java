@@ -97,4 +97,11 @@ public class CustomerController
 
         return "redirect:/admin/home";
     }
+
+    @PostMapping("/customer/edit/")
+    public String editCustomer(@ModelAttribute CustomerModel customer)
+    {
+        customerService.save(customer);
+        return "redirect:/admin/home";
+    }
 }
