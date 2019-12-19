@@ -109,7 +109,49 @@
                             </li>
                         </ul>
                         <div class="card-body">
-                            <a th:href="@{ambassadors/{id}(id=${ambassador.id})}" class="btn btn-success">Læs mere</a>
+                            <div class="row">
+                                <div class="col-4">
+                                    <a th:href="@{ambassadors/{id}(id=${ambassador.id})}" class="btn btn-success">
+                                        <i class="fas fa-fw fa-user"></i>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+
+                                    <a href="#" class="btn btn-warning">
+                                        <i class="fas fa-fw fa-pen"></i>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteAmbassadorModal"
+                                            th:attr="data-ambassador-id=${ambassador.id}, data-ambassador-name=${ambassador.firstName} + ' ' + ${ambassador.lastName}">
+                                        <i class="fas fa-fw fa-trash"></i>
+                                    </button>
+
+                                    <!-- modal -->
+                                    <div class="modal fade" id="deleteAmbassadorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Advarsel</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="deleteButton" class="btn btn-danger btn-lg" data-dismiss="modal">Ja</button>
+                                                    <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Nej</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!---modal end-->
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -183,6 +225,27 @@
 <script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
 <script th:src="@{/dashboardStatic/js/demo/chart-pie-demo.js}"></script>
 
+<script>
+    $('#deleteAmbassadorModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+
+        var ambassadorName = button.data('ambassador-name')
+        var ambassadorId = button.data('ambassador-id')
+
+        var modal = $(this)
+        modal.find('.modal-body p').text('Er du sikker på at du vil slette ' + ambassadorName + '?')
+
+        document.getElementById("deleteButton").onclick = deleteAmbassador
+
+        function deleteAmbassador() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "/admin/ambassador/" + ambassadorId, false);
+            post.send();
+
+            window.location.reload();
+        }
+    })
+</script>
 
 </body>
 
