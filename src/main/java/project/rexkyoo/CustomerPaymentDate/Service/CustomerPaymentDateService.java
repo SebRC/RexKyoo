@@ -94,7 +94,9 @@ public class CustomerPaymentDateService
 
     private String extractYear(String date)
     {
-        return date.substring(0,4);
+        String year = date.substring(0,4);
+
+        return year;
     }
 
     public void setYear(CustomerPaymentDateModel customerPaymentDateModel)
