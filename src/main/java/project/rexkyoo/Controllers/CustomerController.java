@@ -86,11 +86,9 @@ public class CustomerController
 
         customerPaymentDateService.save(customerPaymentDate);
 
-        CustomerModel newCustomer = customerService.getNewlyCreated();
+        int id = customer.getId();
 
-        int id = newCustomer.getId();
-
-        String customerType = newCustomer.getType();
+        String customerType = customer.getType();
 
         return "redirect:/admin/" + customerType + "-customers/" + id;
     }

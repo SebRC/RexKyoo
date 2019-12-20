@@ -36,15 +36,4 @@ public class CleaningInspectorService
     {
         cleaningInspectorRepository.deleteById(id);
     }
-
-    public CleaningInspectorModel getNewlyCreated()
-    {
-         List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorRepository.findAllByOrderByIdDesc();
-
-         CleaningInspectorModel newCleaningInspector = cleaningInspectors.get(0);
-
-         return newCleaningInspector;
-    }
-
-
 }
