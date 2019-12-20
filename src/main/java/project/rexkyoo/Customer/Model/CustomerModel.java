@@ -41,7 +41,7 @@ public class CustomerModel
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<FeedbackModel> feedbacks;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer" , cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer" , cascade=CascadeType.ALL)
     private Set<CustomerPaymentDateModel> customerPaymentDates;
 
     public CustomerModel()
@@ -108,6 +108,11 @@ public class CustomerModel
     public int getId()
     {
         return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
 
     public String getName()

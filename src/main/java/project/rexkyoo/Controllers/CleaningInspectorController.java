@@ -62,6 +62,5 @@ public class CleaningInspectorController
 
         return "redirect:/admin/home";
     }
-
 }
 

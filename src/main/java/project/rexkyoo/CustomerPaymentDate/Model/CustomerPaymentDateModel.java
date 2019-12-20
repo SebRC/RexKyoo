@@ -35,6 +35,11 @@ public class CustomerPaymentDateModel
         this.customer = customer;
     }
 
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
     public int getId()
     {
         return id;
