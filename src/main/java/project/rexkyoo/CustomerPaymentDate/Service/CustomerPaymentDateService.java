@@ -8,10 +8,7 @@ import project.rexkyoo.CustomerPaymentDate.Repository.CustomerPaymentDateReposit
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Month;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CustomerPaymentDateService
@@ -65,6 +62,7 @@ public class CustomerPaymentDateService
         int monthIndex = currentEvaluatedDate.getMonth();
 
         Month month = Month.of(monthIndex + 1);
+
         String formattedMonth = month.toString().substring(0, 3);
 
         return formattedMonth;
