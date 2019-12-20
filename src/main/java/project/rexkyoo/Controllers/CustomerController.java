@@ -9,9 +9,6 @@ import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
-import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
