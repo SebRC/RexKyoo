@@ -36,5 +36,4 @@ public class CleaningInspectorService
     {
         cleaningInspectorRepository.deleteById(id);
     }
-
 }

@@ -56,13 +56,6 @@ public class AmbassadorController
 
         return "redirect:/admin/ambassadors/" + id;
     }
-    
-    @PostMapping("/edit")
-    public String editAmbassador(@ModelAttribute AmbassadorModel ambassador)
-    {
-        ambassadorService.save(ambassador);
-        return "redirect:/admin/home";
-    }
 
     @PostMapping("/ambassador/{id}")
     public String deleteAmbassador(@PathVariable("id") int id)
@@ -73,4 +66,13 @@ public class AmbassadorController
     }
 
 
+    @PostMapping("/ambassador-edit")
+    public String editAmbassador(@ModelAttribute AmbassadorModel ambassador)
+    {
+        ambassadorService.save(ambassador);
+
+        int id = ambassador.getId();
+
+        return "redirect:/admin/ambassadors/" + id;
+    }
 }

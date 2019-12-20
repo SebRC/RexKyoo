@@ -48,11 +48,13 @@
                 <div class="row">
                     <!--Ambassador Info-->
                     <div class="col-7">
+
+                        <!-- Delete button trigger modal -->
                         <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteAmbassadorModal">
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
 
-                        <!-- modal -->
+                        <!-- delete modal -->
                         <div class="modal fade" id="deleteAmbassadorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -76,34 +78,30 @@
                             </div>
                         </div>
 
-                        <!---modal end-->
+                        <!--- delete modal end-->
 
 
                         <!-- Page Heading -->
 
-                        <!-- Button trigger modal -->
-                        <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteCustomerModal">
-                            <i class="fas fa-fw fa-trash"></i>
-                        </button>
-
+                        <!-- Edit button trigger modal -->
                         <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-fw fa-pen"></i>
                         </button>
 
 
-                        <!-- Modal -->
+                        <!-- Edit Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Rediger ambassadør</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
 
-                                        <form class="needs-validation" novalidate th:action="@{/admin/edit}" method="post">
+                                        <form class="needs-validation" novalidate th:action="@{/admin/ambassador-edit}" method="post">
                                             <input type="hidden" th:field="${ambassador.id}">
                                             <div class="form-row">
                                                 <div class="col-6 mb-3">
@@ -159,6 +157,10 @@
                                             <div class="form-group">
                                                 <label>Løn</label>
                                                 <input type="number" min="1" class="form-control" placeholder="0,-" th:field="${ambassador.salary}" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Note</label>
+                                                <input type="text" class="form-control" placeholder="" th:field="${ambassador.note}" required>
                                             </div>
 
                                             <button class="btn btn-success" type="submit">Gem</button>
