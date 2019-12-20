@@ -52,9 +52,7 @@ public class AmbassadorController
     {
         ambassadorService.save(ambassador);
 
-        AmbassadorModel newAmbassador = ambassadorService.getNewlyCreated();
-
-        int id = newAmbassador.getId();
+        int id = ambassador.getId();
 
         return "redirect:/admin/ambassadors/" + id;
     }
