@@ -26,20 +26,20 @@ public class DashboardController
     private CustomerService customerService;
 
     @Autowired
-    private AssignmentService assignmentService;
-
-    @Autowired
     private AmbassadorService ambassadorService;
 
     @Autowired
     private CleaningInspectorService cleaningInspectorService;
 
-
-
-
     @GetMapping("/home")
-    public String home()
+    public String home(Model model)
     {
+        int amountOfPrivateCustomers = customerService.getAllPrivateCustomers().size();
+        int amountOfBusinessCustomers = customerService.getAllBusinessCustomers().size();
+
+        model.addAttribute("amountOfPrivateCustomers", amountOfPrivateCustomers);
+        model.addAttribute("amountOfBusinessCustomers", amountOfBusinessCustomers);
+
         return "dashboard/home";
     }
 
