@@ -52,7 +52,18 @@ public class AmbassadorController
     {
         ambassadorService.save(ambassador);
 
-        //  should later redirect to created ambassador
+        AmbassadorModel newAmbassador = ambassadorService.getNewlyCreated();
+
+        int id = newAmbassador.getId();
+
+        return "redirect:/admin/ambassadors/" + id;
+    }
+
+    @PostMapping("/ambassador/{id}")
+    public String deleteAmbassador(@PathVariable("id") int id)
+    {
+        ambassadorService.delete(id);
+
         return "redirect:/admin/home";
     }
 

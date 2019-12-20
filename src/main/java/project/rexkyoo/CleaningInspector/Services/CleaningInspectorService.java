@@ -27,14 +27,23 @@ public class CleaningInspectorService
         return cleaningInspector;
     }
 
-    public void save(CleaningInspectorModel cleaningInspectorModel)
+    public void save(CleaningInspectorModel cleaningInspector)
     {
-        cleaningInspectorRepository.save(cleaningInspectorModel);
+        cleaningInspectorRepository.save(cleaningInspector);
     }
 
     public void delete(int id)
     {
         cleaningInspectorRepository.deleteById(id);
+    }
+
+    public CleaningInspectorModel getNewlyCreated()
+    {
+         List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorRepository.findAllByOrderByIdDesc();
+
+         CleaningInspectorModel newCleaningInspector = cleaningInspectors.get(0);
+
+         return newCleaningInspector;
     }
 
 
