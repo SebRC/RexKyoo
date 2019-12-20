@@ -9,6 +9,9 @@ import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
+import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -65,6 +68,8 @@ public class CustomerController
         model.addAttribute("privateCustomer", privateCustomer);
         model.addAttribute("privateCustomerPaymentDates", paymentDates);
 
+        model.addAttribute("customerPaymentDate", new CustomerPaymentDateModel());
+
         return "dashboard/customer/private_customer_details";
     }
 
@@ -86,11 +91,9 @@ public class CustomerController
 
         customerPaymentDateService.save(customerPaymentDate);
 
-        CustomerModel newCustomer = customerService.getNewlyCreated();
+        int id = customer.getId();
 
-        int id = newCustomer.getId();
-
-        String customerType = newCustomer.getType();
+        String customerType = customer.getType();
 
         return "redirect:/admin/" + customerType + "-customers/" + id;
     }
@@ -101,5 +104,15 @@ public class CustomerController
         customerService.delete(id);
 
         return "redirect:/admin/home";
+    }
+
+    @PostMapping("/customer-edit/{id}")
+    public String editCustomer(@PathVariable("id") int id, @ModelAttribute CustomerModel customer, @ModelAttribute CustomerPaymentDateModel customerPaymentDate)
+    {
+        customerService.delete(customer.getId());
+        customer.setId(id);
+        customerService.save(customer);
+
+        return "redirect:/admin/" + customer.getType() + "-customers/" + id;
     }
 }

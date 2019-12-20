@@ -89,15 +89,6 @@ public class CustomerService
         customerRepository.deleteById(id);
     }
 
-    public CustomerModel getNewlyCreated()
-    {
-        List<CustomerModel> customers = customerRepository.findAllByOrderByIdDesc();
-
-        CustomerModel newCustomer = customers.get(0);
-
-        return newCustomer;
-    }
-
     public void assignDates(CustomerModel customer)
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();

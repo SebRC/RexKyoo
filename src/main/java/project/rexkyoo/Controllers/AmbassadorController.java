@@ -1,11 +1,14 @@
 package project.rexkyoo.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
+import project.rexkyoo.User.Repositories.UserRepository;
+import project.rexkyoo.User.Services.UserService;
 
 import java.util.List;
 
@@ -49,11 +52,16 @@ public class AmbassadorController
     {
         ambassadorService.save(ambassador);
 
-        AmbassadorModel newAmbassador = ambassadorService.getNewlyCreated();
-
-        int id = newAmbassador.getId();
+        int id = ambassador.getId();
 
         return "redirect:/admin/ambassadors/" + id;
+    }
+    
+    @PostMapping("/edit")
+    public String editAmbassador(@ModelAttribute AmbassadorModel ambassador)
+    {
+        ambassadorService.save(ambassador);
+        return "redirect:/admin/home";
     }
 
     @PostMapping("/ambassador/{id}")
@@ -63,5 +71,6 @@ public class AmbassadorController
 
         return "redirect:/admin/home";
     }
+
 
 }

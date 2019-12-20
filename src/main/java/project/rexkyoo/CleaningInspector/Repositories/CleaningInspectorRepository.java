@@ -8,6 +8,4 @@ import java.util.List;
 
 @Repository
 public interface CleaningInspectorRepository extends JpaRepository<CleaningInspectorModel, Integer>
-{
-    List<CleaningInspectorModel> findAllByOrderByIdDesc();
-}
+{}

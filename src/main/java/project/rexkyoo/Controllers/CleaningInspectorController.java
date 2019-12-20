@@ -50,9 +50,7 @@ public class CleaningInspectorController
     {
         cleaningInspectorService.save(cleaningInspector);
 
-        CleaningInspectorModel newCleaningInspector = cleaningInspectorService.getNewlyCreated();
-
-        int id = newCleaningInspector.getId();
+        int id = cleaningInspector.getId();
 
         return "redirect:/admin/cleaning-inspectors/" + id;
     }
@@ -64,6 +62,5 @@ public class CleaningInspectorController
 
         return "redirect:/admin/home";
     }
-
 }
 

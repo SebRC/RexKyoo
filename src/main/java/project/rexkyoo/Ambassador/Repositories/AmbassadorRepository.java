@@ -8,6 +8,4 @@ import java.util.List;
 
 @Repository
 public interface AmbassadorRepository extends JpaRepository<AmbassadorModel, Integer>
-{
-    List<AmbassadorModel> findAllByOrderByIdDesc();
-}
+{}
