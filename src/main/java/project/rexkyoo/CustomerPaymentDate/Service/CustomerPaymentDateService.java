@@ -48,9 +48,9 @@ public class CustomerPaymentDateService
         try
         {
             currentEvaluatedDate = yearMonthDateFormat.parse(customerPaymentDateModel.getExpectedPaymentDate());
-        }
-        catch(ParseException parseException)
+        } catch (ParseException parseException)
         {
+            customerPaymentDateModel.setMonth("NOT FOUND");
             return;
         }
 
@@ -65,22 +65,31 @@ public class CustomerPaymentDateService
 
     private String extractMonth(Month month)
     {
-        String formattedMonth = month.toString().substring(0,3);
+        String formattedMonth = month.toString().substring(0, 3);
 
         return formattedMonth;
     }
 
-    public Set<CustomerPaymentDateModel> getSpecificYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
+    public Set<CustomerPaymentDateModel> getSelectedYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
+    {
+        Set<CustomerPaymentDateModel> selectedYearPaymentDates = extractSelectedYearPaymentDates(customerPaymentDates, selectedYear);
+
+        return selectedYearPaymentDates;
+    }
+
+    private Set<CustomerPaymentDateModel> extractSelectedYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
     {
         Set<CustomerPaymentDateModel> selectedYearPaymentDates = new HashSet<>();
 
-        for (CustomerPaymentDateModel customerPaymentDate: customerPaymentDates)
+        for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)
         {
             String expectedPaymentDate = customerPaymentDate.getExpectedPaymentDate();
 
             String paymentDateYear = extractYear(expectedPaymentDate);
 
-            if(selectedYear.equals(paymentDateYear))
+            boolean isPaymentDateSelectedYear = selectedYear.equals(paymentDateYear);
+
+            if (isPaymentDateSelectedYear)
             {
                 selectedYearPaymentDates.add(customerPaymentDate);
             }
@@ -91,15 +100,35 @@ public class CustomerPaymentDateService
 
     private String extractYear(String date)
     {
-        return date.substring(0,4);
+        String year = date.substring(0,4);
+
+        return year;
     }
 
     public void setYear(CustomerPaymentDateModel customerPaymentDateModel)
     {
         String date = customerPaymentDateModel.getExpectedPaymentDate();
 
-        String year = date.substring(0, 4);
+        boolean isValidYear = validateDateYear(date);
+
+        String year;
+
+        if(isValidYear)
+        {
+            year = extractYear(date);
+        }
+        else
+        {
+            year = "NOT FOUND";
+        }
 
         customerPaymentDateModel.setYear(year);
+    }
+
+    private boolean validateDateYear(String date)
+    {
+        boolean isValidYear = date != null && date.length() == 10;
+
+        return isValidYear;
     }
 }
