@@ -1,37 +1,28 @@
-<!DOCTYPE html>
-<html lang="da-DK" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8" />
+<hr><br><br>
 
-    <title>RexKyoo</title>
-    <link th:href="@{/css/erhvervStyle.css}" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <hr><br><br>
-    <div class="footer-box">
-        <img class="footer-image" src="../../static/images/divers/group.png">
-        <h2>SPIDSKOMPETENCER</h2>
-        <div onclick="window.location.href='fitness.html'" style="cursor: pointer"><p>FITNESS </p></div>
-        <div onclick="window.location.href='institution.html'" style="cursor: pointer"><p>INSTITUTIONSRENGØRING </p></div>
-        <div onclick="window.location.href='klinik.html'" style="cursor: pointer"><p>KLINIK </p></div>
-        <div onclick="window.location.href='kontor.html'" style="cursor: pointer"><p>KONTOR </p></div>
-        <div onclick="window.location.href='skræddersy.html'" style="cursor: pointer"><p>SKÆDDERSY </p></div>
-        <div onclick="window.location.href='privat.html'" style="cursor: pointer"><p1>PRIVAT </p1></div>
-        <div onclick="window.location.href='housekeeper.html'" style="cursor: pointer"><p1>HOUSEKEEPER </p1></div>
-        <div onclick="window.location.href='familiepakke.html'" style="cursor: pointer"><p>FAMILIEPAKKE </p></div>
-    </div>
-
-    <div class="footer-box">
-        <img class="footer-image" src="../../static/images/divers/smartphone.png">
-        <h2>KONTAKT OS</h2>
-        <h3>+45 27 21 00 58</h3>
-    </div>
+<div class="footer-box" xmlns:th="http://www.w3.org/1999/xhtml">
+    <img class="footer-image" th:src="@{/images/divers/group.png}">
+    <h2>SPIDSKOMPETENCER</h2>
     
-    <div class="footer-box">
-        <img class="footer-image" src="../../static/images/divers/letter.png">
-        <h2>E-MAIL</h2>
-        <h5>thilde.rex@rexkyoo.com</h5>
-    </div>
-</body>
+    <div><a th:href="@{fitness}" style="text-decoration:none; cursor: pointer"><p>FITNESS </p></a></div>
+    <div><a th:href="@{instituion}" style="text-decoration:none"><p>INSTITUTIONSRENGØRING </p></a></div>
+    <div><a th:href="@{klinik}" style="text-decoration:none"><p>KLINIK </p></a></div>
+    <div><a th:href="@{kontor}" style="text-decoration:none"><p>KONTOR  </p></a></div>
+    <div><a th:href="@{skræddersy}" style="text-decoration:none"><p>SKÆDDERSY </p></a></div>
+    <div><a th:href="@{privat}" style="text-decoration:none"><p>PRIVAT </p></a></div>
+    <div><a th:href="@{housekeeper}" style="text-decoration:none"><p>HOUSEKEEPER </p></a></div>
+    <div><a th:href="@{familiepakke}" style="text-decoration:none"><p>FAMILIEPAKKE </p></a></div>
+</div>
+
+<div class="footer-box" xmlns:th="http://www.w3.org/1999/xhtml">
+    <img class="footer-image" th:src="@{/images/divers/smartphone.png}">
+    <h2>KONTAKT OS</h2>
+    <h3>+45 27 21 00 58</h3>
+</div>
+
+<div class="footer-box" xmlns:th="http://www.w3.org/1999/xhtml">
+    <img class="footer-image" th:src="@{/images/divers/letter.png}">
+    <h2>E-MAIL</h2>
+    <h5>thilde.rex@rexkyoo.com</h5>
+</div>
+
