@@ -96,6 +96,6 @@ public class FrontendController
     @GetMapping("/skræddersy")
     public String skreaddersy()
     {
-        return "frontend/skrøddersy";
+        return "frontend/skræddersy";
     }
 }
