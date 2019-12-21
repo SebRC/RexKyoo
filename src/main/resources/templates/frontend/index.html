@@ -21,7 +21,7 @@
         Vi kæmper for et bedre miljø!<br>
         Både indvendig og udvendig.
     </h1>
-    <button class="but-hover" onclick="window.location.href='forretning.html'"><i class="far fa-handshake"></i> Bliv partner</button>
+    <button class="but-hover"><a th:href="@{/forretning}" style="text-decoration:none; color: white"><i class="far fa-handshake"></i> Bliv partner</a></button>
 
     <h1 style="font-size:30px">For hver time du køber, <br> donerer vi 5 kr. til et miljøvenligt ngo-projekt</h1>
 </div>
@@ -36,41 +36,41 @@
     <h1>KONTOR RENGØRING </h1>
 </div>
 <div class="box1" onclick="window.location.href='institution.html'">
-    <img class="box1-image" src="../../static/images/kids/teddybear.jpg">
+    <img class="box1-image" th:src="@{/images/kids/teddybear.jpg}">
     <h1>INSTITUTIONSRENGØRING </h1>
 </div>
 <div id="clear-float"></div>
 
 <div class="extraSpace50"></div>
 <div class="box1" onclick="window.location.href='privat.html'">
-    <img class="box1-image" src="../../static/images/office/home.jpg">
+    <img class="box1-image" th:src="@{images/office/home.jpg}">
     <h1>PRIVAT RENGØRING </h1>
 </div>
 <div class="box1" onclick="window.location.href='klinik.html'">
-    <img class="box1-image" src="../../static/images/office/clinic.jpg">
+    <img class="box1-image" th:src="@{/images/office/clinic.jpg}">
     <h1>KLINIK RENGØRING </h1>
 </div>
 <div id="clear-float"></div>
 
 <div class="extraSpace50"></div>
 <div class="box1" onclick="window.location.href='fitness.html'">
-    <img class="box1-image" src="../../static/images/fitness/gym.jpg">
+    <img class="box1-image" th:src="@{/images/fitness/gym.jpg}">
     <h1 style="font-size: 31px">RENGØRING I FITNESSCENTRE</h1>
 </div>
 <div class="box1" onclick="window.location.href='skræddersy.html'">
-    <img class="box1-image" src="../../static/images/divers/coffee-icons.png">
+    <img class="box1-image" th:src="@{/images/divers/coffee-icons.png}">
     <h1 style="font-size: 31px">SKRÆDDERSY DIN RENGØRING</h1>
 </div>
 <div id="clear-float"></div>
 
 <div class="extraSpace50"></div>
 <div class="box1" onclick="window.location.href='housekeeper.html'">
-    <img class="box1-image" src="../../static/images/divers/young-housekeeper.jpg">
+    <img class="box1-image" th:src="@{/images/divers/young-housekeeper.jpg}">
     <h1 style="font-size: 31px">PROFESSIONEL HOUSEKEEPER</h1>
     <h1 style="font-size: 20px">(PRIVAT)</h1>
 </div>
 <div class="box1" onclick="window.location.href='familiepakke.html'">
-    <img class="box1-image" src="../../static/images/divers/love-family.jpg">
+    <img class="box1-image" th:src="@{/images/divers/love-family.jpg}">
     <h1 style="font-size: 31px">FAMILIEPAKKE</h1>
     <h1 style="font-size: 20px">(RENGØRING &amp; BØRNEPASNING)</h1>
 </div>
@@ -116,12 +116,12 @@
             <br>
         </h4>
 
-        <img class="section-image-under-right" src="../../static/images/divers/checklist.png">
+        <img class="section-image-under-right" th:src="@{/images/divers/checklist.png}">
     </div>
 </div>
 
 <div id="clear-float"></div>
-<img class="box-imageLeft2" src="../../static/images/divers/discount.jpg">
+<img class="box-imageLeft2" th:src="@{/images/divers/discount.jpg}">
 <div class="box-textLeft2">
     <h1 class="section-text-green" style="font-size: 45px">Fordele ved at blive partner <br></h1>
     <h3> Stabile medarbejdere skaber god balance</h3>
@@ -142,40 +142,40 @@
 
 <div class="slideshow-container" id="slider1">
     <div class="mySlides fade">
-        <img src="../../static/images/reference/slagelsekommune.jpg" style="width:70%">
+        <img th:src="@{/images/reference/slagelsekommune.jpg}" style="width:70%">
         <div class="sliderText"></div>
     </div>
     <div class="mySlides fade">
-        <img src="../../static/images/reference/hybrid.jpg" style="width:100%">
+        <img th:src="@{/images/reference/hybrid.jpg}" style="width:100%">
         <div class="sliderText"></div>
     </div>
 </div>
 
 <div class="slideshow-container" id="slider2">
     <div class="mySlides2 fade">
-        <img src="../../static/images/reference/sats.jpg" style="width:80%">
+        <img th:src="@{/images/reference/sats.jpg}" style="width:80%">
         <div class="sliderText">Strædet</div>
     </div>
     <div class="mySlides2 fade">
-        <img src="images/reference/spia.jpg" style="width:100%">
+        <img th:src="@{images/reference/spia.jpg}" style="width:100%">
         <div class="sliderText"></div>
     </div>
 </div>
 
 <div class="slideshow-container" id="slider3">
     <div class="mySlides3 fade">
-        <img src="../../static/images/reference/sats.jpg" style="width:80%">
+        <img th:src="@{/images/reference/sats.jpg}" style="width:80%">
         <div class="sliderText">Den hvide by</div>
     </div>
     <div class="mySlides3 fade">
-        <img src="../../static/images/reference/LEBA_innovation_logo%20stor.gif" style="width:100%">
+        <img th:src="@{/images/reference/LEBA_innovation_logo%20stor.gif}" style="width:100%">
         <div class="sliderText"></div>
     </div>
 </div>
 
 <div class="slideshow-container" id="slider4">
     <div class="mySlides4 fade">
-        <img src="../../static/images/reference/sats.jpg" style="width:80%">
+        <img th:src="@{/images/reference/sats.jpg}" style="width:80%">
         <div class="sliderText">Vallensbæk</div>
     </div>
     <div class="mySlides4 fade">
@@ -194,7 +194,7 @@
 <div class="extraSpace50"></div>
 
 <div class="box-profile">
-    <img class="box-profile-image" src="../../static/images/anbefalinger/anne.jpg">
+    <img class="box-profile-image" th:src="@{images/anbefalinger/anne.jpg}">
     <div class="box-profile-text">
         <h1>Anne Linnet</h1>
         <h4 style="line-height:1.5">
@@ -210,7 +210,7 @@
     </div>
 </div>
 <div class="box-profile">
-    <img class="box-profile-image" src="images/anbefalinger/gunvor2.jpg">
+    <img class="box-profile-image" th:src="@{images/anbefalinger/gunvor2.jpg}">
     <div class="box-profile-text">
         <h1>Gunvor</h1>
         <h4 style="line-height:1.5">
@@ -229,7 +229,7 @@
     </div>
 </div>
 <div class="box-profile">
-    <img class="box-profile-image" src="../../static/images/anbefalinger/Wojciech.jpg">
+    <img class="box-profile-image" th:src="@{images/anbefalinger/Wojciech.jpg}">
     <div class="box-profile-text">
         <h2>Wojciech </h2>
         <h4>Ansat i RexKyoo rengøring</h4>
@@ -252,7 +252,7 @@
 <div class="extraSpace50"></div>
 <div class="center-text">
     <h1 style="font-size:40px">VI STØTTER <br></h1>
-    <img src="../../static/images/reference/ref3.PNG" style="width:40%">
+    <img th:src="@{/images/reference/ref3.PNG}" style="width:40%">
 </div>
 
 <div id="clear-float"></div>
@@ -264,7 +264,6 @@
 
 <!-- JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script th:src="@{/JavaScript/divers.js}"></script>
 <script th:src="@{/JavaScript/slideshowScript.js}"></script>
 
 </body>

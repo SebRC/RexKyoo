@@ -1,9 +1,3 @@
-$(function()
-{
-  $("#includedMenubar").load("menubar");
-  $("#includedFooter").load("footer");
-});
-
 function sendEmail()
 {
   var name = document.getElementById("form-name").value; 
