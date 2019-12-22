@@ -49,11 +49,12 @@
                     <!--Cleaning Inspector Info-->
                     <div class="col-7">
 
+                        <!-- Delete button trigger modal -->
                         <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteInspectorModal">
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
 
-                        <!-- modal -->
+                        <!-- Delete modal -->
                         <div class="modal fade" id="deleteInspectorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -77,7 +78,97 @@
                             </div>
                         </div>
 
-                        <!---modal end-->
+                        <!--- Delete modal end-->
+
+                        <!-- Edit button trigger modal -->
+                        <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-fw fa-pen"></i>
+                        </button>
+
+
+                        <!-- Edit Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Rediger Inspektør</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form class="needs-validation" novalidate th:action="@{/admin/cleaning-inspector-edit}" method="post">
+                                            <input type="hidden" th:field="${cleaningInspector.id}">
+                                            <div class="form-row">
+                                                <div class="col-6 mb-3">
+                                                    <label>Fornavn</label>
+                                                    <input type="text" class="form-control" th:field="${cleaningInspector.firstName}">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label>Efternavn</label>
+                                                    <input type="text" class="form-control" th:field="${cleaningInspector.lastName}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col-6 mb-3">
+                                                    <label>Telefon</label>
+                                                    <input type="tel" class="form-control" th:field="${cleaningInspector.phone}">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label>Email</label>
+                                                    <input type="email" class="form-control" th:field="${cleaningInspector.email}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col-4 mb-3">
+                                                    <label>Adresse</label>
+                                                    <input type="text" class="form-control" th:field="${cleaningInspector.address}" required>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label>Postkode</label>
+                                                    <input type="text" class="form-control" th:field="${cleaningInspector.zipCode}" required>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label>By</label>
+                                                    <input type="text" class="form-control" th:field="${cleaningInspector.city}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" value="A" th:field="${cleaningInspector.incomeMethod}" required>
+                                                <label class="custom-control-label" for="customControlValidation2">A Indkomst</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" value="B" th:field="${cleaningInspector.incomeMethod}" required>
+                                                <label class="custom-control-label" for="customControlValidation3">B Indkomst</label>
+                                            </div>
+                                            <div class="custom-control custom-radio mb-3">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation4" name="radio-stacked" value="Faktura" th:field="${cleaningInspector.incomeMethod}" required>
+                                                <label class="custom-control-label" for="customControlValidation4">Faktura</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Løn</label>
+                                                <input type="number" min="1" class="form-control" placeholder="0,-" th:field="${cleaningInspector.salary}" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Note</label>
+                                                <input type="text" class="form-control" placeholder="" th:field="${cleaningInspector.note}" required>
+                                            </div>
+
+                                            <button class="btn btn-success" type="submit">Gem</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--- Edit modal end-->
 
                         <!-- Page Heading -->
                         <h1 class="h2 mb-4 text-gray-800"  th:text="${cleaningInspector.firstName} + ' ' + ${cleaningInspector.lastName}"></h1>
@@ -109,8 +200,7 @@
                                 </a>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse hide" id="collapseCardExample">
-                                    <div class="card-body">
-                                        kommentar her!
+                                    <div class="card-body" th:text="${cleaningInspector.note}">
                                     </div>
                                 </div>
                             </div>
