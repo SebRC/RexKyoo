@@ -41,7 +41,7 @@ function readLogoSlidder1(collectionName)
       document.getElementById("slider1").innerHTML += 
       `
         <div class="mySlides fade">
-            <img id="${valueFromDB.id}" src="../Images/reference/sats.jpg" style="width:70%">
+            <img id="${valueFromDB.id}" src="../images/reference/sats.jpg" style="width:70%">
             <div class="sliderText">${valueFromDB.text}</div>
         </div>
       `;
@@ -67,7 +67,7 @@ function readLogoSlidder2(collectionName)
       document.getElementById("slider2").innerHTML += 
       `
         <div class="mySlides fade">
-            <img id="${valueFromDB.id}" src="../Images/reference/sats.jpg" style="width:70%">
+            <img id="${valueFromDB.id}" src="../images/reference/sats.jpg" style="width:70%">
             <div class="sliderText">${valueFromDB.text}</div>
         </div>
       `;

@@ -1,51 +1,41 @@
-<!DOCTYPE html>
-<html lang="da-DK" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8" />
+<!--Top menu -->
+<div class="top-menu" xmlns:th="http://www.w3.org/1999/xhtml">
+    <ul class="top-menu-area">
+        <div style="cursor: pointer"><a th:href="@{jobs}" style="text-decoration:none"><p>JOBS</p></a></div>
+        <div><p>Tlf: +45 27 21 00 58</p></div>
+        <div><p>E-mail: thilde.rex@rexkyoo.com</p></div>
+        <div><p> </p></div>
+    </ul>
+</div>
+<!--Button menu -->
+<div class="menu-padding" xmlns:th="http://www.w3.org/1999/xhtml">
+    <nav>
+        <div class="logo"><a th:href="@{/}" style="text-decoration:none"><img th:src="@{/images/divers/Original-logoSmall.png}" height="90" width="190" /></a></div>
 
-    <title>RexKyoo</title>
-    <link th:href="@{/css/erhvervStyle.css}" rel="stylesheet" type="text/css" />
-</head>
+        <ul class="menu-area">
+            <div class="dropdown-menu">
+                <div><p><i class="fas fa-bars"></i> Spidskompetencer</p></div>
+                <li class="dropdown-content-menu">
+                    <div><a th:href="@{fitness}" style="text-decoration:none"><p1>Fitness </p1></a></div>
+                    <div><a th:href="@{institution}" style="text-decoration:none"><p1>Institution </p1></a></div>
+                    <div><a th:href="@{klinik}" style="text-decoration:none"><p1>Klinik </p1></a></div>
+                    <div><a th:href="@{kontor}" style="text-decoration:none"><p1>Kontor </p1></a></div>
+                    <div><a th:href="@{skræddersy}" style="text-decoration:none"><p1>Skræddersy </p1></a></div>
+                    <div><a th:href="@{privat}" style="text-decoration:none"><p1>Privat </p1></a></div>
+                    <div><a th:href="@{housekeeper}" style="text-decoration:none"><p1>Housekeeper </p1></a></div>
+                    <div><a th:href="@{familiepakke}" style="text-decoration:none"><p1>Familiepakke </p1></a></div>
+                </li>
+            </div>
+            <div><a th:href="@{forretning}" style="text-decoration:none"><p>Forretning </p></a></div>
+            <div><a th:href="@{kvalitet}" style="text-decoration:none"><p>Kvalitet </p></a></div>
 
-<body>
-    <!--Head menu -->
-    <div class="top-menu"> 
-        <ul class="top-menu-area">
-            <div onclick="window.location.href='jobs.html'" style="cursor: pointer"><p>JOBS</p></div>
-            <div><p>Tlf: +45 27 21 00 58</p></div>
-            <div><p>E-mail: thilde.rex@rexkyoo.com</p></div>
+            <div class="dropdown-menu">
+                <div><a th:href="@{om-os}" style="text-decoration:none"><p><i class="fas fa-bars"></i> Om os </p></a></div>
+                <li class="dropdown-content-menu">
+                    <div><a th:href="@{ansatte}" style="text-decoration:none"><p1>Ansatte </p1></a></div>
+                </li>
+            </div>
             <div><p> </p></div>
         </ul>
-    </div>
-    <div class="menu-padding">
-        <nav>
-            <div class="logo" onclick="window.location.href='index.html'"><img src="../../static/Images/divers/Original-logoSmall.png" height="90" width="190" /></div>
-
-            <ul class="menu-area">
-                <div class="dropdown-menu">
-                    <div><p><i class="fas fa-bars"></i> Spidskompetencer</p></div>
-                    <li class="dropdown-content-menu">
-                        <div onclick="window.location.href='fitness.html'"><p1>Fitness </p1></div>
-                        <div onclick="window.location.href='institution.html'"><p1>Institution </p1></div>
-                        <div onclick="window.location.href='klinik.html'"><p1>Klinik </p1></div>
-                        <div onclick="window.location.href='kontor.html'"><p1>Kontor </p1></div>
-                        <div onclick="window.location.href='skræddersy.html'"><p1>Skræddersy </p1></div>
-                        <div onclick="window.location.href='privat.html'"><p1>Privat </p1></div>
-                        <div onclick="window.location.href='housekeeper.html'"><p1>Housekeeper </p1></div>
-                        <div onclick="window.location.href='familiepakke.html'"><p1>familiepakke </p1></div>
-                    </li>
-                </div>
-                <div onclick="window.location.href='forretning.html'"><p>Forretning </p></div>
-                <div onclick="window.location.href='kvalitet.html'"><p>Kvalitet </p></div>
-                <div class="dropdown-menu">
-                    <div onclick="window.location.href='omos.html'"><p><i class="fas fa-bars"></i> Om os </p></div>
-                    <li class="dropdown-content-menu">
-                        <div onclick="window.location.href='ansatte.html'"><p1>Ansatte </p1></div>
-                    </li>
-                </div>
-                <div><p> </p></div>
-            </ul>
-        </nav>
-    </div>
-</body>
+    </nav>
+</div>

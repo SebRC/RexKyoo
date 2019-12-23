@@ -468,6 +468,10 @@ nav
     z-index: 1;
     cursor: pointer;
 }
+.menu-area a
+{
+    text-decoration: none;
+}
 .menu-padding
 {
     padding-top: 50px;
@@ -531,6 +535,10 @@ div.top-menu
     line-height: -50px;
     position: relative;
     z-index: 1;
+}
+.top-menu-area a
+{
+    text-decoration: none;
 }
 
 button.but-hover

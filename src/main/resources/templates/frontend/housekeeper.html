@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="da-DK">
+<html lang="da-DK" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
 
     <title>RexKyoo</title>
-    <link href="CSS/erhvervStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/erhvervStyle.css}" />
 </head>
 
 <body>
-    <div id="includedMenubar"></div>
+    <div th:replace="@{/frontend/menubar.html}"></div>
     <div class="extraSpace50"></div>
 
     <div class="section-grey">
@@ -31,12 +31,12 @@
                 <i class="far fa-envelope"></i> <strong>E-mail:</strong> thilde.rex@rexkyoo.com<br>
             </p>
         </div>
-        <img class="section-grey-image2" src="../../static/Images/divers/medarbejder.jpg">
+        <img class="section-grey-image2" th:src="@{/images/divers/medarbejder.jpg}">
     </div>
 
     <div id="clear-float"></div>
     <div class="extraSpace30"></div>
-    <div class="bagground-image" style="background-image: url(../../static/Images/office/kitchen-s.jpg);">
+    <div class="bagground-image" style="background-image: url(../../static/images/office/kitchen-s.jpg);">
         <div class="bagground-image-textbox">
             <h2>PRIVAT PROFESSIONEL HOUSEKEEPER</h2>
             <p>
@@ -77,7 +77,7 @@
     <div id="clear-float"></div>
 
     <div class="box-profile">
-        <img class="box-profile-image" src="../../static/Images/anbefalinger/anne.jpg">
+        <img class="box-profile-image" th:src="@{/images/anbefalinger/anne.jpg}">
         <div class="box-profile-text">
             <h1>Anne Linnet</h1>
             <h4 style="line-height:1.5">
@@ -93,7 +93,7 @@
         </div>
     </div>
     <div class="box-profile">
-        <img class="box-profile-image"  src="Images/anbefalinger/gunvor2.jpg">
+        <img class="box-profile-image"  th:src="@{/images/anbefalinger/gunvor2.jpg}">
         <div class="box-profile-text">
             <h1>Gunvor</h1>
             <h4 style="line-height:1.5">
@@ -112,7 +112,7 @@
         </div>
     </div>
     <div class="box-profile">
-       <img class="box-profile-image" src="../../static/Images/anbefalinger/Wojciech.jpg">
+       <img class="box-profile-image" th:src="@{/images/anbefalinger/Wojciech.jpg}">
         <div class="box-profile-text">
             <h2>Wojciech </h2>
             <h4>Ansat i RexKyoo</h4>
@@ -133,14 +133,11 @@
 
     <div id="clear-float"></div>
     <div class="extraSpace50"></div> 
-    <div id="includedFooter"></div>
+    <div th:replace="@{/frontend/footer.html}"></div>
 
     <!--fronts-->
     <script src="https://kit.fontawesome.com/cb63d83ac4.js"></script>
 
-    <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="JS/divers.js"></script>
 </body>
 
 </html>
