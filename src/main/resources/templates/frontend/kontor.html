@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="da-DK">
+<html lang="da-DK" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
 
     <title>RexKyoo</title>
-    <link href="CSS/erhvervStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/erhvervStyle.css}" />
 </head>
 
 <body>
-    <div id="includedMenubar"></div>
+    <div th:replace="@{/frontend/menubar.html}"></div>
     <div class="extraSpace50"></div>
 
     <div class="section-grey">
@@ -29,7 +29,7 @@
                 <br>
             </p>
         </div>
-        <img class="section-grey-image" src="../../static/images/office/office-desk.jpg">
+        <img class="section-grey-image" th:src="@{/images/office/office-desk.jpg}">
     </div>
     
     <div id="clear-float"></div>
@@ -75,7 +75,7 @@
     <div class="extraSpace200"></div>
     <div class="extraSpace150"></div>
      
-    <img class="box-imageLeft2" src="../../static/images/divers/discount.jpg">
+    <img class="box-imageLeft2" th:src="@{/images/divers/discount.jpg}">
     <div class="box-textLeft2">
         <h1 class="section-text-green" style="font-size: 45px">Fordele ved at blive partner <br></h1>
         <h3> Stabile medarbejdere skaber god balancel</h3>
@@ -88,15 +88,11 @@
     </div>
    
     <div class="extraSpace200"></div>
-     <div class="extraSpace100"></div>
+    <div class="extraSpace100"></div>
     <div id="clear-float"></div>
-    <div id="includedFooter"></div>
+    <div th:replace="@{/frontend/footer.html}"></div>
 
     <!--fronts-->
     <script src="https://kit.fontawesome.com/cb63d83ac4.js"></script>
-
-    <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="JS/divers.js"></script>
 </body>
 </html>
