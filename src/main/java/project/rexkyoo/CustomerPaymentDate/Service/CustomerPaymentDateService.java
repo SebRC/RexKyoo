@@ -8,10 +8,7 @@ import project.rexkyoo.CustomerPaymentDate.Repository.CustomerPaymentDateReposit
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Month;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CustomerPaymentDateService
@@ -48,23 +45,24 @@ public class CustomerPaymentDateService
         try
         {
             currentEvaluatedDate = yearMonthDateFormat.parse(customerPaymentDateModel.getExpectedPaymentDate());
-        } catch (ParseException parseException)
+        }
+        catch (ParseException parseException)
         {
             customerPaymentDateModel.setMonth("NOT FOUND");
             return;
         }
 
-        int monthIndex = currentEvaluatedDate.getMonth();
-
-        Month month = Month.of(monthIndex + 1);
-
-        String formattedMonth = extractMonth(month);
+        String formattedMonth = extractMonth(currentEvaluatedDate);
 
         customerPaymentDateModel.setMonth(formattedMonth);
     }
 
-    private String extractMonth(Month month)
+    private String extractMonth(Date currentEvaluatedDate)
     {
+        int monthIndex = currentEvaluatedDate.getMonth();
+
+        Month month = Month.of(monthIndex + 1);
+
         String formattedMonth = month.toString().substring(0, 3);
 
         return formattedMonth;

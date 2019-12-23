@@ -62,5 +62,15 @@ public class CleaningInspectorController
 
         return "redirect:/admin/home";
     }
+
+    @PostMapping("/cleaning-inspector-edit")
+    public String editCleaningInspector(@ModelAttribute CleaningInspectorModel cleaningInspector)
+    {
+        cleaningInspectorService.save(cleaningInspector);
+
+        int id = cleaningInspector.getId();
+
+        return "redirect:/admin/cleaning-inspectors/" + id;
+    }
 }
 

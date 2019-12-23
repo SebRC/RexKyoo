@@ -73,7 +73,7 @@ public class SetMonthTests
         }
 
         @Test
-        public void validCalendarYear_Succeeds()
+        public void validDates_Succeeds()
         {
             // Arrange
             CustomerPaymentDateService customerPaymentDateService = new CustomerPaymentDateService();

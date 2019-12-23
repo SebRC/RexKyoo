@@ -49,7 +49,6 @@ public class CustomerModel
 
     }
 
-
     public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks, Set<CustomerPaymentDateModel> customerPaymentDates)
     {
         this.name = name;
