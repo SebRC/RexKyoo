@@ -56,11 +56,25 @@
                         <div class="form-group col-md-6 offset-3">
                             <label class="control-label">Kunde</label>
                             <div class="form-group">
-                                <select class="form-control" required th:field="${customerId}">
+                                <select class="form-control" required th:field="${assignment.customer}">
 
                                     <option th:each="customer : ${customers}"
                                             th:value="${customer.id}"
                                             th:text="${customer.name}">
+
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label class="control-label">Ambassadør</label>
+                            <div class="form-group">
+                                <select class="form-control" required th:field="${assignment.ambassador}">
+
+                                    <option th:each="ambassador : ${ambassadors}"
+                                            th:value="${ambassador.id}"
+                                            th:text="${ambassador.firstName} + ' ' + ${ambassador.lastName}">
 
                                     </option>
                                 </select>
