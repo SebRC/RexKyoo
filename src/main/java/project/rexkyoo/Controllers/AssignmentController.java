@@ -22,13 +22,13 @@ import java.util.List;
 public class AssignmentController
 {
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
 
     @Autowired
-    AmbassadorService ambassadorService;
+    private AmbassadorService ambassadorService;
 
     @Autowired
-    AssignmentService assignmentService;
+    private AssignmentService assignmentService;
 
     @GetMapping("/assignment")
     public String createCustomer(Model model)
