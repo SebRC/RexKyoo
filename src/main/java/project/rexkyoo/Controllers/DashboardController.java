@@ -31,11 +31,18 @@ public class DashboardController
     @Autowired
     private CleaningInspectorService cleaningInspectorService;
 
+    @Autowired
+    private AssignmentService assignmentService;
+
     @GetMapping("/home")
     public String home(Model model)
     {
         int amountOfPrivateCustomers = customerService.getAllPrivateCustomers().size();
         int amountOfBusinessCustomers = customerService.getAllBusinessCustomers().size();
+
+        double privateCustomersIncome = assignmentService.getIncomeBasedOnCustomerType("private");
+
+        model.addAttribute("privateCustomersIncome", privateCustomersIncome);
 
         model.addAttribute("amountOfPrivateCustomers", amountOfPrivateCustomers);
         model.addAttribute("amountOfBusinessCustomers", amountOfBusinessCustomers);
