@@ -1,6 +1,7 @@
 package project.rexkyoo.Assignment.Model;
 
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Assignment.AssignmentType;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
@@ -20,7 +21,7 @@ public class AssignmentModel
     private int income;
     private String startDate;
     private String endDate;
-    private String type;
+    private AssignmentType type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -38,7 +39,7 @@ public class AssignmentModel
     {
     }
 
-    public AssignmentModel(int income, String startDate, String endDate, String type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
+    public AssignmentModel(int income, String startDate, String endDate, AssignmentType type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
     {
         this.income = income;
         this.startDate = startDate;
@@ -85,12 +86,12 @@ public class AssignmentModel
         this.endDate = endDate;
     }
 
-    public String getType()
+    public AssignmentType getType()
     {
         return type;
     }
 
-    public void setType(String type)
+    public void setType(AssignmentType type)
     {
         this.type = type;
     }
