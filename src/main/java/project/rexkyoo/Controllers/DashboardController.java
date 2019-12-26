@@ -41,8 +41,10 @@ public class DashboardController
         int amountOfBusinessCustomers = customerService.getAllBusinessCustomers().size();
 
         double privateCustomersIncome = assignmentService.getIncomeBasedOnCustomerType("private");
+        double businessCustomersIncome = assignmentService.getIncomeBasedOnCustomerType("business");
 
         model.addAttribute("privateCustomersIncome", privateCustomersIncome);
+        model.addAttribute("businessCustomersIncome", businessCustomersIncome);
 
         model.addAttribute("amountOfPrivateCustomers", amountOfPrivateCustomers);
         model.addAttribute("amountOfBusinessCustomers", amountOfBusinessCustomers);
