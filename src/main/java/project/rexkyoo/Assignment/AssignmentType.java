@@ -4,5 +4,6 @@ public enum AssignmentType
 {
     RENGØRING,
     LEKTIEHJÆLP,
-    BØRNEPASNING
+    BØRNEPASNING,
+    DIVERSE
 }
