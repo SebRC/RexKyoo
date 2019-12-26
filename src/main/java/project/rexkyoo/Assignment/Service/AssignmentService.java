@@ -41,4 +41,18 @@ public class AssignmentService
 
         return assignmentTypes;
     }
+
+    public double getIncomeBasedOnCustomerType(String type)
+    {
+        double privateCustomersIncome = 0;
+
+        List<AssignmentModel> assignments = assignmentRepository.findAllByCustomerTypeEquals(type);
+
+        for (AssignmentModel assignment : assignments)
+        {
+            privateCustomersIncome += assignment.getIncome();
+        }
+
+        return privateCustomersIncome;
+    }
 }
