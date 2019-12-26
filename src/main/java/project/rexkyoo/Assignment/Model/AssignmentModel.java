@@ -18,8 +18,8 @@ public class AssignmentModel
     @Column(name = "assignment_id")
     private int id;
     private int income;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -38,7 +38,7 @@ public class AssignmentModel
     {
     }
 
-    public AssignmentModel(int income, Date startDate, Date endDate, String type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
+    public AssignmentModel(int income, String startDate, String endDate, String type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
     {
         this.income = income;
         this.startDate = startDate;
@@ -65,22 +65,22 @@ public class AssignmentModel
         this.income = income;
     }
 
-    public Date getStartDate()
+    public String getStartDate()
     {
         return startDate;
     }
 
-    public void setStartDate(Date startDate)
+    public void setStartDate(String startDate)
     {
         this.startDate = startDate;
     }
 
-    public Date getEndDate()
+    public String getEndDate()
     {
         return endDate;
     }
 
-    public void setEndDate(Date endDate)
+    public void setEndDate(String endDate)
     {
         this.endDate = endDate;
     }
