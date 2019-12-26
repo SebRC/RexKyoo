@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
+import project.rexkyoo.Assignment.Service.AssignmentService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 
@@ -22,6 +25,9 @@ public class AssignmentController
 
     @Autowired
     AmbassadorService ambassadorService;
+
+    @Autowired
+    AssignmentService assignmentService;
 
     @GetMapping("/assignment")
     public String createCustomer(Model model)
