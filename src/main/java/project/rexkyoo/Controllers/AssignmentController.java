@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Ambassador.Services.AmbassadorService;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
@@ -18,16 +20,19 @@ public class AssignmentController
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    AmbassadorService ambassadorService;
+
     @GetMapping("/assignment")
     public String createCustomer(Model model)
     {
         AssignmentModel assignment = new AssignmentModel();
         List<CustomerModel> customers =  customerService.getAll();
-        int connectedCustomerId = 0;
+        List<AmbassadorModel> ambassadors = ambassadorService.getAll();
 
         model.addAttribute("assignment", assignment);
         model.addAttribute("customers", customers);
-        model.addAttribute("customerId", connectedCustomerId);
+        model.addAttribute("ambassadors", ambassadors);
 
         return "dashboard/assignment/create_assignment";
     }
