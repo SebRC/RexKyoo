@@ -42,4 +42,12 @@ public class AssignmentController
 
         return "dashboard/assignment/create_assignment";
     }
+
+    @PostMapping("/assignment")
+    public String createCustomer(@ModelAttribute AssignmentModel assignmentModel)
+    {
+        assignmentService.save(assignmentModel);
+
+        return "redirect:/admin/home";
+    }
 }
