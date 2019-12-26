@@ -2,6 +2,7 @@ package project.rexkyoo.Assignment.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.rexkyoo.Assignment.AssignmentType;
 import project.rexkyoo.Assignment.Repository.AssignmentRepository;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 
@@ -32,5 +33,12 @@ public class AssignmentService
     public void delete(int id)
     {
         assignmentRepository.deleteById(id);
+    }
+
+    public AssignmentType[] getAssignmentTypes()
+    {
+        AssignmentType[] assignmentTypes = AssignmentType.values();
+
+        return assignmentTypes;
     }
 }
