@@ -7,7 +7,7 @@ import project.rexkyoo.Contract.ContractType;
 import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.Contract.ContractRepository;
 import project.rexkyoo.Customer.CustomerModel;
-import project.rexkyoo.Expenses.Models.ExpenseModel;
+import project.rexkyoo.Expenses.ExpenseModel;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;

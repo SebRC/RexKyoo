@@ -2,7 +2,7 @@ package project.rexkyoo.Contract;
 
 import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Customer.CustomerModel;
-import project.rexkyoo.Expenses.Models.ExpenseModel;
+import project.rexkyoo.Expenses.ExpenseModel;
 
 import javax.persistence.*;
 import java.util.ArrayList;

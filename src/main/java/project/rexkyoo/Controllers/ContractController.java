@@ -14,8 +14,8 @@ import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.Contract.ContractService;
 import project.rexkyoo.Customer.CustomerModel;
 import project.rexkyoo.Customer.CustomerService;
-import project.rexkyoo.Expenses.Models.ExpenseModel;
-import project.rexkyoo.Expenses.Services.ExpensesService;
+import project.rexkyoo.Expenses.ExpenseModel;
+import project.rexkyoo.Expenses.ExpensesService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package project.rexkyoo.Expenses.Models;
+package project.rexkyoo.Expenses;
 
 import project.rexkyoo.Contract.ContractModel;
 

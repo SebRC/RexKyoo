@@ -1,10 +1,8 @@
-package project.rexkyoo.Expenses.Services;
+package project.rexkyoo.Expenses;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Contract.ContractModel;
-import project.rexkyoo.Expenses.Models.ExpenseModel;
-import project.rexkyoo.Expenses.Repositories.ExpensesRepository;
 
 import java.util.HashSet;
 import java.util.List;
