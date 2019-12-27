@@ -60,6 +60,8 @@ public class DashboardController
 
         economyService.assignCustomersPercentageOfIncome(customers);
 
+        economyService.assignAllAmbassadorsMonthlyWages(ambassadors);
+
         EconomyModel entireCompanyEconomy = economyService.getEconomyForEntireCompany();
 
         model.addAttribute("customers", customers);
