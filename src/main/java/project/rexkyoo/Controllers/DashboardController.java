@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
 import project.rexkyoo.Economy.EconomyModel;
-import project.rexkyoo.Assignment.Service.AssignmentService;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
 import project.rexkyoo.Customer.Model.CustomerModel;
@@ -59,7 +58,9 @@ public class DashboardController
         List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorService.getAll();
         List<CustomerModel> assignments = customerService.getAll();
 
-        EconomyModel entireCompanyEconomy = economyService.getEconoymForEntireCompany();
+        economyService.assignCustomersPercentageOfIncome(customers);
+
+        EconomyModel entireCompanyEconomy = economyService.getEconomyForEntireCompany();
 
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);
