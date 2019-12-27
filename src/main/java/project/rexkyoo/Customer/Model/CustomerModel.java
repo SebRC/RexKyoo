@@ -1,6 +1,6 @@
 package project.rexkyoo.Customer.Model;
 
-import project.rexkyoo.Assignment.Model.AssignmentModel;
+import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
@@ -35,7 +35,7 @@ public class CustomerModel
     private double percentageOfCompanyIncome;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    private Set<AssignmentModel> assignments;
+    private Set<ContractModel> contracts;
 
     @OneToOne (mappedBy = "customer")
     private CleaningInspectorModel cleaningInspector;
@@ -52,7 +52,7 @@ public class CustomerModel
     }
 
     public CustomerModel(String name, String email, String address, String city, String zipCode,
-                         String phone, String type, String note, Set<AssignmentModel> assignments,
+                         String phone, String type, String note, Set<ContractModel> contracts,
                          CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks,
                          Set<CustomerPaymentDateModel> customerPaymentDates)
     {
@@ -64,7 +64,7 @@ public class CustomerModel
         this.phone = phone;
         this.type = type;
         this.note = note;
-        this.assignments = assignments;
+        this.contracts = contracts;
         this.cleaningInspector = cleaningInspector;
         this.feedbacks = feedbacks;
         this.customerPaymentDates = customerPaymentDates;
@@ -199,14 +199,14 @@ public class CustomerModel
         this.feedbacks = feedbacks;
     }
 
-    public Set<AssignmentModel> getAssignments()
+    public Set<ContractModel> getContracts()
     {
-        return assignments;
+        return contracts;
     }
 
-    public void setAssignments(Set<AssignmentModel> assignments)
+    public void setContracts(Set<ContractModel> contracts)
     {
-        this.assignments = assignments;
+        this.contracts = contracts;
     }
 
     public String getType()

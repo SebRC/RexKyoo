@@ -1,6 +1,6 @@
-package project.rexkyoo.Assignment;
+package project.rexkyoo.Contract;
 
-public enum AssignmentType
+public enum ContractType
 {
     RENGØRING,
     LEKTIEHJÆLP,

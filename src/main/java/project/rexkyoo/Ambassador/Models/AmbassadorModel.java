@@ -1,6 +1,6 @@
 package project.rexkyoo.Ambassador.Models;
 
-import project.rexkyoo.Assignment.Model.AssignmentModel;
+import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
@@ -33,7 +33,7 @@ public class AmbassadorModel
     private CleaningInspectorModel cleaningInspector;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador")
-    private Set<AssignmentModel> assignments;
+    private Set<ContractModel> contracts;
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador")
@@ -43,7 +43,7 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<AssignmentModel> assignments, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<ContractModel> contracts, Set<FeedbackModel> feedbacks)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +56,7 @@ public class AmbassadorModel
         this.salary = salary;
         this.note = note;
         this.cleaningInspector = cleaningInspector;
-        this.assignments = assignments;
+        this.contracts = contracts;
         this.feedbacks = feedbacks;
     }
 
@@ -150,14 +150,14 @@ public class AmbassadorModel
         this.cleaningInspector = cleaningInspector;
     }
 
-    public Set<AssignmentModel> getAssignments()
+    public Set<ContractModel> getContracts()
     {
-        return assignments;
+        return contracts;
     }
 
-    public void setAssignments(Set<AssignmentModel> assignments)
+    public void setContracts(Set<ContractModel> contracts)
     {
-        this.assignments = assignments;
+        this.contracts = contracts;
     }
 
     public Set<FeedbackModel> getFeedbacks()

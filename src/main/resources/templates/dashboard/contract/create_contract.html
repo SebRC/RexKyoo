@@ -51,12 +51,12 @@
                 </div>
 
                 <div class="col-md-6 offset-3">
-                    <form th:action="@{/admin/assignment}" method="post">
+                    <form th:action="@{/admin/contract}" method="post">
 
                         <div class="form-group col-md-6 offset-3">
                             <label class="control-label">Kunde</label>
                             <div class="form-group">
-                                <select class="form-control" th:field="${assignment.customer}">
+                                <select class="form-control" th:field="${contract.customer}">
 
                                     <option th:each="customer : ${customers}"
                                             th:value="${customer.id}"
@@ -70,7 +70,7 @@
                         <div class="form-group col-md-6 offset-3">
                             <label class="control-label">Ambassadør</label>
                             <div class="form-group">
-                                <select class="form-control" th:field="${assignment.ambassador}">
+                                <select class="form-control" th:field="${contract.ambassador}">
 
                                     <option th:each="ambassador : ${ambassadors}"
                                             th:value="${ambassador.id}"
@@ -84,11 +84,11 @@
                         <div class="form-group col-md-6 offset-3">
                             <label class="control-label">Type</label>
                             <div class="form-group">
-                                <select class="form-control" th:field="${assignment.type}">
+                                <select class="form-control" th:field="${contract.type}">
 
-                                    <option th:each="assignmentType : ${assignmentTypes}"
-                                            th:value="${assignmentType}"
-                                            th:text="${assignmentType}">
+                                    <option th:each="contractType : ${contractTypes}"
+                                            th:value="${contractType}"
+                                            th:text="${contractType}">
 
                                     </option>
                                 </select>
@@ -97,17 +97,17 @@
 
                         <div class="form-group col-md-6 offset-3">
                             <label for="startDate">Start dato*</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate" required th:field="${assignment.startDate}">
+                            <input type="date" class="form-control" id="startDate" name="startDate" required th:field="${contract.startDate}">
                         </div>
 
                         <div class="form-group col-md-6 offset-3">
                             <label for="endDate">Slut dato*</label>
-                            <input type="date" class="form-control" id="endDate" name="endDate" required th:field="${assignment.endDate}">
+                            <input type="date" class="form-control" id="endDate" name="endDate" required th:field="${contract.endDate}">
                         </div>
 
                         <div class="form-group col-md-6 offset-3">
                             <label>Indkomst*</label>
-                            <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${assignment.income}">
+                            <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.income}">
                         </div>
 
                         <button type="submit" class="btn btn-success col-md-4 offset-4 mb-5">Opret</button>

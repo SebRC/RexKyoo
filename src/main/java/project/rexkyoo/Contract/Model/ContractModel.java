@@ -1,33 +1,31 @@
-package project.rexkyoo.Assignment.Model;
+package project.rexkyoo.Contract.Model;
 
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
-import project.rexkyoo.Assignment.AssignmentType;
+import project.rexkyoo.Contract.ContractType;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Assignment")
-public class AssignmentModel
+@Table(name = "Contract")
+public class ContractModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "assignment_id")
+    @Column(name = "contract_id")
     private int id;
     private int income;
     private String startDate;
     private String endDate;
-    private AssignmentType type;
+    private ContractType type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private CustomerModel customer;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "assignment")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "contract")
     private Set<ExpenseModel> expenses;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -35,11 +33,11 @@ public class AssignmentModel
     private AmbassadorModel ambassador;
 
 
-    public AssignmentModel()
+    public ContractModel()
     {
     }
 
-    public AssignmentModel(int income, String startDate, String endDate, AssignmentType type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
+    public ContractModel(int income, String startDate, String endDate, ContractType type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
     {
         this.income = income;
         this.startDate = startDate;
@@ -86,12 +84,12 @@ public class AssignmentModel
         this.endDate = endDate;
     }
 
-    public AssignmentType getType()
+    public ContractType getType()
     {
         return type;
     }
 
-    public void setType(AssignmentType type)
+    public void setType(ContractType type)
     {
         this.type = type;
     }

@@ -1,10 +1,9 @@
 package project.rexkyoo.Expenses.Models;
 
-import project.rexkyoo.Assignment.Model.AssignmentModel;
+import project.rexkyoo.Contract.Model.ContractModel;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "Expense")
@@ -19,18 +18,18 @@ public class ExpenseModel
     private Double price;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "assignment_id")
-    private AssignmentModel assignment;
+    @JoinColumn(name = "contract_id")
+    private ContractModel contract;
 
     public ExpenseModel() {
     }
 
-    public ExpenseModel(Date date, String name, Double price, AssignmentModel assignment)
+    public ExpenseModel(Date date, String name, Double price, ContractModel contract)
     {
         this.date = date;
         this.name = name;
         this.price = price;
-        this.assignment = assignment;
+        this.contract = contract;
     }
 
     public int getId() {
@@ -61,13 +60,13 @@ public class ExpenseModel
         this.price = price;
     }
 
-    public AssignmentModel getAssignment()
+    public ContractModel getContract()
     {
-        return assignment;
+        return contract;
     }
 
-    public void setAssignment(AssignmentModel assignment)
+    public void setContract(ContractModel contract)
     {
-        this.assignment = assignment;
+        this.contract = contract;
     }
 }

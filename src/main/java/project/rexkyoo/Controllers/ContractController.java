@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
-import project.rexkyoo.Assignment.AssignmentType;
-import project.rexkyoo.Assignment.Model.AssignmentModel;
-import project.rexkyoo.Assignment.Service.AssignmentService;
+import project.rexkyoo.Contract.ContractType;
+import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.Service.ContractService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 
@@ -19,7 +19,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class AssignmentController
+public class ContractController
 {
     @Autowired
     private CustomerService customerService;
@@ -28,30 +28,30 @@ public class AssignmentController
     private AmbassadorService ambassadorService;
 
     @Autowired
-    private AssignmentService assignmentService;
+    private ContractService contractService;
 
-    @GetMapping("/assignment")
-    public String createCustomer(Model model)
+    @GetMapping("/contract")
+    public String createContract(Model model)
     {
-        AssignmentModel assignment = new AssignmentModel();
-        AssignmentType[] assignmentTypes = assignmentService.getAssignmentTypes();
+        ContractModel contract = new ContractModel();
+        ContractType[] contractTypes = contractService.getContractTypes();
 
         List<CustomerModel> customers =  customerService.getAll();
         List<AmbassadorModel> ambassadors = ambassadorService.getAll();
 
-        model.addAttribute("assignment", assignment);
-        model.addAttribute("assignmentTypes", assignmentTypes);
+        model.addAttribute("contract", contract);
+        model.addAttribute("contractTypes", contractTypes);
 
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);
 
-        return "dashboard/assignment/create_assignment";
+        return "dashboard/contract/create_contract";
     }
 
-    @PostMapping("/assignment")
-    public String createCustomer(@ModelAttribute AssignmentModel assignmentModel)
+    @PostMapping("/contract")
+    public String createContract(@ModelAttribute ContractModel contractModel)
     {
-        assignmentService.save(assignmentModel);
+        contractService.save(contractModel);
 
         return "redirect:/admin/home";
     }

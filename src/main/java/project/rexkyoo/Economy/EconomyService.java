@@ -2,8 +2,8 @@ package project.rexkyoo.Economy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Assignment.Model.AssignmentModel;
-import project.rexkyoo.Assignment.Repository.AssignmentRepository;
+import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.Repository.ContractRepository;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
@@ -15,7 +15,7 @@ import java.util.Set;
 public class EconomyService
 {
     @Autowired
-    private AssignmentRepository assignmentRepository;
+    private ContractRepository contractRepository;
 
     public EconomyModel getEconomyBasedOnCustomerType(String type)
     {
@@ -23,7 +23,7 @@ public class EconomyService
         double customersExpenses;
         double customersProfit;
 
-        List<AssignmentModel> assignments = assignmentRepository.findAllByCustomerTypeEquals(type);
+        List<ContractModel> assignments = contractRepository.findAllByCustomerTypeEquals(type);
 
         customersIncome = assignIncome(assignments);
         customersExpenses = assignExpenses(assignments);
@@ -34,11 +34,11 @@ public class EconomyService
         return economy;
     }
 
-    private double assignIncome(List<AssignmentModel> assignments)
+    private double assignIncome(List<ContractModel> assignments)
     {
         double privateCustomersIncome = 0;
 
-        for (AssignmentModel assignment : assignments)
+        for (ContractModel assignment : assignments)
         {
             privateCustomersIncome += assignment.getIncome();
         }
@@ -46,11 +46,11 @@ public class EconomyService
         return privateCustomersIncome;
     }
 
-    private double assignExpenses(List<AssignmentModel> assignments)
+    private double assignExpenses(List<ContractModel> assignments)
     {
         double privateCustomersExpenses = 0;
 
-        for (AssignmentModel assignment : assignments)
+        for (ContractModel assignment : assignments)
         {
             Set<ExpenseModel> expenses = assignment.getExpenses();
 
@@ -69,7 +69,7 @@ public class EconomyService
         double customersExpenses;
         double customersProfit;
 
-        List<AssignmentModel> assignments = assignmentRepository.findAll();
+        List<ContractModel> assignments = contractRepository.findAll();
 
         customersIncome = assignIncome(assignments);
         customersExpenses = assignExpenses(assignments);
@@ -92,10 +92,10 @@ public class EconomyService
     {
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
 
-        Set<AssignmentModel> assignments = customer.getAssignments();
+        Set<ContractModel> assignments = customer.getContracts();
         double totalCustomerIncome = 0;
 
-        for (AssignmentModel assignment : assignments)
+        for (ContractModel assignment : assignments)
         {
             totalCustomerIncome += assignment.getIncome();
         }
