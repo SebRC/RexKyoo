@@ -41,4 +41,11 @@ public class ContractService
 
         return contractTypes;
     }
+
+    public List<ContractModel> findAllByCustomerId(int id)
+    {
+        List<ContractModel> contracts = contractRepository.findAllByCustomerIdEquals(id);
+
+        return contracts;
+    }
 }

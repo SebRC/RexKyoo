@@ -11,6 +11,7 @@ import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 import project.rexkyoo.Economy.EconomyService;
+import project.rexkyoo.Economy.MonthsIncomeModel;
 
 import java.util.List;
 import java.util.Set;
@@ -27,6 +28,9 @@ public class CustomerController
 
     @Autowired
     private EconomyService economyService;
+
+    @Autowired
+    private ContractService contractService;
 
     @GetMapping("/business-customers")
     public String businessCustomerOverview(Model model)
@@ -76,10 +80,18 @@ public class CustomerController
 
         Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
 
+        List<ContractModel> contracts = contractService.findAllByCustomerId(id);
+
+        economyService.assignMonthsToContracts(contracts);
+
+        MonthsIncomeModel monthsIncome = economyService.getMonthPayments(contracts);
+
         model.addAttribute("privateCustomer", privateCustomer);
         model.addAttribute("privateCustomerPaymentDates", paymentDates);
 
         model.addAttribute("customerPaymentDate", new CustomerPaymentDateModel());
+
+        model.addAttribute("monthsIncome", monthsIncome);
 
         return "dashboard/customer/private_customer_details";
     }
