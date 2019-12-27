@@ -23,10 +23,10 @@ public class EconomyService
         double customersExpenses;
         double customersProfit;
 
-        List<ContractModel> assignments = contractRepository.findAllByCustomerTypeEquals(type);
+        List<ContractModel> contracts = contractRepository.findAllByCustomerTypeEquals(type);
 
-        customersIncome = assignIncome(assignments);
-        customersExpenses = assignExpenses(assignments);
+        customersIncome = assignIncome(contracts);
+        customersExpenses = assignExpenses(contracts);
         customersProfit = customersIncome - customersExpenses;
 
         EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
@@ -69,10 +69,10 @@ public class EconomyService
         double customersExpenses;
         double customersProfit;
 
-        List<ContractModel> assignments = contractRepository.findAll();
+        List<ContractModel> contracts = contractRepository.findAll();
 
-        customersIncome = assignIncome(assignments);
-        customersExpenses = assignExpenses(assignments);
+        customersIncome = assignIncome(contracts);
+        customersExpenses = assignExpenses(contracts);
         customersProfit = customersIncome - customersExpenses;
 
         EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
@@ -92,12 +92,12 @@ public class EconomyService
     {
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
 
-        Set<ContractModel> assignments = customer.getContracts();
+        Set<ContractModel> contracts = customer.getContracts();
         double totalCustomerIncome = 0;
 
-        for (ContractModel assignment : assignments)
+        for (ContractModel contract : contracts)
         {
-            totalCustomerIncome += assignment.getIncome();
+            totalCustomerIncome += contract.getIncome();
         }
 
         double percentage = (totalCustomerIncome / totalCompanyIncome) * 100;
@@ -110,23 +110,9 @@ public class EconomyService
 
     public void assignEconomyForCustomers(List<CustomerModel> customers)
     {
-        double customersIncome;
-        double customersExpenses;
-        double customersProfit;
-
         for (CustomerModel customer : customers)
         {
-            int id = customer.getId();
-
-            List<ContractModel> contracts = contractRepository.findAllByCustomerIdEquals(id);
-
-            customersIncome = assignIncome(contracts);
-            customersExpenses = assignExpenses(contracts);
-            customersProfit = customersIncome - customersExpenses;
-
-            EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
-
-            customer.setEconomy(economy);
+            assignEconomyForSingleCustomer(customer);
         }
     }
 
@@ -147,6 +133,5 @@ public class EconomyService
         EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
 
         customer.setEconomy(economy);
-
     }
 }
