@@ -24,8 +24,9 @@ public class AmbassadorModel
     private String city;
     private String zipCode;
     private String incomeMethod;
-    private Double salary = 0.0;
     private String note = "";
+    @Transient
+    private Double salary = 0.0;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -43,7 +44,7 @@ public class AmbassadorModel
     {
     }
 
-    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, String incomeMethod, Double salary, String note, CleaningInspectorModel cleaningInspector, Set<ContractModel> contracts, Set<FeedbackModel> feedbacks)
+    public AmbassadorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, String incomeMethod, String note, CleaningInspectorModel cleaningInspector, Set<ContractModel> contracts, Set<FeedbackModel> feedbacks)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,7 +54,6 @@ public class AmbassadorModel
         this.city = city;
         this.zipCode = zipCode;
         this.incomeMethod = incomeMethod;
-        this.salary = salary;
         this.note = note;
         this.cleaningInspector = cleaningInspector;
         this.contracts = contracts;
