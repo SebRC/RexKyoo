@@ -6,12 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
-import project.rexkyoo.Assignment.Model.EconomyModel;
+import project.rexkyoo.Economy.EconomyModel;
 import project.rexkyoo.Assignment.Service.AssignmentService;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
+import project.rexkyoo.Economy.EconomyService;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class DashboardController
     private CleaningInspectorService cleaningInspectorService;
 
     @Autowired
-    private AssignmentService assignmentService;
+    private EconomyService economyService;
 
     @GetMapping("/home")
     public String home(Model model)
@@ -38,8 +39,8 @@ public class DashboardController
         int amountOfPrivateCustomers = customerService.getAllPrivateCustomers().size();
         int amountOfBusinessCustomers = customerService.getAllBusinessCustomers().size();
 
-        EconomyModel privateCustomersEconomy = assignmentService.getEconomyBasedOnCustomerType("private");
-        EconomyModel businessCustomersEconomy = assignmentService.getEconomyBasedOnCustomerType("business");
+        EconomyModel privateCustomersEconomy = economyService.getEconomyBasedOnCustomerType("private");
+        EconomyModel businessCustomersEconomy = economyService.getEconomyBasedOnCustomerType("business");
 
         model.addAttribute("amountOfPrivateCustomers", amountOfPrivateCustomers);
         model.addAttribute("amountOfBusinessCustomers", amountOfBusinessCustomers);
@@ -58,7 +59,7 @@ public class DashboardController
         List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorService.getAll();
         List<CustomerModel> assignments = customerService.getAll();
 
-        EconomyModel entireCompanyEconomy = assignmentService.getEconoymForEntireCompany();
+        EconomyModel entireCompanyEconomy = economyService.getEconoymForEntireCompany();
 
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);

@@ -1,4 +1,4 @@
-package project.rexkyoo.Assignment.Model;
+package project.rexkyoo.Economy;
 
 public class EconomyModel
 {
