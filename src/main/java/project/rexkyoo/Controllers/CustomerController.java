@@ -8,8 +8,8 @@ import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.Contract.ContractService;
 import project.rexkyoo.Customer.CustomerModel;
 import project.rexkyoo.Customer.CustomerService;
-import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
-import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
+import project.rexkyoo.CustomerPaymentDate.CustomerPaymentDateModel;
+import project.rexkyoo.CustomerPaymentDate.CustomerPaymentDateService;
 import project.rexkyoo.Economy.EconomyService;
 import project.rexkyoo.Economy.MonthsIncomeModel;
 

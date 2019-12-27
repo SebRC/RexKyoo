@@ -1,4 +1,4 @@
-package project.rexkyoo.CustomerPaymentDate.Model;
+package project.rexkyoo.CustomerPaymentDate;
 
 import project.rexkyoo.Customer.CustomerModel;
 

@@ -2,7 +2,7 @@ package project.rexkyoo.Customer;
 
 import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
-import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
+import project.rexkyoo.CustomerPaymentDate.CustomerPaymentDateModel;
 import project.rexkyoo.Economy.EconomyModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
