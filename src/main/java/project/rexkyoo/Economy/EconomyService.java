@@ -10,6 +10,10 @@ import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Month;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -238,8 +242,8 @@ public class EconomyService
 
     public double calculateProfitPercentage()
     {
-        double profitPercentage = 0.0;
-        double profit = 0.0;
+        double profitPercentage;
+        double profit;
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
 
         List<ContractModel> contracts = contractRepository.findAll();
@@ -253,7 +257,58 @@ public class EconomyService
         profitPercentage = roundToTwoDecimal(profitPercentage);
 
         return profitPercentage;
+    }
 
+    public void assignMonthsToContracts(List<ContractModel> contracts)
+    {
+        for (ContractModel contract : contracts)
+        {
+            SimpleDateFormat yearMonthDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+            Date startDate;
+            Date endDate;
+
+            try
+            {
+                startDate = yearMonthDateFormat.parse(contract.getStartDate());
+                endDate = yearMonthDateFormat.parse(contract.getEndDate());
+            }
+            catch (ParseException parseException)
+            {
+                contract.getMonths().add("NOT FOUND");
+                return;
+            }
+
+            int startMonthIndex = startDate.getMonth() + 1;
+            int endMonthIndex = endDate.getMonth() + 1;
+
+            for (int i = startMonthIndex; i <= endMonthIndex; i++)
+            {
+                Month currentEvaluatedMonth = Month.of(i);
+
+                String formattedMonth = currentEvaluatedMonth.toString().substring(0, 3);
+
+                contract.getMonths().add(formattedMonth);
+            }
+        }
+    }
+
+    public MonthsIncomeModel getMonthPayments(List<ContractModel> contracts)
+    {
+        MonthsIncomeModel monthsIncome = new MonthsIncomeModel();
+
+        for (ContractModel contract : contracts)
+        {
+            for (String month : contract.getMonths())
+            {
+                double income = monthsIncome.getMonthsIncome().get(month);
+
+                income += contract.getIncome();
+
+                monthsIncome.getMonthsIncome().put(month, income);
+            }
+        }
+
+        return monthsIncome;
     }
 }
