@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
-import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
+import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
+import project.rexkyoo.CleaningInspector.CleaningInspectorService;
 
 import java.util.List;
 

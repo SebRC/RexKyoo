@@ -1,10 +1,7 @@
-package project.rexkyoo.CleaningInspector.Repositories;
+package project.rexkyoo.CleaningInspector;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
-
-import java.util.List;
 
 @Repository
 public interface CleaningInspectorRepository extends JpaRepository<CleaningInspectorModel, Integer>

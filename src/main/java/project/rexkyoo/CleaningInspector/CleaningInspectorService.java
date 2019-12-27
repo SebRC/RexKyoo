@@ -1,9 +1,7 @@
-package project.rexkyoo.CleaningInspector.Services;
+package project.rexkyoo.CleaningInspector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
-import project.rexkyoo.CleaningInspector.Repositories.CleaningInspectorRepository;
 
 import java.util.List;
 
