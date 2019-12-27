@@ -27,7 +27,7 @@ public class ContractModel
     @JoinColumn(name = "customer_id")
     private CustomerModel customer;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "contract")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "contract", cascade = CascadeType.ALL)
     private Set<ExpenseModel> expenses;
 
     @ManyToOne(fetch = FetchType.LAZY)
