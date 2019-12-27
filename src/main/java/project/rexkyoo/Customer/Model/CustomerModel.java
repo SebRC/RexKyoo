@@ -37,7 +37,7 @@ public class CustomerModel
     @Transient
     private EconomyModel economy;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<ContractModel> contracts;
 
     @OneToOne (mappedBy = "customer")
