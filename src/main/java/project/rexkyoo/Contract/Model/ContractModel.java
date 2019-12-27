@@ -16,10 +16,12 @@ public class ContractModel
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "contract_id")
     private int id;
-    private int income;
+    private double income;
     private String startDate;
     private String endDate;
     private ContractType type;
+    private double hourlyWage;
+    private double workHoursPerMonth;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -37,12 +39,16 @@ public class ContractModel
     {
     }
 
-    public ContractModel(int income, String startDate, String endDate, ContractType type, CustomerModel customer, Set<ExpenseModel> expenses, AmbassadorModel ambassador)
+    public ContractModel(double income, String startDate, String endDate, ContractType type,
+                         double hourlyWage, double workHoursPerMonth, CustomerModel customer,
+                         Set<ExpenseModel> expenses, AmbassadorModel ambassador)
     {
         this.income = income;
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
+        this.hourlyWage = hourlyWage;
+        this.workHoursPerMonth = workHoursPerMonth;
         this.customer = customer;
         this.expenses = expenses;
         this.ambassador = ambassador;
@@ -54,12 +60,12 @@ public class ContractModel
     }
 
 
-    public int getIncome()
+    public double getIncome()
     {
         return income;
     }
 
-    public void setIncome(int income)
+    public void setIncome(double income)
     {
         this.income = income;
     }
@@ -92,6 +98,26 @@ public class ContractModel
     public void setType(ContractType type)
     {
         this.type = type;
+    }
+
+    public double getHourlyWage()
+    {
+        return hourlyWage;
+    }
+
+    public void setHourlyWage(double hourlyWage)
+    {
+        this.hourlyWage = hourlyWage;
+    }
+
+    public double getWorkHoursPerMonth()
+    {
+        return workHoursPerMonth;
+    }
+
+    public void setWorkHoursPerMonth(double workHoursPerMonth)
+    {
+        this.workHoursPerMonth = workHoursPerMonth;
     }
 
     public CustomerModel getCustomer()
