@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
+import project.rexkyoo.Assignment.Model.EconomyModel;
 import project.rexkyoo.Assignment.Service.AssignmentService;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
@@ -40,11 +41,11 @@ public class DashboardController
         int amountOfPrivateCustomers = customerService.getAllPrivateCustomers().size();
         int amountOfBusinessCustomers = customerService.getAllBusinessCustomers().size();
 
-        double privateCustomersIncome = assignmentService.getIncomeBasedOnCustomerType("private");
-        double businessCustomersIncome = assignmentService.getIncomeBasedOnCustomerType("business");
+        EconomyModel privateCustomersEconomy = assignmentService.getEconomyBasedOnCustomerType("private");
+        EconomyModel businessCustomersEconomy = assignmentService.getEconomyBasedOnCustomerType("business");
 
-        model.addAttribute("privateCustomersIncome", privateCustomersIncome);
-        model.addAttribute("businessCustomersIncome", businessCustomersIncome);
+        model.addAttribute("privateCustomersEconomy", privateCustomersEconomy);
+        model.addAttribute("businessCustomersEconomy", businessCustomersEconomy);
 
         model.addAttribute("amountOfPrivateCustomers", amountOfPrivateCustomers);
         model.addAttribute("amountOfBusinessCustomers", amountOfBusinessCustomers);
