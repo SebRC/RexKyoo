@@ -1,9 +1,7 @@
-package project.rexkyoo.Customer.Service;
+package project.rexkyoo.Customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Customer.Model.CustomerModel;
-import project.rexkyoo.Customer.Repository.CustomerRepository;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 

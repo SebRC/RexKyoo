@@ -1,8 +1,7 @@
-package project.rexkyoo.Customer.Repository;
+package project.rexkyoo.Customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import project.rexkyoo.Customer.Model.CustomerModel;
 
 import java.util.List;
 

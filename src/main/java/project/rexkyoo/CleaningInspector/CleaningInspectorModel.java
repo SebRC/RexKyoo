@@ -1,7 +1,7 @@
 package project.rexkyoo.CleaningInspector;
 
 import project.rexkyoo.Ambassador.AmbassadorModel;
-import project.rexkyoo.Customer.Model.CustomerModel;
+import project.rexkyoo.Customer.CustomerModel;
 
 import javax.persistence.*;
 import java.util.Set;

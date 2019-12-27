@@ -6,8 +6,8 @@ import static org.junit.Assert.*;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import project.rexkyoo.Customer.Model.CustomerModel;
-import project.rexkyoo.Customer.Service.CustomerService;
+import project.rexkyoo.Customer.CustomerModel;
+import project.rexkyoo.Customer.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 
 import java.util.Arrays;

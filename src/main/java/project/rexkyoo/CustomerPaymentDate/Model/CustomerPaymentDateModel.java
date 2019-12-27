@@ -1,9 +1,8 @@
 package project.rexkyoo.CustomerPaymentDate.Model;
 
-import project.rexkyoo.Customer.Model.CustomerModel;
+import project.rexkyoo.Customer.CustomerModel;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "CustomerPaymentDate")

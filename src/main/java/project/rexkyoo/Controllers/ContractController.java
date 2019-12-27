@@ -12,8 +12,8 @@ import project.rexkyoo.Ambassador.AmbassadorService;
 import project.rexkyoo.Contract.ContractType;
 import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.Contract.ContractService;
-import project.rexkyoo.Customer.Model.CustomerModel;
-import project.rexkyoo.Customer.Service.CustomerService;
+import project.rexkyoo.Customer.CustomerModel;
+import project.rexkyoo.Customer.CustomerService;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 import project.rexkyoo.Expenses.Services.ExpensesService;
 
