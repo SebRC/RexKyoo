@@ -1,4 +1,4 @@
-package project.rexkyoo.Feedback.Model;
+package project.rexkyoo.Feedback;
 
 import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Customer.CustomerModel;

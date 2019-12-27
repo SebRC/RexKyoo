@@ -4,7 +4,7 @@ import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.CustomerPaymentDateModel;
 import project.rexkyoo.Economy.EconomyModel;
-import project.rexkyoo.Feedback.Model.FeedbackModel;
+import project.rexkyoo.Feedback.FeedbackModel;
 
 import javax.persistence.*;
 import java.text.ParseException;

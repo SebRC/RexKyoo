@@ -2,7 +2,7 @@ package project.rexkyoo.Ambassador;
 
 import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
-import project.rexkyoo.Feedback.Model.FeedbackModel;
+import project.rexkyoo.Feedback.FeedbackModel;
 
 import javax.persistence.*;
 import java.util.Set;

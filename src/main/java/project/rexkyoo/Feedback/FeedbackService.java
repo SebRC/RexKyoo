@@ -1,9 +1,7 @@
-package project.rexkyoo.Feedback.Service;
+package project.rexkyoo.Feedback;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Feedback.Model.FeedbackModel;
-import project.rexkyoo.Feedback.Repository.FeedbackRepository;
 
 import java.util.List;
 
