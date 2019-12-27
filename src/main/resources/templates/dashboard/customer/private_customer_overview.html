@@ -72,11 +72,11 @@
                             <h5 class="card-header " th:text="${privateCustomer.name}"></h5>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">Inspektør: Bo larsen</li></a>
-                            <li class="list-group-item">Ambassadører: 1</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
-                            <li class="list-group-item">Omsætning: 1300,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 5000,-</li>
+                            <a href="#"><li class="list-group-item">Inspektør: Jens Jensen</li></a>
+                            <li class="list-group-item">Ambassadører: 15</li>
+                            <li class="list-group-item" th:text="'Omsætning: ' + ${privateCustomer.economy.income} + ',-'"></li>
+                            <li class="list-group-item" style="color: red" th:text="'Udgifter: ' + ${privateCustomer.economy.expenses} + ',-'"></li>
+                            <li class="list-group-item color" style="color: limegreen" th:text="'Profit: ' + ${privateCustomer.economy.profit} + ',-'"></li>
                             <li class="list-group-item" th:text="'Forventet betalingsdato: ' + ${privateCustomer.expectedPaymentDate}"></li>
                             <li class="list-group-item" th:text="'Aktuel betalingsdato: ' + ${privateCustomer.actualPaymentDate}"></li>
                         </ul>
