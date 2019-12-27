@@ -1,6 +1,6 @@
 package project.rexkyoo.Customer.Model;
 
-import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.Economy.EconomyModel;

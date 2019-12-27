@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Ambassador.AmbassadorService;
-import project.rexkyoo.Contract.Service.ContractService;
+import project.rexkyoo.Contract.ContractService;
 import project.rexkyoo.Economy.EconomyModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorService;

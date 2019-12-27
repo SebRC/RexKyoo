@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Contract.ContractType;
-import project.rexkyoo.Contract.Model.ContractModel;
-import project.rexkyoo.Contract.Repository.ContractRepository;
+import project.rexkyoo.Contract.ContractModel;
+import project.rexkyoo.Contract.ContractRepository;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 

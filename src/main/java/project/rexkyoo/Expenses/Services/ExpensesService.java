@@ -2,7 +2,7 @@ package project.rexkyoo.Expenses.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 import project.rexkyoo.Expenses.Repositories.ExpensesRepository;
 

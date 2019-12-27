@@ -1,6 +1,6 @@
 package project.rexkyoo.Ambassador;
 
-import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 

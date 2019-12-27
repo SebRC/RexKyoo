@@ -1,6 +1,6 @@
 package project.rexkyoo.Expenses.Models;
 
-import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.ContractModel;
 
 import javax.persistence.*;
 

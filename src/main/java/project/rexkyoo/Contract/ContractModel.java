@@ -1,4 +1,4 @@
-package project.rexkyoo.Contract.Model;
+package project.rexkyoo.Contract;
 
 import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Contract.ContractType;

@@ -1,9 +1,7 @@
-package project.rexkyoo.Contract.Repository;
+package project.rexkyoo.Contract;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import project.rexkyoo.Contract.ContractType;
-import project.rexkyoo.Contract.Model.ContractModel;
 
 import java.util.List;
 
