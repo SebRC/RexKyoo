@@ -40,6 +40,8 @@ public class AmbassadorController
     {
         AmbassadorModel ambassador = ambassadorService.getOne(id);
 
+        economyService.assignAmbassadorMonthlyWage(ambassador);
+
         model.addAttribute("ambassador", ambassador);
 
         return "dashboard/ambassador/ambassador_details";
