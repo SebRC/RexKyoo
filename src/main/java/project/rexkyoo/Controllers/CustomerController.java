@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project.rexkyoo.Contract.Model.ContractModel;
+import project.rexkyoo.Contract.Service.ContractService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
 import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
+import project.rexkyoo.Economy.EconomyService;
 
 import java.util.List;
 import java.util.Set;
@@ -22,10 +25,15 @@ public class CustomerController
     @Autowired
     private CustomerPaymentDateService customerPaymentDateService;
 
+    @Autowired
+    private EconomyService economyService;
+
     @GetMapping("/business-customers")
     public String businessCustomerOverview(Model model)
     {
         List<CustomerModel> businessCustomers = customerService.getAllBusinessCustomers();
+
+        economyService.assignEconomyForCustomers(businessCustomers);
 
         model.addAttribute("businessCustomers", businessCustomers);
 

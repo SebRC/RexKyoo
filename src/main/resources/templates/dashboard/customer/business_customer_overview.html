@@ -74,9 +74,9 @@
                         <ul class="list-group list-group-flush">
                             <a href="#"><li class="list-group-item">Inspektør: Jens Jensen</li></a>
                             <li class="list-group-item">Ambassadører: 15</li>
-                            <li class="list-group-item" style="color: red">Udgifter: 1200,-</li>
-                            <li class="list-group-item">Omsætning: 45000,-</li>
-                            <li class="list-group-item color" style="color: limegreen">Profit: 43800,-</li>
+                            <li class="list-group-item" th:text="'Omsætning: ' + ${businessCustomer.economy.income} + ',-'"></li>
+                            <li class="list-group-item" style="color: red" th:text="'Udgifter: ' + ${businessCustomer.economy.expenses} + ',-'"></li>
+                            <li class="list-group-item color" style="color: limegreen" th:text="'Profit: ' + ${businessCustomer.economy.profit} + ',-'"></li>
                             <li class="list-group-item" th:text="'Forventet betalingsdato: ' + ${businessCustomer.expectedPaymentDate}"></li>
                             <li class="list-group-item" th:text="'Aktuel betalingsdato: ' + ${businessCustomer.actualPaymentDate}"></li>
                         </ul>

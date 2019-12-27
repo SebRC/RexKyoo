@@ -3,6 +3,7 @@ package project.rexkyoo.Customer.Model;
 import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
+import project.rexkyoo.Economy.EconomyModel;
 import project.rexkyoo.Feedback.Model.FeedbackModel;
 
 import javax.persistence.*;
@@ -33,6 +34,8 @@ public class CustomerModel
     private String actualPaymentDate;
     @Transient
     private double percentageOfCompanyIncome;
+    @Transient
+    private EconomyModel economy;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<ContractModel> contracts;
@@ -48,7 +51,7 @@ public class CustomerModel
 
     public CustomerModel()
     {
-
+        this.economy = new EconomyModel();
     }
 
     public CustomerModel(String name, String email, String address, String city, String zipCode,
@@ -267,5 +270,15 @@ public class CustomerModel
     public void setPercentageOfCompanyIncome(double percentageOfCompanyIncome)
     {
         this.percentageOfCompanyIncome = percentageOfCompanyIncome;
+    }
+
+    public EconomyModel getEconomy()
+    {
+        return economy;
+    }
+
+    public void setEconomy(EconomyModel economy)
+    {
+        this.economy = economy;
     }
 }

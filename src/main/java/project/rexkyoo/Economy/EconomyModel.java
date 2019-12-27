@@ -6,6 +6,13 @@ public class EconomyModel
     private double expenses;
     private double profit;
 
+    public EconomyModel()
+    {
+        this.income = 0;
+        this.expenses = 0;
+        this.profit = 0;
+    }
+
     public EconomyModel(double income, double expenses, double profit)
     {
         this.income = income;

@@ -11,4 +11,6 @@ import java.util.List;
 public interface ContractRepository extends JpaRepository<ContractModel, Integer>
 {
     List<ContractModel> findAllByCustomerTypeEquals(String type);
+
+    List<ContractModel> findAllByCustomerIdEquals(int id);
 }

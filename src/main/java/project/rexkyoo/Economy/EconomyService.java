@@ -34,33 +34,33 @@ public class EconomyService
         return economy;
     }
 
-    private double assignIncome(List<ContractModel> assignments)
+    private double assignIncome(List<ContractModel> contracts)
     {
-        double privateCustomersIncome = 0;
+        double customersIncome = 0;
 
-        for (ContractModel assignment : assignments)
+        for (ContractModel contract : contracts)
         {
-            privateCustomersIncome += assignment.getIncome();
+            customersIncome += contract.getIncome();
         }
 
-        return privateCustomersIncome;
+        return customersIncome;
     }
 
-    private double assignExpenses(List<ContractModel> assignments)
+    private double assignExpenses(List<ContractModel> contracts)
     {
-        double privateCustomersExpenses = 0;
+        double customersIncome = 0;
 
-        for (ContractModel assignment : assignments)
+        for (ContractModel contract : contracts)
         {
-            Set<ExpenseModel> expenses = assignment.getExpenses();
+            Set<ExpenseModel> expenses = contract.getExpenses();
 
             for (ExpenseModel expense : expenses)
             {
-                privateCustomersExpenses += expense.getPrice();
+                customersIncome += expense.getPrice();
             }
         }
 
-        return privateCustomersExpenses;
+        return customersIncome;
     }
 
     public EconomyModel getEconomyForEntireCompany()
@@ -106,5 +106,27 @@ public class EconomyService
         percentage = Double.valueOf(twoDecimalFormat.format(percentage));
 
         customer.setPercentageOfCompanyIncome(percentage);
+    }
+
+    public void assignEconomyForCustomers(List<CustomerModel> customers)
+    {
+        double customersIncome;
+        double customersExpenses;
+        double customersProfit;
+
+        for (CustomerModel customer : customers)
+        {
+            int id = customer.getId();
+
+            List<ContractModel> contracts = contractRepository.findAllByCustomerIdEquals(id);
+
+            customersIncome = assignIncome(contracts);
+            customersExpenses = assignExpenses(contracts);
+            customersProfit = customersIncome - customersExpenses;
+
+            EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
+
+            customer.setEconomy(economy);
+        }
     }
 }
