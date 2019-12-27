@@ -6,12 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
+import project.rexkyoo.Contract.Service.ContractService;
 import project.rexkyoo.Economy.EconomyModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.Economy.EconomyService;
+import project.rexkyoo.Economy.MonthsIncomeModel;
 import project.rexkyoo.Economy.TypePercentagesModel;
 
 import java.util.List;
@@ -32,6 +34,9 @@ public class DashboardController
 
     @Autowired
     private EconomyService economyService;
+
+    @Autowired
+    private ContractService contractService;
 
     @GetMapping("/home")
     public String home(Model model)
@@ -66,6 +71,10 @@ public class DashboardController
         TypePercentagesModel typePercentages = economyService.calculateTypePercentages();
         double profitPercentage = economyService.calculateProfitPercentage();
 
+        economyService.assignMonthsToContracts(contractService.getAll());
+
+        MonthsIncomeModel monthsIncome = economyService.getMonthPayments(contractService.getAll());
+
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);
         model.addAttribute("cleaningInspectors", cleaningInspectors);
@@ -74,6 +83,7 @@ public class DashboardController
         model.addAttribute("entireCompanyEconomy", entireCompanyEconomy);
         model.addAttribute("typePercentages", typePercentages);
         model.addAttribute("profitPercentage", profitPercentage);
+        model.addAttribute("monthsIncome", monthsIncome);
 
 
         return "dashboard/economy";
