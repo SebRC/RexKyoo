@@ -50,7 +50,7 @@ public class EconomyService
 
     private double assignExpenses(List<ContractModel> contracts)
     {
-        double income = 0;
+        double companyExpensese = 0;
 
         for (ContractModel contract : contracts)
         {
@@ -58,11 +58,11 @@ public class EconomyService
 
             for (ExpenseModel expense : expenses)
             {
-                income += expense.getPrice();
+                companyExpensese += expense.getPrice();
             }
         }
 
-        return income;
+        return companyExpensese;
     }
 
     public EconomyModel getEconomyForEntireCompany()
@@ -234,5 +234,26 @@ public class EconomyService
         double percentage = (totalTypeIncome / totalCompanyIncome) * 100;
 
         return percentage;
+    }
+
+    public double calculateProfitPercentage()
+    {
+        double profitPercentage = 0.0;
+        double profit = 0.0;
+        double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
+
+        List<ContractModel> contracts = contractRepository.findAll();
+
+        double totalCompanyExpenses = assignExpenses(contracts);
+
+        profit = totalCompanyIncome - totalCompanyExpenses;
+
+        profitPercentage = (profit / totalCompanyIncome) * 100;
+
+        profitPercentage = roundToTwoDecimal(profitPercentage);
+
+        return profitPercentage;
+
+
     }
 }

@@ -64,6 +64,7 @@ public class DashboardController
 
         EconomyModel entireCompanyEconomy = economyService.getEconomyForEntireCompany();
         TypePercentagesModel typePercentages = economyService.calculateTypePercentages();
+        double profitPercentage = economyService.calculateProfitPercentage();
 
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);
@@ -72,6 +73,7 @@ public class DashboardController
 
         model.addAttribute("entireCompanyEconomy", entireCompanyEconomy);
         model.addAttribute("typePercentages", typePercentages);
+        model.addAttribute("profitPercentage", profitPercentage);
 
 
         return "dashboard/economy";
