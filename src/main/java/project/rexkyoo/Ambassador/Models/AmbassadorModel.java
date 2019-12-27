@@ -32,7 +32,7 @@ public class AmbassadorModel
     @JoinColumn(name = "cleaningInspector_id")
     private CleaningInspectorModel cleaningInspector;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ambassador", cascade = CascadeType.ALL)
     private Set<ContractModel> contracts;
 
 
