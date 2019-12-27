@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.Assignment.Repository.AssignmentRepository;
+import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Set;
 
@@ -61,7 +63,7 @@ public class EconomyService
         return privateCustomersExpenses;
     }
 
-    public EconomyModel getEconoymForEntireCompany()
+    public EconomyModel getEconomyForEntireCompany()
     {
         double customersIncome;
         double customersExpenses;
@@ -76,5 +78,33 @@ public class EconomyService
         EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
 
         return economy;
+    }
+
+    public void assignCustomersPercentageOfIncome(List<CustomerModel> customers)
+    {
+        for (CustomerModel customer : customers)
+        {
+            assignPercentage(customer);
+        }
+    }
+
+    private void assignPercentage(CustomerModel customer)
+    {
+        double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
+
+        Set<AssignmentModel> assignments = customer.getAssignments();
+        double totalCustomerIncome = 0;
+
+        for (AssignmentModel assignment : assignments)
+        {
+            totalCustomerIncome += assignment.getIncome();
+        }
+
+        double percentage = (totalCustomerIncome / totalCompanyIncome) * 100;
+
+        DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
+        percentage = Double.valueOf(twoDecimalFormat.format(percentage));
+
+        customer.setPercentageOfCompanyIncome(percentage);
     }
 }
