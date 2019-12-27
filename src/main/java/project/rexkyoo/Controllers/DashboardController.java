@@ -12,6 +12,7 @@ import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
 import project.rexkyoo.Economy.EconomyService;
+import project.rexkyoo.Economy.TypePercentagesModel;
 
 import java.util.List;
 
@@ -59,10 +60,10 @@ public class DashboardController
         List<CustomerModel> assignments = customerService.getAll();
 
         economyService.assignCustomersPercentageOfIncome(customers);
-
         economyService.assignAllAmbassadorsMonthlyWages(ambassadors);
 
         EconomyModel entireCompanyEconomy = economyService.getEconomyForEntireCompany();
+        TypePercentagesModel typePercentages = economyService.calculateTypePercentages();
 
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);
@@ -70,6 +71,7 @@ public class DashboardController
         model.addAttribute("assignments", assignments);
 
         model.addAttribute("entireCompanyEconomy", entireCompanyEconomy);
+        model.addAttribute("typePercentages", typePercentages);
 
 
         return "dashboard/economy";

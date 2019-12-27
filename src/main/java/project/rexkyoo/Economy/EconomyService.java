@@ -3,6 +3,7 @@ package project.rexkyoo.Economy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Contract.ContractType;
 import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.Contract.Repository.ContractRepository;
 import project.rexkyoo.Customer.Model.CustomerModel;
@@ -37,19 +38,19 @@ public class EconomyService
 
     private double assignIncome(List<ContractModel> contracts)
     {
-        double customersIncome = 0;
+        double income = 0;
 
         for (ContractModel contract : contracts)
         {
-            customersIncome += contract.getIncome();
+            income += contract.getIncome();
         }
 
-        return customersIncome;
+        return income;
     }
 
     private double assignExpenses(List<ContractModel> contracts)
     {
-        double customersIncome = 0;
+        double income = 0;
 
         for (ContractModel contract : contracts)
         {
@@ -57,11 +58,11 @@ public class EconomyService
 
             for (ExpenseModel expense : expenses)
             {
-                customersIncome += expense.getPrice();
+                income += expense.getPrice();
             }
         }
 
-        return customersIncome;
+        return income;
     }
 
     public EconomyModel getEconomyForEntireCompany()
@@ -111,11 +112,18 @@ public class EconomyService
         {
             percentage = (totalCustomerIncome / totalCompanyIncome) * 100;
 
-            DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
-            percentage = Double.valueOf(twoDecimalFormat.format(percentage));
+            percentage = roundToTwoDecimal(percentage);
 
             customer.setPercentageOfCompanyIncome(percentage);
         }
+    }
+
+    private double roundToTwoDecimal(double percentage)
+    {
+        DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
+        percentage = Double.valueOf(twoDecimalFormat.format(percentage));
+
+        return percentage;
     }
 
     public void assignEconomyForCustomers(List<CustomerModel> customers)
@@ -190,5 +198,41 @@ public class EconomyService
         }
 
         return monthlySalary;
+    }
+
+    public TypePercentagesModel calculateTypePercentages()
+    {
+        double cleaningPercentage;
+        double babysittingPercentage;
+        double homeworkPercentage;
+        double miscellaneousPercentage;
+
+        cleaningPercentage = calculateIncomePercentage(ContractType.RENGØRING);
+        babysittingPercentage = calculateIncomePercentage(ContractType.BØRNEPASNING);
+        homeworkPercentage = calculateIncomePercentage(ContractType.LEKTIEHJÆLP);
+        miscellaneousPercentage = calculateIncomePercentage(ContractType.DIVERSE);
+
+        cleaningPercentage = roundToTwoDecimal(cleaningPercentage);
+        babysittingPercentage = roundToTwoDecimal(babysittingPercentage);
+        homeworkPercentage = roundToTwoDecimal(homeworkPercentage);
+        miscellaneousPercentage = roundToTwoDecimal(miscellaneousPercentage);
+
+        TypePercentagesModel typePercentages = new TypePercentagesModel(cleaningPercentage, babysittingPercentage, homeworkPercentage, miscellaneousPercentage);
+
+        return typePercentages;
+    }
+
+    private double calculateIncomePercentage(ContractType contractType)
+    {
+        double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
+        double totalTypeIncome = 0;
+
+        List<ContractModel> contracts = contractRepository.findAllByTypeEquals(contractType);
+
+        totalTypeIncome = assignIncome(contracts);
+
+        double percentage = (totalTypeIncome / totalCompanyIncome) * 100;
+
+        return percentage;
     }
 }

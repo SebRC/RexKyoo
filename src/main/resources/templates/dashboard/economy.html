@@ -335,15 +335,19 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Udgifter %</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Indtægter %</h6>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-pie pt-4">
-                                    <canvas id="myPieChart"></canvas>
+                                    <canvas id="myPieChart"
+                                            th:attr="cleaning-percentage=${typePercentages.cleaningPercentage},
+                                            babysitting-percentage=${typePercentages.babysittingPercentage},
+                                            homework-percentage=${typePercentages.homeworkPercentage},
+                                            miscellaneous-percentage=${typePercentages.miscellaneousPercentage}"
+                                    ></canvas>
                                 </div>
                                 <hr>
-                                //Når vi selv skal fylde data gør det her// <code>/js/demo/chart-pie-demo.js</code> file.
                             </div>
                         </div>
 
@@ -356,7 +360,6 @@
                                     <canvas id="myAreaChart"></canvas>
                                 </div>
                                 <hr>
-                                //Når vi selv skal fylde data gør det her// <code>/js/demo/chart-area-demo.js</code> file.
                             </div>
                         </div>
                     </div>
@@ -410,11 +413,45 @@
 
 <!-- Page level custom scripts -->
 <script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
-<script th:src="@{/dashboardStatic/js/demo/chart-pie-demo.js}"></script>
-<!-- Page level custom scripts -->
-<script src="../../../static/dashboardStatic/js/demo/chart-area-demo.js"></script>
-<script src="../../../static/dashboardStatic/js/demo/chart-pie-demo.js"></script>
-<script src="../../../static/dashboardStatic/js/demo/chart-bar-demo.js"></script>
+
+<script>
+    var ctx = document.getElementById("myPieChart");
+
+    var cleaningPercentage = ctx.getAttribute('cleaning-percentage');
+    var babysittingPercentage = ctx.getAttribute('babysitting-percentage');
+    var homeworkPercentage = ctx.getAttribute('homework-percentage');
+    var miscellaneousPercentage = ctx.getAttribute('miscellaneous-percentage');
+
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Rengøring", "Børnepasning", "Lektiehjælp", "Diverse"],
+            datasets: [{
+                data: [cleaningPercentage, babysittingPercentage, homeworkPercentage, miscellaneousPercentage],
+                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#DF2A22'],
+                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#DF2A22'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+</script>
 
 </body>
 
