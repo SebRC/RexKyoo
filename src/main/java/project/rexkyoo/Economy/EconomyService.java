@@ -2,7 +2,7 @@ package project.rexkyoo.Economy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Contract.ContractType;
 import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.Contract.Repository.ContractRepository;

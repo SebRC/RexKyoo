@@ -1,6 +1,6 @@
 package project.rexkyoo.CleaningInspector.Models;
 
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Customer.Model.CustomerModel;
 
 import javax.persistence.*;

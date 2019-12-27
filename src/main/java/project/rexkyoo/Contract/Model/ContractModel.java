@@ -1,6 +1,6 @@
 package project.rexkyoo.Contract.Model;
 
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Contract.ContractType;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;

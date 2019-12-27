@@ -1,11 +1,10 @@
 package project.rexkyoo.Feedback.Model;
 
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
+import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Customer.Model.CustomerModel;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "Feedback")

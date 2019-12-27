@@ -1,9 +1,7 @@
-package project.rexkyoo.Ambassador.Services;
+package project.rexkyoo.Ambassador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
-import project.rexkyoo.Ambassador.Repositories.AmbassadorRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package project.rexkyoo.Ambassador.Models;
+package project.rexkyoo.Ambassador;
 
 import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
