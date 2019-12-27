@@ -6,15 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
-import project.rexkyoo.Assignment.Model.AssignmentModel;
 import project.rexkyoo.Assignment.Model.EconomyModel;
 import project.rexkyoo.Assignment.Service.AssignmentService;
 import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
-import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
-import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
 
 import java.util.List;
 
@@ -44,11 +41,11 @@ public class DashboardController
         EconomyModel privateCustomersEconomy = assignmentService.getEconomyBasedOnCustomerType("private");
         EconomyModel businessCustomersEconomy = assignmentService.getEconomyBasedOnCustomerType("business");
 
-        model.addAttribute("privateCustomersEconomy", privateCustomersEconomy);
-        model.addAttribute("businessCustomersEconomy", businessCustomersEconomy);
-
         model.addAttribute("amountOfPrivateCustomers", amountOfPrivateCustomers);
         model.addAttribute("amountOfBusinessCustomers", amountOfBusinessCustomers);
+
+        model.addAttribute("privateCustomersEconomy", privateCustomersEconomy);
+        model.addAttribute("businessCustomersEconomy", businessCustomersEconomy);
 
         return "dashboard/home";
     }
@@ -61,10 +58,14 @@ public class DashboardController
         List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorService.getAll();
         List<CustomerModel> assignments = customerService.getAll();
 
+        EconomyModel entireCompanyEconomy = assignmentService.getEconoymForEntireCompany();
+
         model.addAttribute("customers", customers);
         model.addAttribute("ambassadors", ambassadors);
         model.addAttribute("cleaningInspectors", cleaningInspectors);
         model.addAttribute("assignments", assignments);
+
+        model.addAttribute("entireCompanyEconomy", entireCompanyEconomy);
 
 
         return "dashboard/economy";
