@@ -101,12 +101,21 @@ public class EconomyService
             totalCustomerIncome += contract.getIncome();
         }
 
-        double percentage = (totalCustomerIncome / totalCompanyIncome) * 100;
+        double percentage = 0.00;
 
-        DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
-        percentage = Double.valueOf(twoDecimalFormat.format(percentage));
+        if(totalCustomerIncome == 0)
+        {
+            customer.setPercentageOfCompanyIncome(percentage);
+        }
+        else
+        {
+            percentage = (totalCustomerIncome / totalCompanyIncome) * 100;
 
-        customer.setPercentageOfCompanyIncome(percentage);
+            DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
+            percentage = Double.valueOf(twoDecimalFormat.format(percentage));
+
+            customer.setPercentageOfCompanyIncome(percentage);
+        }
     }
 
     public void assignEconomyForCustomers(List<CustomerModel> customers)
