@@ -98,7 +98,7 @@
                                         <form class="needs-validation" novalidate th:action="@{/admin/customer-edit/{id}(id=${privateCustomer.id})}" method="post">
                                             <!--variables that you can not change but need it for the model in post -->
                                             <input type="hidden" th:field="${privateCustomer.id}">
-                                            <input type="hidden" th:field="${privateCustomer.contract}">
+                                            <input type="hidden" th:field="${privateCustomer.contracts}">
                                             <input type="hidden" th:field="${privateCustomer.cleaningInspector}">
                                             <input type="hidden" th:field="${privateCustomer.feedbacks}">
                                             <input type="hidden" th:field="${privateCustomer.customerPaymentDates}">
