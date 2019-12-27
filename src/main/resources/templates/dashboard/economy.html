@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">1 til 10 af # Ansatte
+                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite" th:text="'Viser 10 ambassadøre pr. side. ' + ${ambassadors.size()} + ' ambassadøre i alt.'">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-7">
@@ -229,7 +229,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="dataTable_info2" role="status" aria-live="polite">1 til 10 af # Inspektøre
+                                        <div class="dataTables_info" id="dataTable_info2" role="status" aria-live="polite" th:text="'Viser 10 inspektøre pr. side. ' + ${cleaningInspectors.size()} + ' inspektøre i alt.'">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-7">
@@ -300,7 +300,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="dataTable_info1" role="status" aria-live="polite">1 til 10 af # Kunder
+                                        <div class="dataTables_info" id="dataTable_info1" role="status" aria-live="polite" th:text="'Viser 10 kunder pr side. ' + ${customers.size()} + ' kunder i alt.'">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-7">
