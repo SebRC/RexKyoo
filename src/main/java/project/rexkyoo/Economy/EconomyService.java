@@ -129,4 +129,24 @@ public class EconomyService
             customer.setEconomy(economy);
         }
     }
+
+    public void assignEconomyForSingleCustomer(CustomerModel customer)
+    {
+        double customersIncome;
+        double customersExpenses;
+        double customersProfit;
+
+        int id = customer.getId();
+
+        List<ContractModel> contracts = contractRepository.findAllByCustomerIdEquals(id);
+
+        customersIncome = assignIncome(contracts);
+        customersExpenses = assignExpenses(contracts);
+        customersProfit = customersIncome - customersExpenses;
+
+        EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
+
+        customer.setEconomy(economy);
+
+    }
 }

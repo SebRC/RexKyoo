@@ -57,6 +57,8 @@ public class CustomerController
     {
         CustomerModel businessCustomer = customerService.getOne(id);
 
+        economyService.assignEconomyForSingleCustomer(businessCustomer);
+
         Set<CustomerPaymentDateModel> paymentDates = businessCustomer.getCustomerPaymentDates();
 
         model.addAttribute("businessCustomer", businessCustomer);
@@ -71,6 +73,8 @@ public class CustomerController
         CustomerModel privateCustomer = customerService.getOne(id);
 
         Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
+
+
 
         model.addAttribute("privateCustomer", privateCustomer);
         model.addAttribute("privateCustomerPaymentDates", paymentDates);
