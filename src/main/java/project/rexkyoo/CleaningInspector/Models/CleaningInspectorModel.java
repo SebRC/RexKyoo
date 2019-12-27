@@ -22,9 +22,11 @@ public class CleaningInspectorModel
     private String address;
     private String city;
     private String zipCode;
-    private Double salary;
     private String incomeMethod;
     private String note = "";
+    @Transient
+    private Double salary = 0.0;
+
 
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "customer_id", referencedColumnName = "customer_id")
@@ -36,7 +38,7 @@ public class CleaningInspectorModel
     public CleaningInspectorModel()
     {}
 
-    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, Double salary, String incomeMethod, String note, CustomerModel customer, Set<AmbassadorModel> ambassadors)
+    public CleaningInspectorModel(String firstName, String lastName, String phone, String email, String address, String city, String zipCode, String incomeMethod, String note, CustomerModel customer, Set<AmbassadorModel> ambassadors)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,7 +47,6 @@ public class CleaningInspectorModel
         this.address = address;
         this.city = city;
         this.zipCode = zipCode;
-        this.salary = salary;
         this.incomeMethod = incomeMethod;
         this.note = note;
         this.customer = customer;
