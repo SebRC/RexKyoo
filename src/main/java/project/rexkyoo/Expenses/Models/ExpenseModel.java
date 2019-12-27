@@ -3,7 +3,6 @@ package project.rexkyoo.Expenses.Models;
 import project.rexkyoo.Contract.Model.ContractModel;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "Expense")
@@ -13,7 +12,7 @@ public class ExpenseModel
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "expense_id")
     private int id;
-    private Date date;
+    private String date;
     private String name;
     private Double price;
 
@@ -21,10 +20,10 @@ public class ExpenseModel
     @JoinColumn(name = "contract_id")
     private ContractModel contract;
 
-    public ExpenseModel() {
-    }
+    public ExpenseModel()
+    {}
 
-    public ExpenseModel(Date date, String name, Double price, ContractModel contract)
+    public ExpenseModel(String date, String name, Double price, ContractModel contract)
     {
         this.date = date;
         this.name = name;
@@ -36,11 +35,11 @@ public class ExpenseModel
         return id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

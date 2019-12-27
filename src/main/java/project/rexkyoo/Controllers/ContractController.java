@@ -14,6 +14,8 @@ import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.Contract.Service.ContractService;
 import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Customer.Service.CustomerService;
+import project.rexkyoo.Expenses.Models.ExpenseModel;
+import project.rexkyoo.Expenses.Services.ExpensesService;
 
 import java.util.List;
 
@@ -29,6 +31,9 @@ public class ContractController
 
     @Autowired
     private ContractService contractService;
+
+    @Autowired
+    private ExpensesService expensesService;
 
     @GetMapping("/contract")
     public String createContract(Model model)
@@ -49,9 +54,15 @@ public class ContractController
     }
 
     @PostMapping("/contract")
-    public String createContract(@ModelAttribute ContractModel contractModel)
+    public String createContract(@ModelAttribute ContractModel contract)
     {
-        contractService.save(contractModel);
+        ExpenseModel expense = new ExpenseModel();
+
+        expensesService.assignFirstWageExpense(expense, contract);
+
+        contractService.save(contract);
+
+        expensesService.save(expense);
 
         return "redirect:/admin/home";
     }
