@@ -1,4 +1,4 @@
-package project.rexkyoo.User.Models;
+package project.rexkyoo.User;
 
 import project.rexkyoo.User.Role;
 

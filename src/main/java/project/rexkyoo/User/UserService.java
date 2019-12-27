@@ -1,9 +1,7 @@
-package project.rexkyoo.User.Services;
+package project.rexkyoo.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.rexkyoo.User.Models.UserModel;
-import project.rexkyoo.User.Repositories.UserRepository;
 
 @Service
 public class UserService
