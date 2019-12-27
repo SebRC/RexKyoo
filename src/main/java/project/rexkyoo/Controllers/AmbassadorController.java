@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Ambassador.Services.AmbassadorService;
+import project.rexkyoo.Economy.EconomyService;
 import project.rexkyoo.User.Repositories.UserRepository;
 import project.rexkyoo.User.Services.UserService;
 
@@ -19,10 +20,15 @@ public class AmbassadorController
     @Autowired
     private AmbassadorService ambassadorService;
 
+    @Autowired
+    private EconomyService economyService;
+
     @GetMapping("/ambassadors")
     public String ambassadorOverview(Model model)
     {
         List<AmbassadorModel> ambassadors = ambassadorService.getAll();
+
+        economyService.assignAllAmbassadorsMonthlyWages(ambassadors);
 
         model.addAttribute("ambassadors", ambassadors);
 

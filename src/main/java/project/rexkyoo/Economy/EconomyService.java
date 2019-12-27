@@ -2,6 +2,7 @@ package project.rexkyoo.Economy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.rexkyoo.Ambassador.Models.AmbassadorModel;
 import project.rexkyoo.Contract.Model.ContractModel;
 import project.rexkyoo.Contract.Repository.ContractRepository;
 import project.rexkyoo.Customer.Model.CustomerModel;
@@ -133,5 +134,52 @@ public class EconomyService
         EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
 
         customer.setEconomy(economy);
+    }
+
+    public void assignAllAmbassadorsMonthlyWages(List<AmbassadorModel> ambassadors)
+    {
+        for (AmbassadorModel ambassador : ambassadors)
+        {
+            assignAmbassadorMonthlyWage(ambassador);
+        }
+    }
+
+
+    public void assignAmbassadorMonthlyWage(AmbassadorModel ambassador)
+    {
+        Set<ContractModel> contracts = ambassador.getContracts();
+
+        double monthlySalary = 0;
+
+        if(contracts == null)
+        {
+            ambassador.setSalary(0.0);
+        }
+        else
+        {
+            for (ContractModel contract : contracts)
+            {
+                Set<ExpenseModel> expenses = contract.getExpenses();
+
+                monthlySalary += extractMonthlySalary(expenses);
+            }
+        }
+
+        ambassador.setSalary(monthlySalary);
+    }
+
+    private double extractMonthlySalary(Set<ExpenseModel> expenses)
+    {
+        double monthlySalary = 0.0;
+
+        for (ExpenseModel expense : expenses)
+        {
+            if(expense.getName().equals("Månedsløn"))
+            {
+                monthlySalary += expense.getPrice();
+            }
+        }
+
+        return monthlySalary;
     }
 }
