@@ -31,6 +31,8 @@ public class CustomerModel
     private String expectedPaymentDate;
     @Transient
     private String actualPaymentDate;
+    @Transient
+    private double percentageOfCompanyIncome;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     private Set<AssignmentModel> assignments;
@@ -49,7 +51,10 @@ public class CustomerModel
 
     }
 
-    public CustomerModel(String name, String email, String address, String city, String zipCode, String phone, String type, String note, Set<AssignmentModel> assignments, CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks, Set<CustomerPaymentDateModel> customerPaymentDates)
+    public CustomerModel(String name, String email, String address, String city, String zipCode,
+                         String phone, String type, String note, Set<AssignmentModel> assignments,
+                         CleaningInspectorModel cleaningInspector, Set<FeedbackModel> feedbacks,
+                         Set<CustomerPaymentDateModel> customerPaymentDates)
     {
         this.name = name;
         this.email = email;
@@ -252,5 +257,15 @@ public class CustomerModel
     public void setActualPaymentDate(String actualPaymentDate)
     {
         this.actualPaymentDate = actualPaymentDate;
+    }
+
+    public double getPercentageOfCompanyIncome()
+    {
+        return percentageOfCompanyIncome;
+    }
+
+    public void setPercentageOfCompanyIncome(double percentageOfCompanyIncome)
+    {
+        this.percentageOfCompanyIncome = percentageOfCompanyIncome;
     }
 }
