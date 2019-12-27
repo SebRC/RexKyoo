@@ -65,8 +65,16 @@ public class CustomerController
 
         Set<CustomerPaymentDateModel> paymentDates = businessCustomer.getCustomerPaymentDates();
 
+        List<ContractModel> contracts = contractService.findAllByCustomerId(id);
+
+        economyService.assignMonthsToContracts(contracts);
+
+        MonthsIncomeModel monthsIncome = economyService.getMonthPayments(contracts);
+
         model.addAttribute("businessCustomer", businessCustomer);
         model.addAttribute("businessCustomerPaymentDates", paymentDates);
+
+        model.addAttribute("monthsIncome", monthsIncome);
 
         return "dashboard/customer/business_customer_details";
     }
