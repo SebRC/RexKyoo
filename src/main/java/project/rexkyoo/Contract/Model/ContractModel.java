@@ -6,6 +6,8 @@ import project.rexkyoo.Customer.Model.CustomerModel;
 import project.rexkyoo.Expenses.Models.ExpenseModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,6 +24,8 @@ public class ContractModel
     private ContractType type;
     private double hourlyWage;
     private double workHoursPerMonth;
+    @Transient
+    private List<String> months = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -148,5 +152,15 @@ public class ContractModel
     public void setAmbassador(AmbassadorModel ambassador)
     {
         this.ambassador = ambassador;
+    }
+
+    public List<String> getMonths()
+    {
+        return months;
+    }
+
+    public void setMonths(List<String> months)
+    {
+        this.months = months;
     }
 }
