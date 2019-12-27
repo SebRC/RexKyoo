@@ -90,4 +90,21 @@ public class AssignmentService
 
         return privateCustomersExpenses;
     }
+
+    public EconomyModel getEconoymForEntireCompany()
+    {
+        double customersIncome;
+        double customersExpenses;
+        double customersProfit;
+
+        List<AssignmentModel> assignments = assignmentRepository.findAll();
+
+        customersIncome = assignIncome(assignments);
+        customersExpenses = assignExpenses(assignments);
+        customersProfit = customersIncome - customersExpenses;
+
+        EconomyModel economy = new EconomyModel(customersIncome, customersExpenses, customersProfit);
+
+        return economy;
+    }
 }
