@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/dk")
 public class FrontendController
 {
-    @GetMapping("/")
+    @GetMapping("/forside")
     public String forside()
     {
         return "frontend/index";
