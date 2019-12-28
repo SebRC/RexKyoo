@@ -112,7 +112,6 @@ public class FrontendController
     @GetMapping("/createuser")
     public String createuser()
     {
-
         UserModel user = new UserModel("admin", "1234", 1);
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
