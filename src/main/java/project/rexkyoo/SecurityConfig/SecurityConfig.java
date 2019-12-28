@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     {
         auth.
                 jdbcAuthentication()
-                .usersByUsernameQuery(adminQuery)
+                .usersByUsernameQuery(adminQuery).authoritiesByUsernameQuery(adminQuery)
                 .dataSource(datasource)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     {
         http.
                 authorizeRequests()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/JavaScript/**").permitAll()
+                .antMatchers("/images/**").permitAll()
                 .antMatchers("/admin/login").permitAll()
                 .antMatchers("/dk/**").permitAll()
                 .anyRequest()
