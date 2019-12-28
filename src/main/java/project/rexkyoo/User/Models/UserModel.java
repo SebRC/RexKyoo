@@ -12,16 +12,16 @@ public class UserModel
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "user_id")
     private int id;
-    private String userName;
+    private String username;
     private String password;
     private Role role;
 
     public UserModel()
     {}
 
-    public UserModel(String userName, String password, Role role)
+    public UserModel(String username, String password, Role role)
     {
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.role = role;
     }
@@ -31,14 +31,14 @@ public class UserModel
         return id;
     }
 
-    public String getUserName()
+    public String getUsername()
     {
-        return userName;
+        return username;
     }
 
-    public void setUserName(String userName)
+    public void setUsername(String username)
     {
-        this.userName = userName;
+        this.username = username;
     }
 
     public String getPassword()
