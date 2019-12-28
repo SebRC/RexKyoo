@@ -5,9 +5,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import project.rexkyoo.User.Models.UserModel;
-import project.rexkyoo.User.Role;
-import project.rexkyoo.User.Services.UserService;
+import project.rexkyoo.User.UserModel;
+import project.rexkyoo.User.UserService;
 
 @Controller
 @RequestMapping("/dk")
