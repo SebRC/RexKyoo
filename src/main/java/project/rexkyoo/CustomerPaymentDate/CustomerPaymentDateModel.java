@@ -24,8 +24,7 @@ public class CustomerPaymentDateModel
     private CustomerModel customer;
 
     public CustomerPaymentDateModel()
-    {
-    }
+    {}
 
     public CustomerPaymentDateModel(String actualPaymentDate, String expectedPaymentDate, CustomerModel customer)
     {

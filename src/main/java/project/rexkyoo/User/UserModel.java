@@ -1,7 +1,5 @@
 package project.rexkyoo.User;
 
-import project.rexkyoo.User.Role;
-
 import javax.persistence.*;
 
 @Entity
@@ -55,5 +53,4 @@ public class UserModel
     {
         return role;
     }
-
 }

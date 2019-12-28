@@ -9,6 +9,7 @@ import project.rexkyoo.Ambassador.AmbassadorModel;
 import project.rexkyoo.Ambassador.AmbassadorService;
 import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
 import project.rexkyoo.CleaningInspector.CleaningInspectorService;
+import project.rexkyoo.Contract.ContractModel;
 import project.rexkyoo.Contract.ContractService;
 import project.rexkyoo.Customer.CustomerModel;
 import project.rexkyoo.Customer.CustomerService;
@@ -28,7 +29,7 @@ public class EconomyController
 
     @Autowired
     private EconomyService economyService;
-    
+
     @Autowired
     private AmbassadorService ambassadorService;
 
@@ -53,7 +54,9 @@ public class EconomyController
         TypePercentagesModel typePercentages = economyService.calculateTypePercentages();
         double profitPercentage = economyService.calculateProfitPercentage();
 
-        economyService.assignMonthsToContracts(contractService.getAll());
+        List<ContractModel> contracts = contractService.getAll();
+
+        economyService.assignMonthsToContracts(contracts);
 
         MonthsIncomeModel monthsIncome = economyService.getMonthPayments(contractService.getAll());
 
@@ -66,7 +69,6 @@ public class EconomyController
         model.addAttribute("typePercentages", typePercentages);
         model.addAttribute("profitPercentage", profitPercentage);
         model.addAttribute("monthsIncome", monthsIncome);
-
 
         return "dashboard/economy";
     }

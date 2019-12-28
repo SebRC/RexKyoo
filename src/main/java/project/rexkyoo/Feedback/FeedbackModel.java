@@ -26,10 +26,8 @@ public class FeedbackModel
     @JoinColumn(name = "customer_id")
     private CustomerModel customer;
 
-
     public FeedbackModel()
-    {
-    }
+    {}
 
     public FeedbackModel(String comment, Date date, String category, AmbassadorModel ambassador, CustomerModel customer)
     {

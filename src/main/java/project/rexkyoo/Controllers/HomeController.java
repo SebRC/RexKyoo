@@ -4,25 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.rexkyoo.Ambassador.AmbassadorModel;
-import project.rexkyoo.Ambassador.AmbassadorService;
-import project.rexkyoo.Contract.ContractService;
 import project.rexkyoo.Economy.EconomyModel;
-import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
-import project.rexkyoo.CleaningInspector.CleaningInspectorService;
-import project.rexkyoo.Customer.CustomerModel;
 import project.rexkyoo.Customer.CustomerService;
 import project.rexkyoo.Economy.EconomyService;
-import project.rexkyoo.Economy.MonthsIncomeModel;
-import project.rexkyoo.Economy.TypePercentagesModel;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
 public class HomeController
 {
-
     @Autowired
     private CustomerService customerService;
 

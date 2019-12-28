@@ -5,33 +5,33 @@ import java.util.Map;
 
 public class MonthsIncomeModel
 {
-    private Map<String, Double> monthsIncome;
+    private Map<String, Double> monthToIncome;
 
-    public MonthsIncomeModel()
+    MonthsIncomeModel()
     {
-        this.monthsIncome = new HashMap<>();
+        this.monthToIncome = new HashMap<>();
 
-        this.monthsIncome.put("JAN", 0.0);
-        this.monthsIncome.put("FEB", 0.0);
-        this.monthsIncome.put("MAR", 0.0);
-        this.monthsIncome.put("APR", 0.0);
-        this.monthsIncome.put("MAY", 0.0);
-        this.monthsIncome.put("JUN", 0.0);
-        this.monthsIncome.put("JUL", 0.0);
-        this.monthsIncome.put("AUG", 0.0);
-        this.monthsIncome.put("SEP", 0.0);
-        this.monthsIncome.put("OCT", 0.0);
-        this.monthsIncome.put("NOV", 0.0);
-        this.monthsIncome.put("DEC", 0.0);
+        this.monthToIncome.put("JAN", 0.0);
+        this.monthToIncome.put("FEB", 0.0);
+        this.monthToIncome.put("MAR", 0.0);
+        this.monthToIncome.put("APR", 0.0);
+        this.monthToIncome.put("MAY", 0.0);
+        this.monthToIncome.put("JUN", 0.0);
+        this.monthToIncome.put("JUL", 0.0);
+        this.monthToIncome.put("AUG", 0.0);
+        this.monthToIncome.put("SEP", 0.0);
+        this.monthToIncome.put("OCT", 0.0);
+        this.monthToIncome.put("NOV", 0.0);
+        this.monthToIncome.put("DEC", 0.0);
     }
 
-    public Map<String, Double> getMonthsIncome()
+    public Map<String, Double> getMonthToIncome()
     {
-        return monthsIncome;
+        return monthToIncome;
     }
 
-    public void setMonthsIncome(Map<String, Double> monthsIncome)
+    public void setMonthToIncome(Map<String, Double> monthToIncome)
     {
-        this.monthsIncome = monthsIncome;
+        this.monthToIncome = monthToIncome;
     }
 }

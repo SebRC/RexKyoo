@@ -301,11 +301,11 @@ public class EconomyService
         {
             for (String month : contract.getMonths())
             {
-                double income = monthsIncome.getMonthsIncome().get(month);
+                double income = monthsIncome.getMonthToIncome().get(month);
 
                 income += contract.getIncome();
 
-                monthsIncome.getMonthsIncome().put(month, income);
+                monthsIncome.getMonthToIncome().put(month, income);
             }
         }
 

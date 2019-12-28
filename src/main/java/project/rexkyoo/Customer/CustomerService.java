@@ -34,59 +34,6 @@ public class CustomerService
         return privateCustomers;
     }
 
-    public List<CustomerModel> getAllBusinessCustomers()
-    {
-        String type = "business";
-
-        List<CustomerModel> businessCustomers = customerRepository.findAllByTypeEquals(type);
-
-        for (CustomerModel businessCustomer : businessCustomers)
-        {
-            businessCustomer.assignDates();
-        }
-
-        return businessCustomers;
-    }
-
-    public List<CustomerModel> getAll()
-    {
-        List<CustomerModel> Customers = customerRepository.findAll();
-
-        return Customers;
-    }
-
-    public CustomerModel getOne(int id)
-    {
-        CustomerModel customer = customerRepository.getOne(id);
-
-        assignDates(customer);
-
-        setMonthsAndYears(customer);
-
-        return customer;
-    }
-
-    private void setMonthsAndYears(CustomerModel customer)
-    {
-        Set<CustomerPaymentDateModel> customerPaymentDates = customer.getCustomerPaymentDates();
-
-        for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)
-        {
-            customerPaymentDateService.setMonth(customerPaymentDate);
-            customerPaymentDateService.setYear(customerPaymentDate);
-        }
-    }
-
-    public void save(CustomerModel customerModel)
-    {
-        customerRepository.save(customerModel);
-    }
-
-    public void delete(int id)
-    {
-        customerRepository.deleteById(id);
-    }
-
     public void assignDates(CustomerModel customer)
     {
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
@@ -132,5 +79,58 @@ public class CustomerService
 
             return null;
         }
+    }
+
+    public List<CustomerModel> getAllBusinessCustomers()
+    {
+        String type = "business";
+
+        List<CustomerModel> businessCustomers = customerRepository.findAllByTypeEquals(type);
+
+        for (CustomerModel businessCustomer : businessCustomers)
+        {
+            assignDates(businessCustomer);
+        }
+
+        return businessCustomers;
+    }
+
+    public List<CustomerModel> getAll()
+    {
+        List<CustomerModel> Customers = customerRepository.findAll();
+
+        return Customers;
+    }
+
+    public CustomerModel getOne(int id)
+    {
+        CustomerModel customer = customerRepository.getOne(id);
+
+        assignDates(customer);
+
+        setMonthsAndYears(customer);
+
+        return customer;
+    }
+
+    private void setMonthsAndYears(CustomerModel customer)
+    {
+        Set<CustomerPaymentDateModel> customerPaymentDates = customer.getCustomerPaymentDates();
+
+        for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)
+        {
+            customerPaymentDateService.setMonth(customerPaymentDate);
+            customerPaymentDateService.setYear(customerPaymentDate);
+        }
+    }
+
+    public void save(CustomerModel customerModel)
+    {
+        customerRepository.save(customerModel);
+    }
+
+    public void delete(int id)
+    {
+        customerRepository.deleteById(id);
     }
 }

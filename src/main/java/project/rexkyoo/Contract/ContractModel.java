@@ -37,10 +37,8 @@ public class ContractModel
     @JoinColumn(name = "ambassador_id")
     private AmbassadorModel ambassador;
 
-
     public ContractModel()
-    {
-    }
+    {}
 
     public ContractModel(double income, String startDate, String endDate, ContractType type,
                          double hourlyWage, double workHoursPerMonth, CustomerModel customer,
@@ -61,7 +59,6 @@ public class ContractModel
     {
         return id;
     }
-
 
     public double getIncome()
     {

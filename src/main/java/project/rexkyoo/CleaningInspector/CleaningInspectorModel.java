@@ -10,7 +10,6 @@ import java.util.Set;
 @Table(name = "CleaningInspector")
 public class CleaningInspectorModel
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "cleaningInspector_id")
@@ -26,7 +25,6 @@ public class CleaningInspectorModel
     private String note = "";
     @Transient
     private Double salary = 0.0;
-
 
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "customer_id", referencedColumnName = "customer_id")
