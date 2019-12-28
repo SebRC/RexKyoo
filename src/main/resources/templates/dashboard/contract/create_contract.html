@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Opret Inspektør</title>
+    <title>Opret Kontrakt</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -47,61 +47,80 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center  justify-content-center mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Opret Inspektør</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Opret Kontrakt</h1>
                 </div>
 
                 <div class="col-md-6 offset-3">
-                    <form th:action="@{/admin/cleaning-inspector}" method="post">
+                    <form th:action="@{/admin/contract}" method="post">
 
                         <div class="form-group col-md-6 offset-3">
-                            <label>Navn*</label>
-                            <input type="text" class="form-control" placeholder="Navn" required th:field="${cleaningInspector.firstName}">
-                        </div>
+                            <label class="control-label">Kunde</label>
+                            <div class="form-group">
+                                <select class="form-control" th:field="${contract.customer}">
 
-                        <div class="form-group col-md-6 offset-3">
-                            <label>Efternavn*</label>
-                            <input type="text" class="form-control" placeholder="Efternavn" required th:field="${cleaningInspector.lastName}">
-                        </div>
+                                    <option th:each="customer : ${customers}"
+                                            th:value="${customer.id}"
+                                            th:text="${customer.name}">
 
-                        <div class="form-group col-md-6 offset-3">
-                            <label>Telefon*</label>
-                            <input type="text" class="form-control" placeholder="Telefon" required th:field="${cleaningInspector.phone}">
-                        </div>
-
-                        <div class="form-group col-md-6 offset-3">
-                            <label>E-Mail*</label>
-                            <input type="email" class="form-control" placeholder="E-Mail" required th:field="${cleaningInspector.email}">
-                        </div>
-
-                        <div class="form-group col-md-6 offset-3">
-                            <label>Adresse*</label>
-                            <input type="text" class="form-control"  placeholder="Adresse" required th:field="${cleaningInspector.address}">
-                        </div>
-
-                        <div class="form-group col-md-6 offset-3">
-                            <label>By*</label>
-                            <input type="text" class="form-control"  placeholder="By" required th:field="${cleaningInspector.city}">
-                        </div>
-
-                        <div class="form-group col-md-6 offset-3">
-                            <label>Postkode*</label>
-                            <input type="text" class="form-control" placeholder="Postkode" required th:field="${cleaningInspector.zipCode}">
-                        </div>
-
-                        <div class="form-group col-md-6 offset-3">
-                            <label>Indkomst*</label>
-                            <div class="radio">
-                                <label><input type="radio" name="optradio" class="mr-2" th:field="${cleaningInspector.incomeMethod}" value="A">A</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="optradio" class="mr-2" th:field="${cleaningInspector.incomeMethod}" value="B">B</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="optradio" class="mr-2" th:field="${cleaningInspector.incomeMethod}" value="Faktura">Faktura</label>
+                                    </option>
+                                </select>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-success col-md-4 mb-5 offset-4">Opret</button>
+                        <div class="form-group col-md-6 offset-3">
+                            <label class="control-label">Ambassadør</label>
+                            <div class="form-group">
+                                <select class="form-control" th:field="${contract.ambassador}">
+
+                                    <option th:each="ambassador : ${ambassadors}"
+                                            th:value="${ambassador.id}"
+                                            th:text="${ambassador.firstName} + ' ' + ${ambassador.lastName}">
+
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label class="control-label">Type</label>
+                            <div class="form-group">
+                                <select class="form-control" th:field="${contract.type}">
+
+                                    <option th:each="contractType : ${contractTypes}"
+                                            th:value="${contractType}"
+                                            th:text="${contractType}">
+
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label for="startDate">Start dato*</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate" required th:field="${contract.startDate}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label for="endDate">Slut dato*</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate" required th:field="${contract.endDate}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Månedlig betaling*</label>
+                            <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.income}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Ambassadør timeløn*</label>
+                            <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.hourlyWage}">
+                        </div>
+
+                        <div class="form-group col-md-6 offset-3">
+                            <label>Ambassadør arbejdstimer pr måned*</label>
+                            <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.workHoursPerMonth}">
+                        </div>
+
+                        <button type="submit" class="btn btn-success col-md-4 offset-4 mb-5">Opret</button>
                     </form>
                 </div>
 
@@ -163,6 +182,12 @@
 
 <!-- Custom scripts for all pages-->
 <script th:src="@{/dashboardStatic/js/sb-admin-2.min.js}"></script>
+
+<!-- Page level plugins -->
+<script th:src="@{/dashboardStatic/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
 
 
 </body>

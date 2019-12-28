@@ -1,14 +1,12 @@
 package project.rexkyoo.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
-import project.rexkyoo.Ambassador.Services.AmbassadorService;
-import project.rexkyoo.User.Repositories.UserRepository;
-import project.rexkyoo.User.Services.UserService;
+import project.rexkyoo.Ambassador.AmbassadorModel;
+import project.rexkyoo.Ambassador.AmbassadorService;
+import project.rexkyoo.Economy.EconomyService;
 
 import java.util.List;
 
@@ -19,10 +17,15 @@ public class AmbassadorController
     @Autowired
     private AmbassadorService ambassadorService;
 
+    @Autowired
+    private EconomyService economyService;
+
     @GetMapping("/ambassadors")
     public String ambassadorOverview(Model model)
     {
         List<AmbassadorModel> ambassadors = ambassadorService.getAll();
+
+        economyService.assignAllAmbassadorsMonthlyWages(ambassadors);
 
         model.addAttribute("ambassadors", ambassadors);
 
@@ -33,6 +36,8 @@ public class AmbassadorController
     public String ambassadorDetails(@PathVariable("id") int id, Model model)
     {
         AmbassadorModel ambassador = ambassadorService.getOne(id);
+
+        economyService.assignAmbassadorMonthlyWage(ambassador);
 
         model.addAttribute("ambassador", ambassador);
 
