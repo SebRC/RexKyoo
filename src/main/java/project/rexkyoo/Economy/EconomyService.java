@@ -108,7 +108,7 @@ public class EconomyService
 
         double percentage = 0.00;
 
-        if(totalCustomerIncome == 0)
+        if (totalCustomerIncome == 0)
         {
             customer.setPercentageOfCompanyIncome(percentage);
         }
@@ -229,13 +229,24 @@ public class EconomyService
     private double calculateIncomePercentage(ContractType contractType)
     {
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
-        double totalTypeIncome = 0;
+        double totalTypeIncome;
 
         List<ContractModel> contracts = contractRepository.findAllByTypeEquals(contractType);
 
         totalTypeIncome = assignIncome(contracts);
 
-        double percentage = (totalTypeIncome / totalCompanyIncome) * 100;
+        double percentage;
+
+        if(totalTypeIncome == 0)
+        {
+            percentage = 0.0;
+        }
+        else
+        {
+            percentage = (totalTypeIncome / totalCompanyIncome) * 100;
+
+            percentage = roundToTwoDecimal(percentage);
+        }
 
         return percentage;
     }
@@ -252,9 +263,16 @@ public class EconomyService
 
         profit = totalCompanyIncome - totalCompanyExpenses;
 
-        profitPercentage = (profit / totalCompanyIncome) * 100;
+        if (profit == 0)
+        {
+            profitPercentage = 0.0;
+        }
+        else
+        {
+            profitPercentage = (profit / totalCompanyIncome) * 100;
 
-        profitPercentage = roundToTwoDecimal(profitPercentage);
+            profitPercentage = roundToTwoDecimal(profitPercentage);
+        }
 
         return profitPercentage;
     }
