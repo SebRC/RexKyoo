@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.rexkyoo.Customer.Model.CustomerModel;
-import project.rexkyoo.Customer.Service.CustomerService;
-import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
-import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
+import project.rexkyoo.Contract.ContractModel;
+import project.rexkyoo.Contract.ContractService;
+import project.rexkyoo.Customer.CustomerModel;
+import project.rexkyoo.Customer.CustomerService;
+import project.rexkyoo.CustomerPaymentDate.CustomerPaymentDateModel;
+import project.rexkyoo.CustomerPaymentDate.CustomerPaymentDateService;
+import project.rexkyoo.Economy.EconomyService;
+import project.rexkyoo.Economy.MonthsIncomeModel;
 
 import java.util.List;
 import java.util.Set;
@@ -22,10 +26,18 @@ public class CustomerController
     @Autowired
     private CustomerPaymentDateService customerPaymentDateService;
 
+    @Autowired
+    private EconomyService economyService;
+
+    @Autowired
+    private ContractService contractService;
+
     @GetMapping("/business-customers")
     public String businessCustomerOverview(Model model)
     {
         List<CustomerModel> businessCustomers = customerService.getAllBusinessCustomers();
+
+        economyService.assignEconomyForCustomers(businessCustomers);
 
         model.addAttribute("businessCustomers", businessCustomers);
 
@@ -37,6 +49,8 @@ public class CustomerController
     {
         List<CustomerModel> privateCustomers = customerService.getAllPrivateCustomers();
 
+        economyService.assignEconomyForCustomers(privateCustomers);
+
         model.addAttribute("privateCustomers", privateCustomers);
 
         return "dashboard/customer/private_customer_overview";
@@ -47,10 +61,20 @@ public class CustomerController
     {
         CustomerModel businessCustomer = customerService.getOne(id);
 
+        economyService.assignEconomyForSingleCustomer(businessCustomer);
+
         Set<CustomerPaymentDateModel> paymentDates = businessCustomer.getCustomerPaymentDates();
+
+        List<ContractModel> contracts = contractService.findAllByCustomerId(id);
+
+        economyService.assignMonthsToContracts(contracts);
+
+        MonthsIncomeModel monthsIncome = economyService.getMonthPayments(contracts);
 
         model.addAttribute("businessCustomer", businessCustomer);
         model.addAttribute("businessCustomerPaymentDates", paymentDates);
+
+        model.addAttribute("monthsIncome", monthsIncome);
 
         return "dashboard/customer/business_customer_details";
     }
@@ -60,12 +84,22 @@ public class CustomerController
     {
         CustomerModel privateCustomer = customerService.getOne(id);
 
+        economyService.assignEconomyForSingleCustomer(privateCustomer);
+
         Set<CustomerPaymentDateModel> paymentDates = privateCustomer.getCustomerPaymentDates();
+
+        List<ContractModel> contracts = contractService.findAllByCustomerId(id);
+
+        economyService.assignMonthsToContracts(contracts);
+
+        MonthsIncomeModel monthsIncome = economyService.getMonthPayments(contracts);
 
         model.addAttribute("privateCustomer", privateCustomer);
         model.addAttribute("privateCustomerPaymentDates", paymentDates);
 
         model.addAttribute("customerPaymentDate", new CustomerPaymentDateModel());
+
+        model.addAttribute("monthsIncome", monthsIncome);
 
         return "dashboard/customer/private_customer_details";
     }

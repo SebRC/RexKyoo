@@ -1308,7 +1308,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				"<select disabled='disabled'><option/></select>";
 
 			// Support: Windows 8 Native Apps
-			// The type and name attributes are restricted during .innerHTML assignment
+			// The type and name attributes are restricted during .innerHTML contract
 			var input = document.createElement("input");
 			input.setAttribute( "type", "hidden" );
 			el.appendChild( input ).setAttribute( "name", "D" );
@@ -4047,7 +4047,7 @@ Data.prototype = {
 			if ( acceptData( owner ) ) {
 
 				// If it is a node unlikely to be stringify-ed or looped over
-				// use plain assignment
+				// use plain contract
 				if ( owner.nodeType ) {
 					owner[ this.expando ] = value;
 

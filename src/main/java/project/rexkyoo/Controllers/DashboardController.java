@@ -4,16 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.rexkyoo.Ambassador.Models.AmbassadorModel;
-import project.rexkyoo.Ambassador.Services.AmbassadorService;
-import project.rexkyoo.Assignment.Model.AssignmentModel;
-import project.rexkyoo.Assignment.Service.AssignmentService;
-import project.rexkyoo.CleaningInspector.Models.CleaningInspectorModel;
-import project.rexkyoo.CleaningInspector.Services.CleaningInspectorService;
-import project.rexkyoo.Customer.Model.CustomerModel;
-import project.rexkyoo.Customer.Service.CustomerService;
-import project.rexkyoo.CustomerPaymentDate.Model.CustomerPaymentDateModel;
-import project.rexkyoo.CustomerPaymentDate.Service.CustomerPaymentDateService;
+import project.rexkyoo.Ambassador.AmbassadorModel;
+import project.rexkyoo.Ambassador.AmbassadorService;
+import project.rexkyoo.CleaningInspector.CleaningInspectorModel;
+import project.rexkyoo.CleaningInspector.CleaningInspectorService;
+import project.rexkyoo.Customer.CustomerModel;
+import project.rexkyoo.Customer.CustomerService;
 
 import java.util.List;
 
