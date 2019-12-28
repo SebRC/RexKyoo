@@ -59,4 +59,16 @@ public class DashboardController
 
         return "dashboard/economy";
     }
+
+    @GetMapping("/login")
+    public String login()
+    {
+        return "dashboard/login";
+    }
+
+    @GetMapping("/denied")
+    public String denied()
+    {
+        return "dashboard/denied";
+    }
 }
