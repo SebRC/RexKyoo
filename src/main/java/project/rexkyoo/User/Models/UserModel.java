@@ -14,16 +14,16 @@ public class UserModel
     private int id;
     private String username;
     private String password;
-    private Role role;
+    private int enable;
 
     public UserModel()
     {}
 
-    public UserModel(String username, String password, Role role)
+    public UserModel(String username, String password, int enable)
     {
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.enable = enable;
     }
 
     public int getId()
@@ -51,9 +51,13 @@ public class UserModel
         this.password = password;
     }
 
-    public Role getRole()
+    public int getEnable()
     {
-        return role;
+        return enable;
     }
 
+    public void setEnable(int enable)
+    {
+        this.enable = enable;
+    }
 }
