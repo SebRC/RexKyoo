@@ -51,4 +51,17 @@ public class HomeController
 
         return "dashboard/home";
     }
+
+    @GetMapping("/login")
+    public String login()
+    {
+        return "dashboard/login";
+    }
+
+    @GetMapping("/denied")
+    public String denied()
+    {
+        return "dashboard/denied";
+    }
+
 }

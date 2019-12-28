@@ -13,4 +13,9 @@ public class UserService
     {
         return userRepository.getOne(id);
     }
+
+    public void save(UserModel userModel)
+    {
+        userRepository.save(userModel);
+    }
 }

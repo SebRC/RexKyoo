@@ -10,18 +10,18 @@ public class UserModel
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "user_id")
     private int id;
-    private String userName;
+    private String username;
     private String password;
-    private Role role;
+    private int enable;
 
     public UserModel()
     {}
 
-    public UserModel(String userName, String password, Role role)
+    public UserModel(String username, String password, int enable)
     {
-        this.userName = userName;
+        this.username = username;
         this.password = password;
-        this.role = role;
+        this.enable = enable;
     }
 
     public int getId()
@@ -29,14 +29,14 @@ public class UserModel
         return id;
     }
 
-    public String getUserName()
+    public String getUsername()
     {
-        return userName;
+        return username;
     }
 
-    public void setUserName(String userName)
+    public void setUsername(String username)
     {
-        this.userName = userName;
+        this.username = username;
     }
 
     public String getPassword()
@@ -49,8 +49,13 @@ public class UserModel
         this.password = password;
     }
 
-    public Role getRole()
+    public int getEnable()
     {
-        return role;
+        return enable;
+    }
+
+    public void setEnable(int enable)
+    {
+        this.enable = enable;
     }
 }

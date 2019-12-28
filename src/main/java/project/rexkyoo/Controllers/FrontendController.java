@@ -1,14 +1,18 @@
 package project.rexkyoo.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import project.rexkyoo.User.UserModel;
+import project.rexkyoo.User.UserService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/dk")
 public class FrontendController
 {
-    @GetMapping("/")
+    @GetMapping("/forside")
     public String forside()
     {
         return "frontend/index";
@@ -96,5 +100,25 @@ public class FrontendController
     public String skreaddersy()
     {
         return "frontend/skræddersy";
+    }
+
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/createuser")
+    public String createuser()
+    {
+
+        UserModel user = new UserModel("admin", "1234", 1);
+
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+        userService.save(user);
+
+        return "frontend/index";
     }
 }
