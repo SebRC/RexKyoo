@@ -1,6 +1,4 @@
-package project.rexkyoo.User.Models;
-
-import project.rexkyoo.User.Role;
+package project.rexkyoo.User;
 
 import javax.persistence.*;
 
