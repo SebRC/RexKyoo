@@ -299,15 +299,71 @@ public class EconomyService
             int startMonthIndex = startDate.getMonth() + 1;
             int endMonthIndex = endDate.getMonth() + 1;
 
-            for (int i = startMonthIndex; i <= endMonthIndex; i++)
+            if(endMonthIndex < startMonthIndex)
             {
-                Month currentEvaluatedMonth = Month.of(i);
+                String startYear = contract.getStartDate().substring(0,4);
+                String endYear = contract.getEndDate().substring(0,4);
 
-                String formattedMonth = currentEvaluatedMonth.toString().substring(0, 3);
+                int start = Integer.parseInt(startYear);
+                int end = Integer.parseInt(endYear);
 
-                contract.getMonths().add(formattedMonth);
+                int numberOfYearsBetweenStartAndEnd = end - start - 1;
+
+                addMonthsFromInBetweenYears(contract, numberOfYearsBetweenStartAndEnd);
+
+                addMonthsFromStartMonth(contract, startMonthIndex);
+
+                addMonthsFromEndMonth(contract, endMonthIndex);
+            }
+            else
+            {
+                addCalendarYearContract(contract, startMonthIndex, endMonthIndex);
             }
         }
+    }
+
+    private void addMonthsFromInBetweenYears(ContractModel contract, int numberOfYearsBetweenStartAndEnd)
+    {
+        for(int i = 0; i <= numberOfYearsBetweenStartAndEnd; i++)
+        {
+            for (int j = 1; j <= 12; j++)
+            {
+                addMonthToContract(contract, j);
+            }
+        }
+    }
+
+    private void addMonthsFromStartMonth(ContractModel contract, int startMonthIndex)
+    {
+        for (int i = startMonthIndex; i <= 12; i++)
+        {
+            addMonthToContract(contract, i);
+        }
+    }
+
+    private void addMonthsFromEndMonth(ContractModel contract, int endMonthIndex)
+    {
+        for (int i = 1; i <= endMonthIndex; i++)
+        {
+            addMonthToContract(contract, i);
+        }
+    }
+
+    private void addCalendarYearContract(ContractModel contract,int startMonthIndex, int endMonthIndex)
+    {
+        for (int i = startMonthIndex; i <= endMonthIndex; i++)
+        {
+            addMonthToContract(contract, i);
+        }
+    }
+
+    private void addMonthToContract(ContractModel contract, int index)
+    {
+        Month currentEvaluatedMonth = Month.of(index);
+
+        String formattedMonth = currentEvaluatedMonth.toString().substring(0, 3);
+
+        contract.getMonths().add(formattedMonth);
     }
 
     public MonthsIncomeModel getMonthPayments(List<ContractModel> contracts)
