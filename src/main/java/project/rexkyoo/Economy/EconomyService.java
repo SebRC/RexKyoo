@@ -165,7 +165,6 @@ public class EconomyService
         }
     }
 
-
     public void assignAmbassadorMonthlyWage(AmbassadorModel ambassador)
     {
         Set<ContractModel> contracts = ambassador.getContracts();
@@ -330,3 +329,4 @@ public class EconomyService
         return monthsIncome;
     }
 }
+
