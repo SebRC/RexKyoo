@@ -9,6 +9,8 @@ import project.rexkyoo.CleaningInspector.CleaningInspectorService;
 
 import java.util.List;
 
+// SRC
+
 @Controller
 @RequestMapping("/admin")
 public class CleaningInspectorController

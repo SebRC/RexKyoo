@@ -1,5 +1,7 @@
 package project.rexkyoo.Economy;
 
+// SRC
+
 public class TypePercentagesModel
 {
     private double cleaningPercentage;

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// SRC
+
 @Service
 public class ContractService
 {
@@ -33,6 +35,7 @@ public class ContractService
 
     public ContractType[] getContractTypes()
     {
+        // SRC
         ContractType[] contractTypes = ContractType.values();
 
         return contractTypes;
@@ -40,6 +43,7 @@ public class ContractService
 
     public List<ContractModel> findAllByCustomerId(int id)
     {
+        // SRC
         List<ContractModel> contracts = contractRepository.findAllByCustomerIdEquals(id);
 
         return contracts;

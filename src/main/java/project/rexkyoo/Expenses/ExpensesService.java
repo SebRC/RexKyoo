@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// SRC
+
 @Service
 public class ExpensesService
 {
@@ -36,6 +38,7 @@ public class ExpensesService
 
     public void assignFirstWageExpense(ExpenseModel expense, ContractModel contract)
     {
+        // SRC
         double hourlyWage = contract.getHourlyWage();
         double workHoursPerMonth = contract.getWorkHoursPerMonth();
         String expenseDate = contract.getStartDate();

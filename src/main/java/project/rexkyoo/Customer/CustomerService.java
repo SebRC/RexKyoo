@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+// SRC
+
 @Service
 public class CustomerService
 {
@@ -22,6 +24,8 @@ public class CustomerService
 
     public List<CustomerModel> getAllPrivateCustomers()
     {
+        // SRC
+
         String type = "private";
 
         List<CustomerModel> privateCustomers = customerRepository.findAllByTypeEquals(type);
@@ -36,6 +40,8 @@ public class CustomerService
 
     public void assignDates(CustomerModel customer)
     {
+        // SRC
+
         CustomerPaymentDateModel relevantPaymentDates = new CustomerPaymentDateModel();
 
         relevantPaymentDates = resolveRelevantPaymentDates(customer, relevantPaymentDates);
@@ -47,6 +53,8 @@ public class CustomerService
 
     private CustomerPaymentDateModel resolveRelevantPaymentDates(CustomerModel customer, CustomerPaymentDateModel relevantPaymentDates)
     {
+        // SRC
+
         Date mostRecentDate = new Date(1);
 
         for (CustomerPaymentDateModel paymentDates : customer.getCustomerPaymentDates())
@@ -68,6 +76,8 @@ public class CustomerService
 
     private Date convertDate(String expectedDate)
     {
+        // SRC
+
         SimpleDateFormat yearMonthDate = new SimpleDateFormat("yyyy-MM-dd");
 
         try
@@ -83,6 +93,8 @@ public class CustomerService
 
     public List<CustomerModel> getAllBusinessCustomers()
     {
+        // SRC
+
         String type = "business";
 
         List<CustomerModel> businessCustomers = customerRepository.findAllByTypeEquals(type);
@@ -104,6 +116,8 @@ public class CustomerService
 
     public CustomerModel getOne(int id)
     {
+        // SRC
+
         CustomerModel customer = customerRepository.getOne(id);
 
         assignDates(customer);
@@ -115,6 +129,8 @@ public class CustomerService
 
     private void setMonthsAndYears(CustomerModel customer)
     {
+        // SRC
+
         Set<CustomerPaymentDateModel> customerPaymentDates = customer.getCustomerPaymentDates();
 
         for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)

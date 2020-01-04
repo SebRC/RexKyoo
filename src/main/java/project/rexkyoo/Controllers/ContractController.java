@@ -19,6 +19,8 @@ import project.rexkyoo.Expenses.ExpensesService;
 
 import java.util.List;
 
+// SRC
+
 @Controller
 @RequestMapping("/admin")
 public class ContractController
@@ -38,6 +40,8 @@ public class ContractController
     @GetMapping("/contract")
     public String createContract(Model model)
     {
+        // SRC
+
         ContractModel contract = new ContractModel();
         ContractType[] contractTypes = contractService.getContractTypes();
 
@@ -56,6 +60,8 @@ public class ContractController
     @PostMapping("/contract")
     public String createContract(@ModelAttribute ContractModel contract)
     {
+        // SRC
+
         ExpenseModel expense = new ExpenseModel();
 
         expensesService.assignFirstWageExpense(expense, contract);

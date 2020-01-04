@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+// SRC
+
 @Service
 public class EconomyService
 {
@@ -25,6 +27,8 @@ public class EconomyService
 
     public EconomyModel getEconomyBasedOnCustomerType(String type)
     {
+        // SRC
+
         double customersIncome;
         double customersExpenses;
         double customersProfit;
@@ -42,6 +46,8 @@ public class EconomyService
 
     private double assignIncome(List<ContractModel> contracts)
     {
+        // SRC
+
         double income = 0;
 
         for (ContractModel contract : contracts)
@@ -54,6 +60,8 @@ public class EconomyService
 
     private double assignExpenses(List<ContractModel> contracts)
     {
+        // SRC
+
         double companyExpensese = 0;
 
         for (ContractModel contract : contracts)
@@ -71,6 +79,8 @@ public class EconomyService
 
     public EconomyModel getEconomyForEntireCompany()
     {
+        // SRC
+
         double customersIncome;
         double customersExpenses;
         double customersProfit;
@@ -88,6 +98,8 @@ public class EconomyService
 
     public void assignCustomersPercentageOfIncome(List<CustomerModel> customers)
     {
+        // SRC
+
         for (CustomerModel customer : customers)
         {
             assignPercentage(customer);
@@ -96,6 +108,8 @@ public class EconomyService
 
     private void assignPercentage(CustomerModel customer)
     {
+        // SRC
+
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
 
         Set<ContractModel> contracts = customer.getContracts();
@@ -124,6 +138,8 @@ public class EconomyService
 
     private double roundToTwoDecimal(double percentage)
     {
+        // SRC
+
         DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
         percentage = Double.valueOf(twoDecimalFormat.format(percentage));
 
@@ -132,6 +148,8 @@ public class EconomyService
 
     public void assignEconomyForCustomers(List<CustomerModel> customers)
     {
+        // SRC
+
         for (CustomerModel customer : customers)
         {
             assignEconomyForSingleCustomer(customer);
@@ -140,6 +158,8 @@ public class EconomyService
 
     public void assignEconomyForSingleCustomer(CustomerModel customer)
     {
+        // SRC
+
         double customersIncome;
         double customersExpenses;
         double customersProfit;
@@ -159,6 +179,8 @@ public class EconomyService
 
     public void assignAllAmbassadorsMonthlyWages(List<AmbassadorModel> ambassadors)
     {
+        // SRC
+
         for (AmbassadorModel ambassador : ambassadors)
         {
             assignAmbassadorMonthlyWage(ambassador);
@@ -167,6 +189,8 @@ public class EconomyService
 
     public void assignAmbassadorMonthlyWage(AmbassadorModel ambassador)
     {
+        // SRC
+
         Set<ContractModel> contracts = ambassador.getContracts();
 
         double monthlySalary = 0;
@@ -190,6 +214,8 @@ public class EconomyService
 
     private double extractMonthlySalary(Set<ExpenseModel> expenses)
     {
+        // SRC
+
         double monthlySalary = 0.0;
 
         for (ExpenseModel expense : expenses)
@@ -205,6 +231,8 @@ public class EconomyService
 
     public TypePercentagesModel calculateTypePercentages()
     {
+        // SRC
+
         double cleaningPercentage;
         double babysittingPercentage;
         double homeworkPercentage;
@@ -227,6 +255,8 @@ public class EconomyService
 
     private double calculateIncomePercentage(ContractType contractType)
     {
+        // SRC
+
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
         double totalTypeIncome;
 
@@ -252,6 +282,8 @@ public class EconomyService
 
     public double calculateProfitPercentage()
     {
+        // SRC
+
         double profitPercentage;
         double profit;
         double totalCompanyIncome = getEconomyForEntireCompany().getIncome();
@@ -278,6 +310,8 @@ public class EconomyService
 
     public void assignMonthsToContracts(List<ContractModel> contracts)
     {
+        // SRC
+
         for (ContractModel contract : contracts)
         {
             SimpleDateFormat yearMonthDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -324,6 +358,8 @@ public class EconomyService
 
     private void addMonthsFromInBetweenYears(ContractModel contract, int numberOfYearsBetweenStartAndEnd)
     {
+        // SRC
+
         for(int i = 0; i <= numberOfYearsBetweenStartAndEnd; i++)
         {
             for (int j = 1; j <= 12; j++)
@@ -335,6 +371,8 @@ public class EconomyService
 
     private void addMonthsFromStartMonth(ContractModel contract, int startMonthIndex)
     {
+        // SRC
+
         for (int i = startMonthIndex; i <= 12; i++)
         {
             addMonthToContract(contract, i);
@@ -343,6 +381,8 @@ public class EconomyService
 
     private void addMonthsFromEndMonth(ContractModel contract, int endMonthIndex)
     {
+        // SRC
+
         for (int i = 1; i <= endMonthIndex; i++)
         {
             addMonthToContract(contract, i);
@@ -351,6 +391,8 @@ public class EconomyService
 
     private void addCalendarYearContract(ContractModel contract,int startMonthIndex, int endMonthIndex)
     {
+        // SRC
+
         for (int i = startMonthIndex; i <= endMonthIndex; i++)
         {
             addMonthToContract(contract, i);
@@ -359,6 +401,8 @@ public class EconomyService
 
     private void addMonthToContract(ContractModel contract, int index)
     {
+        // SRC
+
         Month currentEvaluatedMonth = Month.of(index);
 
         String formattedMonth = currentEvaluatedMonth.toString().substring(0, 3);
@@ -368,6 +412,8 @@ public class EconomyService
 
     public MonthsIncomeModel getMonthPayments(List<ContractModel> contracts)
     {
+        // SRC
+
         MonthsIncomeModel monthsIncome = new MonthsIncomeModel();
 
         for (ContractModel contract : contracts)

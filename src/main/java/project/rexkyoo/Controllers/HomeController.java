@@ -13,6 +13,8 @@ import project.rexkyoo.Economy.MonthsIncomeModel;
 
 import java.util.List;
 
+// SRC
+
 @Controller
 @RequestMapping("/admin")
 public class HomeController
@@ -29,6 +31,8 @@ public class HomeController
     @GetMapping("/home")
     public String home(Model model)
     {
+        // SRC
+
         int amountOfPrivateCustomers = customerService.getAllPrivateCustomers().size();
         int amountOfBusinessCustomers = customerService.getAllBusinessCustomers().size();
 

@@ -4,6 +4,8 @@ import project.rexkyoo.Customer.CustomerModel;
 
 import javax.persistence.*;
 
+// SRC
+
 @Entity
 @Table(name = "CustomerPaymentDate")
 public class CustomerPaymentDateModel

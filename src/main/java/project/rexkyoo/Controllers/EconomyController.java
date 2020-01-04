@@ -20,6 +20,8 @@ import project.rexkyoo.Economy.TypePercentagesModel;
 
 import java.util.List;
 
+// SRC
+
 @Controller
 @RequestMapping("/admin")
 public class EconomyController
@@ -42,6 +44,8 @@ public class EconomyController
     @GetMapping("/economy")
     public String economy(Model model)
     {
+        // SRC
+
         List<CustomerModel> customers = customerService.getAll();
         List<AmbassadorModel> ambassadors = ambassadorService.getAll();
         List<CleaningInspectorModel> cleaningInspectors = cleaningInspectorService.getAll();

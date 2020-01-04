@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.*;
 
+// SRC
+
 @Service
 public class CustomerPaymentDateService
 {
@@ -36,6 +38,8 @@ public class CustomerPaymentDateService
 
     public void setMonth(CustomerPaymentDateModel customerPaymentDateModel)
     {
+        // SRC
+
         SimpleDateFormat yearMonthDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         Date currentEvaluatedDate;
@@ -57,6 +61,8 @@ public class CustomerPaymentDateService
 
     private String extractMonth(Date currentEvaluatedDate)
     {
+        // SRC
+
         int monthIndex = currentEvaluatedDate.getMonth();
 
         Month month = Month.of(monthIndex + 1);
@@ -68,6 +74,8 @@ public class CustomerPaymentDateService
 
     public Set<CustomerPaymentDateModel> getSelectedYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
     {
+        // SRC
+
         Set<CustomerPaymentDateModel> selectedYearPaymentDates = extractSelectedYearPaymentDates(customerPaymentDates, selectedYear);
 
         return selectedYearPaymentDates;
@@ -75,6 +83,8 @@ public class CustomerPaymentDateService
 
     private Set<CustomerPaymentDateModel> extractSelectedYearPaymentDates(Set<CustomerPaymentDateModel> customerPaymentDates, String selectedYear)
     {
+        // SRC
+
         Set<CustomerPaymentDateModel> selectedYearPaymentDates = new HashSet<>();
 
         for (CustomerPaymentDateModel customerPaymentDate : customerPaymentDates)
@@ -96,6 +106,8 @@ public class CustomerPaymentDateService
 
     private String extractYear(String date)
     {
+        // SRC
+
         String year = date.substring(0,4);
 
         return year;
@@ -103,6 +115,8 @@ public class CustomerPaymentDateService
 
     public void setYear(CustomerPaymentDateModel customerPaymentDateModel)
     {
+        // SRC
+
         String date = customerPaymentDateModel.getExpectedPaymentDate();
 
         boolean isValidYear = validateDateYear(date);
@@ -123,6 +137,8 @@ public class CustomerPaymentDateService
 
     private boolean validateDateYear(String date)
     {
+        // SRC
+
         boolean isValidYear = date != null && date.length() == 10;
 
         return isValidYear;
