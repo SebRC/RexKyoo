@@ -139,12 +139,12 @@ public class CustomerController
         return "redirect:/admin/home";
     }
 
-    @PostMapping("/customer-edit/{id}")
-    public String editCustomer(@PathVariable("id") int id, @ModelAttribute CustomerModel customer, @ModelAttribute CustomerPaymentDateModel customerPaymentDate)
+    @PostMapping("/customer-edit")
+    public String editCustomer(@ModelAttribute CustomerModel customer)
     {
-        customerService.delete(customer.getId());
-        customer.setId(id);
         customerService.save(customer);
+
+        int id = customer.getId();
 
         return "redirect:/admin/" + customer.getType() + "-customers/" + id;
     }
