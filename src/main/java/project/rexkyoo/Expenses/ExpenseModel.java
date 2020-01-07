@@ -4,6 +4,8 @@ import project.rexkyoo.Contract.ContractModel;
 
 import javax.persistence.*;
 
+// TA
+
 @Entity
 @Table(name = "Expense")
 public class ExpenseModel

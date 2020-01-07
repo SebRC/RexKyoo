@@ -9,7 +9,7 @@ import project.rexkyoo.Feedback.FeedbackModel;
 import javax.persistence.*;
 import java.util.*;
 
-// SRC
+// SRC, TA
 
 @Entity
 @Table(name = "Customer")
