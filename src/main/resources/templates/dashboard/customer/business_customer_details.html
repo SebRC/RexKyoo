@@ -51,11 +51,16 @@
                     <!--Customer Info-->
                     <div class="col-7">
 
+                        <!-- Button trigger modal -->
                         <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteCustomerModal">
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
 
-                        <!-- modal -->
+                        <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#editCustomerModal">
+                            <i class="fas fa-fw fa-pen"></i>
+                        </button>
+
+                        <!-- Modal delete -->
                         <div class="modal fade" id="deleteCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -78,8 +83,82 @@
                                 </div>
                             </div>
                         </div>
+                        <!---Modal delete end-->
 
-                        <!---modal end-->
+                        <!-- Modal edit -->
+                        <div class="modal fade" id="editCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Redigere kunde</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form class="needs-validation" novalidate th:action="@{/admin/customer-edit}" method="post">
+                                            <!--variables that you can not change but need it for the model in post -->
+                                            <input type="hidden" th:field="${businessCustomer.id}">
+                                            <input type="hidden" th:field="${businessCustomer.contracts}">
+                                            <input type="hidden" th:field="${businessCustomer.cleaningInspector}">
+                                            <input type="hidden" th:field="${businessCustomer.feedbacks}">
+                                            <input type="hidden" th:field="${businessCustomer.customerPaymentDates}">
+
+                                            <div class="form-row">
+                                                <div class="col-6 mb-3">
+                                                    <label>Navn*</label>
+                                                    <input type="text" class="form-control" th:field="${businessCustomer.name}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col-6 mb-3">
+                                                    <label>Telefon*</label>
+                                                    <input type="tel" class="form-control" th:field="${businessCustomer.phone}">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label>Email*</label>
+                                                    <input type="email" class="form-control" th:field="${businessCustomer.email}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col-4 mb-3">
+                                                    <label>Adresse*</label>
+                                                    <input type="text" class="form-control" th:field="${businessCustomer.address}" required>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label>Postkode*</label>
+                                                    <input type="text" class="form-control" th:field="${businessCustomer.zipCode}" required>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label>By*</label>
+                                                    <input type="text" class="form-control" th:field="${businessCustomer.city}" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" value="business" th:field="${businessCustomer.type}" required>
+                                                <label class="custom-control-label" for="customControlValidation2">Erhvervskunde</label>
+                                            </div>
+                                            <div class="custom-control custom-radio mb-3">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" value="private" th:field="${businessCustomer.type}" required>
+                                                <label class="custom-control-label" for="customControlValidation3">Privatkunde</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Note</label>
+                                                <input type="text" class="form-control" placeholder="Note" th:field="${businessCustomer.note}">
+                                            </div>
+
+                                            <button class="btn btn-success" type="submit">Gem</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---modal edit end-->
 
                         <!-- Page Heading -->
                         <h1 class="h2 mb-4 text-gray-800"  th:text="${businessCustomer.name}"></h1>

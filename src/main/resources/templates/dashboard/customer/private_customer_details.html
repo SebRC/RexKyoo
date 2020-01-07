@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<!-- SRC -->
+<!-- SRC, JV -->
 
 <head>
 
@@ -56,7 +56,7 @@
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
 
-                        <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#editCustomerModal">
                             <i class="fas fa-fw fa-pen"></i>
                         </button>
 
@@ -86,7 +86,7 @@
                         <!---Modal delete end-->
 
                         <!-- Modal edit -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="editCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form class="needs-validation" novalidate th:action="@{/admin/customer-edit/{id}(id=${privateCustomer.id})}" method="post">
+                                        <form class="needs-validation" novalidate th:action="@{/admin/customer-edit}" method="post">
                                             <!--variables that you can not change but need it for the model in post -->
                                             <input type="hidden" th:field="${privateCustomer.id}">
                                             <input type="hidden" th:field="${privateCustomer.contracts}">
@@ -148,18 +148,12 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Forventet Betalingsdato*</label>
-                                                <input type="date" class="form-control" th:field="${privateCustomer.expectedPaymentDate}" required>
-                                            </div>
-
-                                            <div class="form-group">
                                                 <label>Note</label>
-                                                <input type="text" class="form-control" placeholder="note" th:field="${privateCustomer.note}">
+                                                <input type="text" class="form-control" placeholder="Note" th:field="${privateCustomer.note}">
                                             </div>
 
                                             <button class="btn btn-success" type="submit">Gem</button>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>

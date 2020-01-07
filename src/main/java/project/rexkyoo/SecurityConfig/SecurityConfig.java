@@ -12,7 +12,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
+<<<<<<< HEAD
 // TA
+=======
+// JV, MG, TA
+>>>>>>> master
 
 @Configuration
 @EnableWebSecurity
@@ -58,7 +62,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/admin/login").and().exceptionHandling()
                 .accessDeniedPage("/admin/denied");
-
     }
 
 }

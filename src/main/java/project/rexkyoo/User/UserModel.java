@@ -2,6 +2,8 @@ package project.rexkyoo.User;
 
 import javax.persistence.*;
 
+// JV, MG, TA
+
 @Entity
 @Table(name = "User")
 public class UserModel

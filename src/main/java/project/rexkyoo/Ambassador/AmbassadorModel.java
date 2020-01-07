@@ -7,7 +7,11 @@ import project.rexkyoo.Feedback.FeedbackModel;
 import javax.persistence.*;
 import java.util.Set;
 
+<<<<<<< HEAD
 // TA
+=======
+// JV, TA
+>>>>>>> master
 
 @Entity
 @Table(name = "Ambassador")
