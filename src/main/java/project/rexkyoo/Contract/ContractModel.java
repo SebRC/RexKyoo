@@ -62,6 +62,11 @@ public class ContractModel
         return id;
     }
 
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
     public double getIncome()
     {
         return income;

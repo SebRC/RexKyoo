@@ -175,32 +175,28 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered"  width="100%" cellspacing="0">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Type</th>
-                                                        <th>Startsdato</th>
-                                                        <th>Slutsdato</th>
-                                                        <th>Indkomst</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr th:each="contract : ${contracts}">
-                                                        <td th:text="${contract.type}"></td>
-                                                        <td th:text="${contract.startDate}"></td>
-                                                        <td th:text="${contract.endDate}"></td>
-                                                        <td th:text="${contract.income}"></td>
-                                                        <td>
-                                                            <a th:href="@{/admin/home}" class="btn btn-success">
-                                                                <i class="fas fa-fw fa-user"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered"  width="100%" cellspacing="0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Startsdato</th>
+                                                    <th>Slutsdato</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="contract : ${contracts}">
+                                                    <td th:text="${contract.type}"></td>
+                                                    <td th:text="${contract.startDate}"></td>
+                                                    <td th:text="${contract.endDate}"></td>
+                                                    <td>
+                                                        <a th:href="@{/admin/contract/{id}(id=${contract.id})}" class="btn btn-primary">
+                                                            <i class="fas fa-fw fa-book"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
