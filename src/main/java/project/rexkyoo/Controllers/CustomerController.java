@@ -103,6 +103,8 @@ public class CustomerController
 
         model.addAttribute("monthsIncome", monthsIncome);
 
+        model.addAttribute("contracts", contracts);
+
         return "dashboard/customer/private_customer_details";
     }
 
