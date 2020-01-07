@@ -7,6 +7,8 @@ import project.rexkyoo.Feedback.FeedbackModel;
 import javax.persistence.*;
 import java.util.Set;
 
+// TA
+
 @Entity
 @Table(name = "Ambassador")
 public class AmbassadorModel

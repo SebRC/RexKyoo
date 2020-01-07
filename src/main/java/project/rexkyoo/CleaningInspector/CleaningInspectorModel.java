@@ -6,6 +6,8 @@ import project.rexkyoo.Customer.CustomerModel;
 import javax.persistence.*;
 import java.util.Set;
 
+// TA
+
 @Entity
 @Table(name = "CleaningInspector")
 public class CleaningInspectorModel

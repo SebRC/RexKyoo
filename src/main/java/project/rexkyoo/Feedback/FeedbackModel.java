@@ -6,6 +6,8 @@ import project.rexkyoo.Customer.CustomerModel;
 import javax.persistence.*;
 import java.util.Date;
 
+// TA
+
 @Entity
 @Table(name = "Feedback")
 public class FeedbackModel
