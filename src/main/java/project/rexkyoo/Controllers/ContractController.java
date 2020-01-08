@@ -73,7 +73,7 @@ public class ContractController
         return "redirect:/admin/home";
     }
 
-    @GetMapping("/contract/{id}")
+    @GetMapping("/contracts/{id}")
     public String contractDetails(@PathVariable("id") int id, Model model)
     {
         //JV
@@ -98,8 +98,6 @@ public class ContractController
 
         int id = contract.getId();
 
-        return "redirect:/admin/contract/" + id;
+        return "redirect:/admin/contracts/" + id;
     }
-
-
 }

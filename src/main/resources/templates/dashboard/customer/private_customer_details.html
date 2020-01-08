@@ -169,7 +169,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Liste af dine kontrakter</h5>
+                                        <h5 class="modal-title" th:text="${privateCustomer.name} + 's kontrakter'"></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -180,8 +180,8 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Type</th>
-                                                    <th>Startsdato</th>
-                                                    <th>Slutsdato</th>
+                                                    <th>Start dato</th>
+                                                    <th>Slut dato</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -190,7 +190,7 @@
                                                     <td th:text="${contract.startDate}"></td>
                                                     <td th:text="${contract.endDate}"></td>
                                                     <td>
-                                                        <a th:href="@{/admin/contract/{id}(id=${contract.id})}" class="btn btn-primary">
+                                                        <a th:href="@{/admin/contracts/{id}(id=${contract.id})}" class="btn btn-primary">
                                                             <i class="fas fa-fw fa-book"></i>
                                                         </a>
                                                     </td>

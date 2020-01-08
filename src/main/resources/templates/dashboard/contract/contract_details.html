@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title th:text="${contract.type}"></title>
+    <title>Kontrakt detaljer</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -48,7 +48,7 @@
             <div class="container-fluid">
 
                 <!-- Button trigger modal -->
-                <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteCustomerModal">
+                <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteContractModal">
                     <i class="fas fa-fw fa-trash"></i>
                 </button>
 
@@ -61,7 +61,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" >Redigere Kontrakkt</h5>
+                                <h5 class="modal-title" >Redigere Kontrakt</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -138,6 +138,8 @@
                 </div>
 
                 <br><br>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Kunde: ' + ${contract.customer.name}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Ambassadør: ' + ${contract.ambassador.firstName + ' ' + contract.ambassador.lastName}"></h1>
                 <h1 class="h5 mb-4 text-gray-800" th:text="'Start dato: ' + ${contract.startDate}"></h1>
                 <h1 class="h5 mb-4 text-gray-800" th:text="'Slut dato: ' + ${contract.endDate}"></h1>
                 <h1 class="h5 mb-4 text-gray-800" th:text="'Månedlig betaling: ' + ${contract.income}"></h1>
