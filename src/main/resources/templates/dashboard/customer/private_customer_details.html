@@ -60,6 +60,10 @@
                             <i class="fas fa-fw fa-pen"></i>
                         </button>
 
+                        <button type="button" class="btn btn-primary float-right mr-2" data-toggle="modal" data-target="#showContractsModal">
+                            <i class="fas fa-fw fa-book"></i>
+                        </button>
+
                         <!-- Modal delete -->
                         <div class="modal fade" id="deleteCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -90,7 +94,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Redigere kunde</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Rediger kunde</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -159,6 +163,46 @@
                             </div>
                         </div>
                         <!---modal edit end-->
+
+                        <!-- Modal show contracts -->
+                        <div class="modal fade" id="showContractsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" th:text="${privateCustomer.name} + 's kontrakter'"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered"  width="100%" cellspacing="0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Start dato</th>
+                                                    <th>Slut dato</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="contract : ${contracts}">
+                                                    <td th:text="${contract.type}"></td>
+                                                    <td th:text="${contract.startDate}"></td>
+                                                    <td th:text="${contract.endDate}"></td>
+                                                    <td>
+                                                        <a th:href="@{/admin/contracts/{id}(id=${contract.id})}" class="btn btn-primary">
+                                                            <i class="fas fa-fw fa-book"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---Modal show contracts end-->
 
                         <!-- Page Heading -->
                         <h1 class="h2 mb-4 text-gray-800"  th:text="${privateCustomer.name}"></h1>

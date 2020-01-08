@@ -78,6 +78,8 @@ public class CustomerController
 
         model.addAttribute("monthsIncome", monthsIncome);
 
+        model.addAttribute("contracts", contracts);
+
         return "dashboard/customer/business_customer_details";
     }
 
@@ -102,6 +104,8 @@ public class CustomerController
         model.addAttribute("customerPaymentDate", new CustomerPaymentDateModel());
 
         model.addAttribute("monthsIncome", monthsIncome);
+
+        model.addAttribute("contracts", contracts);
 
         return "dashboard/customer/private_customer_details";
     }

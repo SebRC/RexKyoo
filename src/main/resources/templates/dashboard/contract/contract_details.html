@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!-- JV -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kontrakt detaljer</title>
+
+    <!-- Custom fonts for this template-->
+    <link th:href="@{/dashboardStatic/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link th:href="@{/dashboardStatic/css/sb-admin-2.min.css}" rel="stylesheet">
+    <link th:href="@{/dashboardStatic/css/rexkyoo.css}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">f
+
+    <!-- Sidebar -->
+    <ul th:replace="@{/dashboard/sidebar.html}">
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="@{/dashboard/topbar.html}"></nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Button trigger modal -->
+                <button class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteContractModal">
+                    <i class="fas fa-fw fa-trash"></i>
+                </button>
+
+                <button type="button" class="btn btn-warning float-right mr-2" data-toggle="modal" data-target="#editContractModal">
+                    <i class="fas fa-fw fa-pen"></i>
+                </button>
+
+                <!-- Modal edit -->
+                <div class="modal fade" id="editContractModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" >Rediger Kontrakt</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="needs-validation" novalidate th:action="@{/admin/contract-edit}" method="post">
+                                    <!--variables that you can not change but need it for the model in post -->
+                                    <input type="hidden" th:field="${contract.id}">
+                                    <input type="hidden" th:field="${contract.customer}">
+                                    <input type="hidden" th:field="${contract.expenses}">
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label class="control-label">Ambassadør</label>
+                                        <div class="form-group">
+                                            <select class="form-control" th:field="${contract.ambassador}">
+                                                <option th:each="ambassador : ${ambassadors}"
+                                                        th:value="${ambassador.id}"
+                                                        th:text="${ambassador.firstName} + ' ' + ${ambassador.lastName}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label class="control-label">Type</label>
+                                        <div class="form-group">
+                                            <select class="form-control" th:field="${contract.type}">
+                                                <option th:each="contractType : ${contractTypes}"
+                                                        th:value="${contractType}"
+                                                        th:text="${contractType}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label for="startDate">Start dato*</label>
+                                        <input type="date" class="form-control" id="startDate" name="startDate" required th:field="${contract.startDate}">
+                                    </div>
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label for="endDate">Slut dato*</label>
+                                        <input type="date" class="form-control" id="endDate" name="endDate" required th:field="${contract.endDate}">
+                                    </div>
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label>Månedlig betaling*</label>
+                                        <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.income}">
+                                    </div>
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label>Ambassadør timeløn*</label>
+                                        <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.hourlyWage}">
+                                    </div>
+
+                                    <div class="form-group col-md-6 offset-3">
+                                        <label>Ambassadør arbejdstimer pr måned*</label>
+                                        <input type="number" class="form-control" placeholder="0,-" min="1" required th:field="${contract.workHoursPerMonth}">
+                                    </div>
+
+                                    <button class="btn btn-success" type="submit">Gem</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---modal edit end-->
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center  justify-content-center mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Kontrakt info</h1>
+
+                </div>
+
+                <br><br>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Kunde: ' + ${contract.customer.name}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Ambassadør: ' + ${contract.ambassador.firstName + ' ' + contract.ambassador.lastName}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Type: ' + ${contract.type}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Start dato: ' + ${contract.startDate}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Slut dato: ' + ${contract.endDate}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Månedlig betaling: ' + ${contract.income}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Ambassadør timeløn: ' + ${contract.hourlyWage}"></h1>
+                <h1 class="h5 mb-4 text-gray-800" th:text="'Ambassadør arbejdstimer pr måned: ' + ${contract.workHoursPerMonth}"></h1>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <!--
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; RexKyoo 2019</span>
+                </div>
+            </div>
+        </footer>
+        -->
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+<!-- Bootstrap core JavaScript-->
+<script th:src="@{/dashboardStatic/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/dashboardStatic/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Core plugin JavaScript-->
+<script th:src="@{/dashboardStatic/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom scripts for all pages-->
+<script th:src="@{/dashboardStatic/js/sb-admin-2.min.js}"></script>
+
+<!-- Page level plugins -->
+<script th:src="@{/dashboardStatic/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script th:src="@{/dashboardStatic/js/demo/chart-area-demo.js}"></script>
+
+
+</body>
+
+</html>
