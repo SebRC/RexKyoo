@@ -9,7 +9,7 @@ import project.rexkyoo.CleaningInspector.CleaningInspectorService;
 
 import java.util.List;
 
-// SRC, JV, TA
+// SRC, JV, TA, MG
 
 @Controller
 @RequestMapping("/admin")

@@ -4,7 +4,7 @@ import project.rexkyoo.Customer.CustomerModel;
 
 import javax.persistence.*;
 
-// SRC
+// SRC, MG
 
 @Entity
 @Table(name = "CustomerPaymentDate")

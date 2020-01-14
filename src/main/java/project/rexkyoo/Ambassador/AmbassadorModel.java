@@ -7,7 +7,7 @@ import project.rexkyoo.Feedback.FeedbackModel;
 import javax.persistence.*;
 import java.util.Set;
 
-// JV, TA
+// JV, TA, MG
 
 @Entity
 @Table(name = "Ambassador")
