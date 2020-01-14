@@ -56,6 +56,33 @@
                     <i class="fas fa-fw fa-pen"></i>
                 </button>
 
+                <!-- Modal delete -->
+                <div class="modal fade" id="deleteContractModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Advarsel</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p th:text="'Er du sikker på at du vil slette kontrakten imellem'"></p>
+                                <p th:text="${contract.customer.name} + ' og ' + ${contract.ambassador.firstName + ' ' + contract.ambassador.lastName} + '?'"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <form th:action="@{/admin/contract/{id}(id=${contract.id})}" method="post">
+                                    <input type="hidden" th:field="${contract.customer}">
+                                    <button type="submit" id="deleteButton" class="btn btn-danger btn-lg">Ja</button>
+                                </form>
+
+                                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Nej</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---Modal delete end-->
+
                 <!-- Modal edit -->
                 <div class="modal fade" id="editContractModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

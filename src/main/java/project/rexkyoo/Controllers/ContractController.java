@@ -100,4 +100,17 @@ public class ContractController
 
         return "redirect:/admin/contracts/" + id;
     }
+
+    @PostMapping("/contract/{id}")
+    public String deleteContract(@PathVariable("id") int id, @ModelAttribute ContractModel contract)
+    {
+        //JV
+
+        contractService.delete(id);
+
+        int customerID = contract.getCustomer().getId();
+        String customerType = contract.getCustomer().getType();
+        
+        return "redirect:/admin/" + customerType + "-customers/" + customerID;
+    }
 }
