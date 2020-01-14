@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import project.rexkyoo.User.UserModel;
 import project.rexkyoo.User.UserService;
 
-// JV
+// JV, MG
 
 @Controller
 @RequestMapping("/dk")

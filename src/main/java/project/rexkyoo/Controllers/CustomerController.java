@@ -16,7 +16,7 @@ import project.rexkyoo.Economy.MonthsIncomeModel;
 import java.util.List;
 import java.util.Set;
 
-// SRC, JV, TA
+// SRC, JV, TA, MG
 
 @Controller
 @RequestMapping("/admin")
