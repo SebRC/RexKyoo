@@ -139,10 +139,7 @@ public class EconomyService
     private double roundToTwoDecimal(double percentage)
     {
         // SRC, JV
-
-        //DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
-        //percentage = Double.valueOf(twoDecimalFormat.format(percentage));
-
+        
         double roundOff = Math.round(percentage * 100.0) / 100.0;
 
         return roundOff;
