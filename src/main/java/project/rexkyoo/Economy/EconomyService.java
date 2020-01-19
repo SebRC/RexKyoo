@@ -138,12 +138,11 @@ public class EconomyService
 
     private double roundToTwoDecimal(double percentage)
     {
-        // SRC
+        // SRC, JV
+        
+        double roundOff = Math.round(percentage * 100.0) / 100.0;
 
-        DecimalFormat twoDecimalFormat = new DecimalFormat("#.##");
-        percentage = Double.valueOf(twoDecimalFormat.format(percentage));
-
-        return percentage;
+        return roundOff;
     }
 
     public void assignEconomyForCustomers(List<CustomerModel> customers)
